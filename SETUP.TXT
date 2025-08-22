@@ -1,0 +1,15 @@
+in the terminal:
+
+ollama pull hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+
+curl http://localhost:11434/api/generate -d '{
+  "model": "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M",
+  "prompt": "",
+  "options": {
+    "num_ctx": 65536
+  }
+}'
+
+Format for passing text fiels to ollama:
+
+ollama run hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M " " < test_3.txt --verbose
