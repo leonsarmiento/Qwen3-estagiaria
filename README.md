@@ -3,9 +3,11 @@
 <img width="639" height="564" alt="Screenshot 2025-08-22 at 8 51 57 AM" src="https://github.com/user-attachments/assets/5c11a648-d148-4fe8-a099-a63df2180177" />
 
 
-Uma interface gráfica baseada em tkinter que envolve o script existente `process_texts.py` com funcionalidades aprimoradas para processar documentos PDF e Word.
+## Ferramenta de Processamento de Textos Privados
 
-## Recursos
+Esta é uma ferramenta que permite fazer o processamento de textos privados ou que devem permanecer com sigilo, já que tudo é processado unicamente na máquina do usuário. Aqui nenhum documento sensível é enviado para as IA na nuvem tipo OpenAI com o ChatGPT ou o Google com o Gemini. Aqui é privacidade ante tudo.
+
+### Recursos
 
 - Interface gráfica para uso fácil
 - Seleção de diretório de entrada (contendo arquivos PDF/Word)
@@ -17,17 +19,24 @@ Uma interface gráfica baseada em tkinter que envolve o script existente `proces
 - Cria arquivos "_source.txt" para cada documento de entrada
 - Gera arquivos "_ficha.txt" com resultados processados pelo LLM
 
-## Requisitos
+### Privacidade e Segurança
 
-### Dependências Python
+- **Processamento Local Total**: Todos os arquivos são processados localmente na sua máquina
+- **Nenhuma Dados na Nuvem**: Nenhum documento sensível é enviado para serviços de IA na nuvem
+- **Confidencialidade Garantida**: Seus textos privados permanecem em sua máquina durante todo o processo
+- **Privacidade Ante Tudo**: Esta ferramenta foi desenvolvida com foco exclusivo na privacidade do usuário
+
+### Requisitos
+
+#### Dependências Python
 - Python 3.6+
 - PyPDF2 (`conda install -c conda-forge pypdf2` ou `pip install pypdf2`)
 - python-docx (`conda install -c conda-forge python-docx` ou `pip install python-docx`)
 
-### Configuração do Ollama
+#### Configuração do Ollama
 Esta aplicação requer que o Ollama esteja instalado e em execução na sua máquina. A aplicação usa especificamente o modelo `qwen3-4b-32k`. Você pode baixar o Ollama em: [https://ollama.com/download](https://ollama.com/download)
 
-### Instalação do Modelo
+#### Instalação do Modelo
 Antes de usar esta aplicação, você deve ter o modelo necessário do Ollama instalado. Execute o seguinte comando em seu terminal:
 
 ```bash
@@ -40,7 +49,7 @@ Se você quiser usar uma configuração de modelo personalizada, pode criar uma 
 ollama create qwen3-4b-32k -f qwen3-4b-32k.modelfile
 ```
 
-## Uso
+### Uso
 
 1. Execute a aplicação GUI:
    ```
@@ -58,24 +67,24 @@ ollama create qwen3-4b-32k -f qwen3-4b-32k.modelfile
    - Processar cada arquivo de texto com o LLM usando seu prompt
    - Salvar os resultados em um subdiretório "fichas" do diretório de saída
 
-## Estrutura de Arquivos
+### Estrutura de Arquivos
 
 - Arquivos de entrada (PDF/Word/texto) são processados e convertidos para o formato `_source.txt`
 - Resultados do LLM são salvos em um subdiretório `fichas` como `_ficha.txt`
 
-## Exemplo de Saída
+### Exemplo de Saída
 
 Para um arquivo de entrada `artigo.pdf`, o processo cria:
 - `artigo_source.txt` (convertido do PDF)
 - `artigo_ficha.txt` (resultado processado pelo LLM em formato de ficha)
 
-## Notas
+### Notas
 
 - A aplicação criará automaticamente os diretórios necessários
 - A conversão de PDF e Word requer as respectivas bibliotecas estarem instaladas
 - O processamento com LLM usa o modelo `qwen3-4b-32k:latest` do Ollama
 - Certifique-se de que o Ollama esteja em execução em modo serve antes de iniciar a aplicação
 
-## Créditos
+### Créditos
 
 Desenvolvida por Jorge Leon Sarmiento & Qwen-Coder
