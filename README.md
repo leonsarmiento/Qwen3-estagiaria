@@ -1,5 +1,8 @@
 # Qwen3-stagiaria 1.0
 
+<img width="639" height="564" alt="Screenshot 2025-08-22 at 8 51 57 AM" src="https://github.com/user-attachments/assets/5c11a648-d148-4fe8-a099-a63df2180177" />
+
+
 Uma interface gráfica baseada em tkinter que envolve o script existente `process_texts.py` com funcionalidades aprimoradas para processar documentos PDF e Word.
 
 ## Recursos
