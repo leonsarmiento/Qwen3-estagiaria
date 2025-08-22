@@ -21,11 +21,11 @@ Uma interface gráfica baseada em tkinter que envolve o script existente `proces
 
 ### Dependências Python
 - Python 3.6+
-- PyPDF2 (`conda install -c conda-forge pypdf2`)
-- python-docx (`conda install -c conda-forge python-docx`)
+- PyPDF2 (`conda install -c conda-forge pypdf2` ou `pip install pypdf2`)
+- python-docx (`conda install -c conda-forge python-docx` ou `pip install python-docx`)
 
 ### Configuração do Ollama
-Esta aplicação requer que o Ollama esteja instalado e em execução na sua máquina. A aplicação usa especificamente o modelo `qwen3-4b-32k`.
+Esta aplicação requer que o Ollama esteja instalado e em execução na sua máquina. A aplicação usa especificamente o modelo `qwen3-4b-32k`. Você pode baixar o Ollama em: [https://ollama.com/download](https://ollama.com/download)
 
 ### Instalação do Modelo
 Antes de usar esta aplicação, você deve ter o modelo necessário do Ollama instalado. Execute o seguinte comando em seu terminal:
@@ -44,7 +44,7 @@ ollama create qwen3-4b-32k -f qwen3-4b-32k.modelfile
 
 1. Execute a aplicação GUI:
    ```
-   python3 text_processor_gui.py
+   python3 qwen_stagiaria.py
    ```
 
 2. Na GUI:
