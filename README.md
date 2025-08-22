@@ -79,3 +79,7 @@ Para um arquivo de entrada `artigo.pdf`, o processo cria:
 ## Créditos
 
 Desenvolvida por Jorge Leon Sarmiento & Qwen-Coder
+
+<img width="219" height="404" alt="Qwen-stagiaria" src="https://github.com/user-attachments/assets/ce6aebf3-93b4-4c3f-8204-5ce993098d90" />
+
+
