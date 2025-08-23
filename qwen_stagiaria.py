@@ -240,15 +240,32 @@ class TextProcessorGUI:
             raise Exception(f"Error processing Word document {original_filename}: {e}")
     
     def copy_text_file(self, file_path, output_dir, original_filename):
-        """Copy text file as is"""
+        """Copy text file as is with proper encoding handling"""
         try:
             # Save as text file with "_source.txt" suffix
             output_filename = os.path.splitext(original_filename)[0] + "_source.txt"
             output_path = os.path.join(output_dir, output_filename)
             
-            with open(file_path, 'r', encoding='utf-8') as f:
-                content = f.read()
+            # Try to read the file with different encodings
+            content = None
+            encodings_to_try = ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']
+            
+            for encoding in encodings_to_try:
+                try:
+                    with open(file_path, 'r', encoding=encoding) as f:
+                        content = f.read()
+                    break  # Success, exit the loop
+                except UnicodeDecodeError:
+                    continue
+                except Exception as e:
+                    raise Exception(f"Error reading text file {original_filename}: {e}")
+            
+            if content is None:
+                # If all encodings failed, try with error handling
+                with open(file_path, 'r', encoding='utf-8', errors='replace') as f:
+                    content = f.read()
                 
+            # Write with UTF-8 encoding
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write(content)
                 
@@ -278,25 +295,38 @@ class TextProcessorGUI:
                             file_content = f.read()
                         
                         # Create the command with proper escaping
-                        cmd = ['ollama', 'run', 'qwen3-4b-32k:latest', prompt_text]
+                        cmd = ['ollama', 'run', 'gemma3_1b_16k:latest', prompt_text]
+                        
+                        # Set environment variables for proper Unicode handling on Windows
+                        env = os.environ.copy()
+                        env['PYTHONIOENCODING'] = 'utf-8'
                         
                         # Execute the command with the file content as stdin
+                        # Explicitly set encoding for Windows compatibility
                         result = subprocess.run(
                             cmd,
                             input=file_content,
                             text=True,
+                            encoding='utf-8',
                             capture_output=True,
-                            check=True
+                            check=True,
+                            env=env
                         )
                         
-                        # Write the output to the fichas directory
-                        with open(output_path, 'w', encoding='utf-8') as f:
-                            f.write(result.stdout)
+                        # Ensure the output is properly encoded before writing
+                        output_content = result.stdout
+                        
+                        # Write the output to the fichas directory with error handling
+                        with open(output_path, 'w', encoding='utf-8', errors='replace') as f:
+                            f.write(output_content)
                         
                     except subprocess.CalledProcessError as e:
                         if "failed to connect" in str(e.stderr).lower() or "connection refused" in str(e.stderr).lower():
                             raise Exception("Ollama is not running or not accessible. Please start Ollama server.")
                         raise Exception(f"Error processing {filename}: {e}")
+                    except UnicodeEncodeError as ue:
+                        # Handle specific encoding errors
+                        raise Exception(f"Encoding error processing {filename}: {ue}. The content may contain unsupported characters.")
                     except Exception as e:
                         raise Exception(f"Unexpected error processing {filename}: {e}")
                         

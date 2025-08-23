@@ -1,0 +1,1170 @@
+Loss estimation for landslides in mountain areas eAn integrated
+toolbox for vulnerability assessment and damage documentation
+M. Papathoma-K €ohlea,*, A. Zischgb, S. Fuchsc, T. Gladea, M. Keilerd
+aDepartment of Geography and Regional Research, University of Vienna, Universit €atsstrasse 7, 1010 Vienna, Austria
+bInstitute of Geography and Oeschger Centre for Climate Change Research, Mobiliar Lab for Natural Risks, University of Bern, Hallerstrasse 12, CH-30 12
+Bern, Switzerland
+cInstitute of Mountain Risk Engineering, University of Natural Resources and Life Sciences, Peter-Jordan-Strasse 82, 1190 Vienna, Austria
+dInstitute of Geography, University of Bern, Hallerstrasse 12, CH-3012 Bern, Switzerland
+article info
+Article history:
+Received 19 February 2014Received in revised form25 September 2014Accepted 6 October 2014Available online 30 October 2014
+Keywords:
+Loss estimationVulnerabilityDamage assessmentLandslides
+Documentationabstract
+Global environmental change includes changes in a wide range of global scale phenomena, which are
+expected to affect a number of physical processes, as well as the vulnerability of the communities thatwill experience their impact. Decision-makers are in need of tools that will enable them to assess the loss
+of such processes under different future scenarios and to design risk reduction strategies. In this paper, a
+tool is presented that can be used by a range of end-users (e.g. local authorities, decision makers, etc.) forthe assessment of the monetary loss from future landslide events, with a particular focus on torrential
+processes. The toolbox includes three functions: a) enhancement of the post-event damage data
+collection process, b) assessment of monetary loss of future events and c) continuous updating andimprovement of an existing vulnerability curve by adding data of recent events. All functions of the tool
+are demonstrated through examples of its application.
+©2014 Elsevier Ltd. All rights reserved.
+1. Introduction
+Disaster costs are increasing globally. According to the European
+Environment Agency (EEA), as far as weather and climate related
+events are concerned, only in Europe and despite all the counter
+measures which have been taken, the overall damages have
+increased from EUR 9 billion in the 1980s, to more than EUR 13
+billion in the 2000s ( EEA, 2012 ). This is primarily due to increases in
+population, economic wealth and human activities in hazard-prone
+areas, as well as better reporting ( EEA, 2012; Keiler, 2013 ). Ac-
+cording to the Intergovernmental Panel on Climate Change ( IPCC,
+2012 ), the nature and the severity of the consequences following
+the occurrence of climate extremes or other hazardous phenomena
+depends not only on the process itself but also on the exposure and
+vulnerability of the elements at risk ( Fig. 1 ). Climate change is
+responsible for changes in the frequency and magnitude of natural
+processes ( Keiler et al., 2010 ), or actually, for changes in the inputs
+and the effect of processes (e.g. rainfall as an input to the process of
+ﬂooding) and partially also for the occurrence locality, however,socio-economic changes also result in alterations of the spatial and
+temporal pattern of exposure ( Fuchs et al., 2005, 2013 ) and
+vulnerability ( Fuchs et al., 2012a; Keiler et al., 2012 ). Therefore,
+strategies for risk reduction should not only focus on hazardous
+process and structural protection works, but also, on reducing the
+exposure and vulnerability of the exposed system. Consequently,
+appropriate tools are needed so that scientists, authorities and
+other stakeholders may assess the possible loss under different
+future scenarios ( Papathoma-K €ohle et al., 2011 ). According to IPCC
+(2012) , vulnerability is a key factor in disaster losses; however, it is
+not yet well accounted for, since data on disasters at the local level
+are limited ( Totschnig and Fuchs, 2013 ) and thus, improvements in
+local vulnerability reduction are constrained.
+There have been numerous debates regarding the de ﬁnition of
+“vulnerability ”, since the speci ﬁc term is used in various ways by
+scientists of different scienti ﬁc backgrounds such as natural sci-
+entists, engineers, social scientists and climate change researchers
+(Glade (2003), Füssel (2007), Fuchs (2009), Hufschmidt and Glade
+(2010), Birkmann et al. (2013), Ciurean et al. (2013) ). In natural
+science and as far as physical vulnerability is concerned, the most
+common de ﬁnition of vulnerability is the one that was introduced
+by UNDRO (United Nations Disaster Relief Organisation) in 1984 :
+“the degree of loss to a given element, or set of elements, within the
+area affected by a hazard. It is expressed on a scale of 0 (no loss) to 1*Corresponding author.
+E-mail addresses: maria.papathoma@gmail.com ,maria.papathoma@univie.ac.at
+(M. Papathoma-K €ohle).
+Contents lists available at ScienceDirect
+Environmental Modelling & Software
+journal homepage: www.elsevier.com/locate/envsoft
+http://dx.doi.org/10.1016/j.envsoft.2014.10.003
+1364-8152/ ©2014 Elsevier Ltd. All rights reserved.Environmental Modelling & Software 63 (2015) 156 e169
+(total loss) ’’. There is no universal method for assessing vulnera-
+bility ( Fuchs et al., 2011 ); nevertheless, there are three dominant
+methods for assessing and assign values to it: vulnerability
+matrices ( Papathoma-K €ohle et al., 2012b ), vulnerability indicators
+(Birkmann et al., 2013 ) and vulnerability curves ( Fuchs et al., 2007a;
+Totschnig et al., 2011 ).
+The use of vulnerability curves is common in the case of hazards
+that affect larger areas and a considerable number of buildings (e.g.
+ﬂoods and earthquakes, Apel et al., 2009 ). In these cases, the in-
+tensity of the process (water depth and ground acceleration
+respectively) can be assessed relatively easy for each building.
+Moreover, the reliability of the curve is high due to a rather high
+amount of available data. It is worth mentioning though, that a
+comparison of parametric (using indicators) and physically based
+modelling techniques (using curves) regarding ﬂood vulnerability
+assessment showed that the parametric approaches are the most
+appropriate ( Balica et al., 2013 ). Nevertheless, the authors of the
+speci ﬁc comparative study indicated also the drawbacks of the
+parametric methods, such as high data requirements and high
+levels of uncertainty ( Balica et al., 2013 ). On the other hand, for
+some types of hazards, such as rock falls or debris ﬂows, the
+deduction of vulnerability curves is dif ﬁcult due to the limited
+number of available damage data ( Uzielli et al., 2008 ), the challenge
+in assessing the intensity of the process on individual buildings
+(Mazzorana and Fuchs, 2010 ) and the gaps in understanding the
+interaction between the process and the affected elements.
+As far as debris ﬂow and ﬂuvial sediment transport (as one large
+group of landslides) are concerned, the main disadvantage of the
+vulnerability curves is the lack of reliable empirical data regarding
+building loss ( Fuchs et al., 2012b; Papathoma-K €ohle et al., 2012a, b ).
+Although recently an increasing amount of studies focussing on
+vulnerability curves for this type of hazard can be found in the
+literature (see Fuchs et al., 2007a; Totschnig et al., 2011;
+Papathoma-K €ohle et al., 2011 for an overview), these curves are
+mostly based on a limited amount of data related to building
+damages since such damages are rarely documented in detail (per
+building) or the information is not available due to e.g. data pro-
+tection legislation. A second disadvantage is that, in order to
+develop a curve, information on the intensity of the process on adetailed scale (intensity per building) is necessary. However, this
+information is challenging to be recorded and expressed since the
+intensity of a process depends on more than one factor ( Keiler,
+2011 ). For example, in the case of debris ﬂow, the intensity is
+often expressed as the debris deposition height, although more
+factors, such as velocity, viscosity, pressure, direction and duration
+of impact might in ﬂuence the overall intensity of the process ( Jakob
+et al., 2012 ). Additionally, the process behaviour may change as it
+progresses over time and in space. Due to the temporal and spatial
+variability of sediment concentration during individual events the
+dominant process in the central part of the deposition zone is
+regularly used to de ﬁne the entire event characteristics ( Hungr
+et al., 2001 ). Moreover, the buildings that are considered for the
+development of a vulnerability curve should have similar charac-
+teristics. These characteristics, however, will not be fully considered
+in their assessment of vulnerability ( Holub et al., 2012 ). This means
+that the computation of the curve provides us with informationregarding the potential loss rather than information on how this
+loss can be reduced. Another important issue is the transferability
+of the method. Vulnerability curves developed for European
+mountain regions may be applied to other parts of the world only if
+the type of housing is similar to the one that was used for the
+development of the original curve ( Fuchs et al., 2012c; Lo et al.,
+2012 ). In any other case, a new vulnerability curve has to be
+developed. Moreover, existing curves are based on reported (often
+tangible) damage and not comprehensively on a broader damage
+deﬁnition (e.g., with respect to tangible and intangible losses). It is,
+however, almost impossible to validate them ( Meyer et al., 2013 ).
+For this reason, it is clear that there is a need for better detailed
+reporting of damages at local scale. Finally, vulnerability curves eif
+derived empirically ehave to be regularly updated with data on
+losses from recent events, and to be consequently adjusted to the
+increased basic population. In order to achieve this goal, hence,
+there is an urge for automatisation in the ﬁeld of damage recording.
+On the other hand, the advantage of the vulnerability curves,
+and the main reason why they are so popular among practitioners,
+is that they offer a quantitative rather than a qualitative result. By
+using vulnerability curves the potential economic loss may be
+expressed as an approximate value in relationship to the expected
+Fig. 1. Key concepts of disaster risk management and their interaction (modi ﬁed from IPCC, 2012 ).M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 157
+hazard intensity for each element at risk ( Kienholz et al., 2004 ). For
+this reason, vulnerability values may describe the susceptibility of
+elements at risk facing different natural processes with different
+spatial and temporal distributions of process intensities (e.g., ﬂow
+depths, accumulation heights, ﬂow velocities and pressures).
+Practitioners can use the results of vulnerability curves not only to
+assess the ﬁnancial costs of future events under different scenarios,
+but also for cost bene ﬁt analysis for protection measures (e.g., Fuchs
+et al., 2007b; Markantonis et al., 2012; Fuchs, 2013 ) and for the
+impact assessment of alternative risk reduction strategies, such as
+land use planning ( Greiving et al., 2006 ) or local structural pro-
+tection ( Holub and Fuchs, 2009 ).
+In this paper, an innovative toolbox for assessing the loss of
+potential future landslide events is presented. The toolbox uses a
+vulnerability curve based on local past damage data in order to
+assess the monetary loss of future events and at the same time is
+targeted at reducing the disadvantages mentioned above. The new
+toolbox has three functions (tools): 1) it ensures the automatisation
+of the recording of damages in an ef ﬁcient way by supporting the
+damage documentation process after an event, 2) it can assess the
+monetary loss of potential future events, and 3) it improves andupdates the curve by the inclusion of new damage data and a re-
+computation of the curve. Moreover, information on the condi-
+tion and characteristics of the buildings is also recorded and may be
+used in the future to investigate the way that buildings with
+different characteristics react on the impact of debris ﬂows or other
+torrential hazards.
+2. State of the art
+Loss estimation models have been developed in the past for
+various hazard types. The last decades, advances in information
+technology have signi ﬁcantly improved their functionality.
+Bendimerad (2001) suggests that loss estimation tools rely on the
+availability of two large datasets: data regarding the hazard itself
+(including information on the geology, geomorphology, soil con-
+ditions etc.) and data regarding the elements at risk (inventory of
+buildings and infrastructure, economic value of the elements, etc.).
+Bendimerad (2001) , who focuses mainly on loss estimation tools
+for earthquake hazards, recognises also the central role of vulner-
+ability curves within these tools. He de ﬁnes these curves (some-
+times referred to also as fragility curves) as “the functional
+relationship that provides the probability to reach or exceed a
+damage level as a function of the (earthquake) severity ”. Finally, in
+the same study the advantages and possible uses of loss estimation
+tools are also listed: (1) accessibility (they can be used also by non-
+experts), (2) scenario analyses (the impact of different scenarios
+may be investigated), (3) special focus analyses (the focus may be
+on speci ﬁc elements at risk or their components), and (4) cus-
+tomised applications (applications may be de ﬁned in order to
+satisfy speci ﬁc user needs). In a review of methods for assessing the
+costs of natural hazards (including alpine hazards, drought, ﬂoods
+and coastal hazards), Meyer et al. (2013) underline the need for cost
+assessments for natural hazards, because they can be a powerfultool in the hands of decision makers, as well as insurance com-
+panies. They suggest that there is a variety of methods and termi-
+nologies for the estimation of costs related to natural hazards. As far
+as terminology is concerned, a glossary for cost categories was
+developed within the CONHAZ project. The CONHAZ project and
+cost assessments in general often include a variety of costs types
+(e.g. direct costs, business interruption costs, indirect costs, intan-
+gible costs or even risk mitigation costs). However, in the present
+paper the focus is clearly on direct costs related to property damage
+due to the direct physical contact with the hazard ( Smith and Ward,
+1998 ;i n Meyer et al., 2013 ). Regarding direct costs, the review(Meyer et al., 2013 ) refers also to the damage functions (elsewhere
+referred to also as fragility or vulnerability functions) for single or
+multi parameters as the most frequently applied method for cost
+assessment. They suggest that the functions may take into account
+one or more parameters. A thorough review of damage/vulnera-
+bility functions especially for alpine hazards ( ﬂoods, landslides,
+rock falls and snow avalanches) is also provided by Papathoma-
+K€ohle et al. (2011) . Particularly for torrent hazards, a considerable
+number of vulnerability curves can be found in the literature. For
+example, Fuchs et al. (2007a) based on damage data from a debris
+ﬂow event in Austria computed a vulnerability curve, Akbas et al.
+(2009) applied a similar method in Italy and Totschnig et al.
+(2011) modi ﬁed the approach introducing the term “relative in-
+tensity ”(intensity expressed as debris height in relation to building
+height). Moreover, Papathoma-K €ohle et al. (2012a) computed a
+vulnerability curve for the valley of Martell, which was later
+improved by including additional data from debris ﬂow events in
+South Tyrol, Italy ( Papathoma-K €ohle et al., 2012b ). Finally, Quan
+Luna et al. (2011) , based on intensity information derived by nu-
+merical modelling, provided three vulnerability curves for debris
+ﬂows expressing intensity, not only as deposit height, but also as
+impact pressure and kinematic viscosity respectively.
+There is an overall (and empirically-based) conclusion that low
+process intensities result in low damage ratios and, therefore, low
+vulnerability, whereas high process intensities result in high
+damage ratios and consequently high vulnerabilities (e.g.,
+Totschnig and Fuchs, 2013 ). Nevertheless, there is only limited in-
+formation available on spatial characteristics of vulnerability
+within the concept of risk ( Fuchs et al., 2012b ). As far as medium
+process intensities are concerned, it is evident that damage asso-
+ciated with medium process intensities (deposit height 1 e2m )
+may vary signi ﬁcantly ( Fuchs et al., 2007a; Totschnig et al., 2011 ).
+Therefore, there may be a dependency other than between process
+intensity and the damage ratio of the buildings exposed. It has been
+shown that the spatial distribution of geographical locations with
+either high or low damage ratios is not only an effect of changing
+process intensities, but also an outcome of the general land use
+pattern on each individual torrent fan, and the overall constructive
+characteristics of the elements at risk ( Fuchs et al., 2012b ). Never-
+theless, a further analysis of data, such as the type and year of
+construction, would enrich our understanding beyond space; such
+information would be of particular interest with respect to the
+overall discussion on multi-temporal and spatial assessment of risk
+(Fuchs and Bründl, 2005; Keiler et al., 2005, 2006; Zischg et al.,
+2005 ) and with respect to advances in multi-temporal vulnera-
+bility assessments ( Fuchs et al., 2011; Papathoma-K €ohle et al., 2011 )
+and multi-hazard vulnerability studies ( Kappes et al., 2012a, b ).
+A wide variety of different approaches is available for the
+assessment of hazard, risk and vulnerability. In the literature, in-
+dividual studies may be found that set their focus on vulnerability
+models and loss estimation. Most of them aim at the development
+of tools and maps to provide information for or to support decision
+making of stakeholders involved in natural hazard mitigation. An
+example is the study of Samarasinghe and Strickert (2013) that
+developed fuzzy cognitive maps for adaptive policy formulation for
+earthquakes in mountain ski areas, allowing the participation of thestakeholders in the modelling process. Another example of
+participatory modelling is the study of Giupponi et al. (2013) . They
+developed a tool for ﬂood hazards that explores and communicates
+vulnerability to ﬂoods and climate change to stakeholders, such as
+representatives of public administrators, businesses and NGOs. The
+stakeholders of this study may actively participate by identifying
+the most relevant issues to be considered as input variables to the
+model. However, the speci ﬁc tool considers a range of indicators
+that are relevant to many vulnerability dimensions (e.g. social) andM. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 158
+not only physical. On the other hand, there are studies and tools
+that concentrate not only on vulnerability but also on the hazard
+itself, such as a model developed by Serra et al. (2013) for wild ﬁres
+in Spain. The model is focussing on the extent of clustering of
+wildﬁres and the development of risk maps that may provide a tool
+for preventing and managing vulnerability levels. In the literature,
+the elements at risk are usually the built environment and the
+population, however, there also studies concentrating on agricul-
+ture (e.g. Pogson et al., 2012 ). Last but not least, apart from a range
+of natural hazards, similar models have been also developed for
+man-made or technological hazards such as transportation of
+dangerous goods ( Tena-Chollet et al., 2013 ).
+Besides individual studies of different vulnerability assessments
+or loss estimation methodologies for speci ﬁc hazards and areas,
+there are also loss estimation tools that include data for more than
+one hazard, as well as inventories for larger areas or countries such
+as the HAZUS model (USA), RiskScape (New Zealand), EconoMe
+(Switzerland) and CAPRA (Latin America).
+HAZUS (Hazards United States) is a GIS (Geographic Informa-
+tion System) based on a loss estimation software package devel-
+oped by FEMA (Federal Emergency Management Agency) for theUSA that can identify and pro ﬁle hazards, as well as estimating the
+losses and possible mitigation options considering the elements at
+risk in the hazardous areas. HAZUS contains inventories of build-
+ings, essential facilities, transportation and utility facilities, as well
+as vehicles and agricultural products. It uses damage curves that
+can be chosen or developed by the user. HAZUS provides loss
+estimation for hurricanes, earthquakes and ﬂoods ( Scawthorn
+et al., 2006 ).
+RiskScape is an integrative risk assessment tool ( Schmidt et al.,
+2011 ) which uses fragility functions for modelling risks from
+different natural hazards and for various elements at risk. The tool
+uses a software prototype for generating fragility functions from
+standard mathematical curves. Different types of fragility functions
+(empirical curves developed from historical data or synthetic
+functions (hypothetical curves) based on expert opinion developed
+independently) can be integrated in RiskScape. RiskScape uses a
+combination of both re ﬁning and adjusting the initial fragility
+curves to the situation for affected regions in New Zealand.
+In Switzerland, an online risk assessment calculation tool
+EconoMe and its most recent version EconoMe-Develop have been
+developed for cost-bene ﬁt analysis of mitigation measures and
+have been in operation since 2008. The tool is used mainly for the
+prioritisation of mitigation projects by the Federal Of ﬁce of the
+Environment (FOEN/BAFU) ( Bründl et al., 2009 ). The speci ﬁc tool is
+makes use of ﬁxed (EconoMe) or user de ﬁned scenarios (EconoMe-
+Develop) regarding the hazard (avalanches, ﬂoods, debris ﬂows,
+rock fall and landslides). The tool provides a calculation of expo-
+sure, consequence and risk analysis with and without mitigation
+measures ( Bründl, 2012 ).
+CAPRA (Comprehensive Approach to Probabilistic Risk Assess-
+ment) is a probabilistic risk assessment program developed for
+evaluating multi-hazard risk in Latin America. It is composed of
+modules of hazards, vulnerability and risk evaluation, as well as
+tools for cost bene ﬁt analysis and it is used for decision making. It
+provides disaster related information to a number of sectors such ashealth, education, transport, housing etc. ( Marulanda et al., 2013 ).
+Loss estimation tools like the ones described above require
+detailed damage datasets that may be derived only through
+adequate documentation of losses due to disastrous events. One ofthe main sources of uncertainty in the assessment of costs related
+to natural hazards is the lack of such datasets that may provide
+information not only about the past events and their characteristics
+(intensity, duration, extent, etc.), but also about the elements at
+risk, their condition prior to the event, the detailed amount ofdamage and the intensity of the process associated with each
+damage. In this respect, several authors suggest (e.g. Papathoma-
+K€ohle et al., 2012b; Meyer et al., 2013 ) that improvements should
+be made in the collection of data following disastrous events and
+secondary data sets that may enable the calculation of natural
+hazard costs (e.g. object value). Many efforts have been done in the
+past for improvement and harmonisation of the collection of post
+event data such as DOMODIS ( Hübl et al., 2002 ) and DIS-ALP
+(Berger et al., 2007 ), which focused on the documentation of
+mountain disasters. However, these initiatives gave an emphasis to
+the process and its characteristics rather to the consequences and
+detailed documentation of damage. Damage databases have been
+also developed by insurers or reinsurers (e.g. NATHAN of Munich Re
+and Swiss Re's Sigma; Barredo, 2009 ), as well as by national
+administrative bodies (e.g. StorMe; Burren and Eyer, 2000 )a t
+different scales. However, StorMe includes information regarding
+the event rather its consequences ( Burren and Eyer, 2000 ). At
+global level, there is the EM-DAT database which is available on line
+and contains data on natural and technological disasters and their
+impact (casualties and costs). At national level, there are similar
+efforts: in Australia, the research team “Risk Frontiers ”maintains a
+database with information regarding natural hazards and their
+impacts at national level and countries such as Germany (HOWAS)
+and countries from Latin America (DesInventar) also maintain da-
+tabases for ﬂood and natural/technological hazards respectively
+(Hilker et al., 2009 ). In Switzerland, there is the WSL damage
+database ( Hilker et al., 2009 ) which focuses on economic damage
+and casualties. The recorded events are then available to of ﬁcial
+institutions responsible for land use planning, and protection
+measures. The ﬁnancial damage is not only recorded for buildings
+but also for infrastructure, protective structures, forest and agri-
+cultural land ( Hilker et al., 2009 ). The scale of the damage docu-
+mentation is at community level ( Hilker et al., 2009 ). However, to
+date, there is no standard for the documentation of losses related to
+natural hazards.
+In Italy, the collection of natural hazards events and related
+information (damages and casualties) is made by means of the IFFI-
+system (Italian Landslide Inventory, APAT, 2007 ), particularly for
+landslides and rock falls. In the Autonomous Province of Bozen
+(South Tyrol), water related hazards and the related damage are
+documented by means of the ED30 system (event documentation
+for natural hazard events in the Department 30 eHydraulic Engi-
+neering) ( Zischg et al., 2007 ). Summarised information regarding
+affected persons, damages on buildings and infrastructure is
+inserted into the event documentation databases, in most cases
+without mentioning monetary values.
+The main difference between the tool presented here and the
+existing approaches described above is that the presented tool is
+working on a local scale in contrast to HAZUS, RiskScape, etc.
+Moreover, the presented tool is tailored to the application in the
+European Alps due to the underlying loss data. Additionally, the
+tool can be used in the ﬁeld by non-experts for rapid damage
+documentation and it can also improve itself automatically
+(updating of the existing vulnerability curve). However, the tool is
+focussing on the elements at risk and their characteristics without
+including hazard information (e.g. CAPRA). The presented tool
+contains not only damage information, but also (in contrast to
+HOWAS in Germany) information regarding characteristics of the
+buildings. This information is highly detailed and available on large
+scale. It includes information not only on the condition or ﬂoors of
+each building but also, on the presence of basement, characteristics
+of the surroundings and number, size and quality of openings, that
+is hardly available in any other existing database. RiskScape is
+currently developing such a database for New Zealand, still, the
+building characteristics are not as detailed as the ones presentedM. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 159
+here (RiskScape Website). In the case of HAZUS, information on
+elements at risk is collected per Census Block, which, although it is
+the smallest geographical unit of the United States it includes
+several buildings.
+Despite the fact that documentation methods are slowly
+improving taking full advantage of the increasingly available
+technology and loss estimation tools, there are still gaps to be ﬁlled,
+such as scale issues, degree of detail, relationship between damage
+pattern and process intensity on individual objects, etc. In order to
+address these issues, we have to improve ﬁrst the quality and
+reliability of datasets allowing a more reliable assessment of
+physical vulnerability. In more detail, there is still the need for
+improving the vulnerability input within the risk assessment pro-
+cess, increase the quality of damage data and data on elements at
+risk, as well as the degree of detail. This can be done by continu-
+ously recording the consequences of natural processes adequately
+on the built environment. In this way, the interaction between
+process and consequences can be better understood and the gained
+knowledge may then be used for the design of vulnerability
+reduction strategies. The tool presented in this paper contributes
+signiﬁcantly to the improvement of these datasets and, conse-
+quently, to the improvement of the vulnerability component of the
+risk assessment process. In other words, the tool contributes to the
+successful capture of damage information and its transfer to valu-
+able and reliable datasets that may be used for vulnerability and
+risk assessment.
+3. The vulnerability function
+A vulnerability function was computed based on empirical
+damage data of buildings in South Tyrol, Italy, that have suffered
+the impact of debris ﬂow or ﬂuvial sediment transport in the past.
+Based on event documentation (photos), the heights of the deposits
+were estimated and the estimated monetary damage per building
+was analysed. The degree of loss per building was also calculated by
+comparing the value of the building (in terms of reconstruction
+costs) to the monetary damage caused by the event. At the begin-
+ning, Papathoma-K €ohle et al. (2012a) conducted a pilot study in the
+municipality of Martell. A building-precise assessment of the debris
+ﬂow intensities and the monetary loss of most of the affectedbuildings of the 1987 debris ﬂow event in the municipality of
+Martell was carried out. Overall, photographic documentation of 53
+buildings was used out of the 69 buildings that were damaged or
+completely destroyed ( Pﬁtscher, 1996 ), since, only for this amount
+of buildings adequate photographic documentation was available.
+By using photographic documentation, the extent of damage was
+translated into monetary loss, based on standard prices for reno-
+vation works ( Kaswalder, 2009 ). The degree of loss for each
+building was then assessed, based on the overall building value
+(Papathoma-K €ohle et al., 2012a ). In order to improve the curve,
+more buildings that suffered damage due to debris ﬂows or ﬂuvial
+sediment transport in South Tyrol were added to the curve (52
+additional buildings) in a later stage. The ﬁnal curve, including all
+the buildings from the Italian Alps, is shown in Fig. 2 (Papathoma-
+K€ohle et al., 2012b ).
+The vulnerability curve clearly shows that the higher the in-
+tensity of the process the greater the damage that an element at
+risk suffers. Papathoma-K €ohle et al. (2012a, b) computed also a
+validation curve (blue curve in Fig. 2 ) using paid-out compensation
+data provided by the Department of Domestic Construction of the
+Autonomous Province of Bozen (South Tyrol) for the calculation ofthe degree of loss. The degree of loss for the development of the
+validation curve was expressed as the ratio of the estimated object
+value and the compensation that the building owners received in
+order to restore their building. The intensity values remained the
+same as the ones used for the initial vulnerability curve. The vali-
+dation curve provided slightly higher degree of loss values for in-
+tensities 0 e1.5 m and lower degree of loss values for intensities
+1.5e3.5 m.
+4. The toolbox
+A toolbox was developed to support the risk management
+practice in regard to three main aims: (a) improvement of the
+damage data collection process on the ﬁeld, (b) assessment of
+damage and loss for buildings prone to future events (scenarios),
+and (c) improvement of an existing vulnerability curve by using
+data of recent events.
+Thus, the toolbox has three functions that were implemented as
+three separate but interlinked procedures (tools):
+Fig. 2. The vulnerability function (blue curve) and the validation function (red curve) for debris ﬂow events in South Tyrol ( Papathoma-K €ohle et al., 2012b ). (For interpretation of
+the references to colour in this ﬁgure legend, the reader is referred to the web version of this article.)M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 160
+1. A standardised method for improved and more ef ﬁcient damage
+documentation and assessment in the ﬁeld.
+2. A method for damage and loss assessment of possible future
+events under different land use/hazard scenarios using the
+existing vulnerability curve.
+3. Updating of the database and improvement of the curve by
+including additional empirical and well-documented damagedata from recent events.
+The toolbox considers mainly damage on residential buildings
+or buildings with similar characteristics without including speci ﬁ-
+cations, such as sensitive inventories in industrial buildings. The
+three individual tools are connected to each other in terms of data
+and output exchange ( Fig. 3 ). A starting menu prompts the user to
+the required tool, which is either damage documentation or dam-
+age calculation.
+Theﬁrst tool (damage documentation) offers a graphical user
+interface, which enables the documentation of physical damage on
+buildings caused by the impact of torrential hazards. With this tool,
+the majority of information regarding detailed damage patterns can
+be recorded into a database. On the basis of the input data, a
+mathematical function calculates the needed amount of restoration
+work and, eventually, the total monetary value of the restoration, as
+well as the total value of the building. In the calculation of the
+restoration costs, only the construction costs are calculated, based
+on the costs of an average building in South Tyrol. Content costs or
+special high value building features (e.g. expensive ﬂoors) are not
+considered. As a result, the loss ratio can be obtained for every
+assessed building. If, at a later stage, information on additional
+losses (from another hazard event) becomes available, the system
+re-calculates the existing vulnerability curve (third tool: update of
+existing curve), in order to take into account an enlarged sample of
+buildings and to increase the reliability of the function.
+The second tool (loss assessment of future scenarios) calculates
+the monetary loss per building for a speci ﬁc hazard scenario on the
+basis of the building value and the externally computed expected
+process intensity. The potential loss is subsequently calculated us-
+ing the internal vulnerability curve, which is continuously updated
+by the third tool. Depending on the scale, this function can be used
+for individual objects but it can simultaneously be implementedinto a GIS-procedure for loss assessment over wider regions. In thefollowing paragraphs, all three tools of the toolbox are described in
+detail.
+4.1. Damage documentation tool
+Following a debris ﬂow event it is important to estimate the
+cumulative damage on buildings and infrastructure. The individual
+damage has to be documented and calculated in a short time
+window after the event because (a) damage is usually restored as
+soon as possible by the local population after the event and (b) the
+government needs information about the losses immediately for
+priority setting of intervention and restoration works and for the
+information of the media. In parallel, insurance companies wouldlike to have an ef ﬁcient instrument for the rapid documentation of
+the losses. If a larger area is affected by the event, the damage
+documentation should be made as ef ﬁcient and precise as possible.
+The damage documentation tool consists of a form, which is
+represented by a graphical user interface in the software environ-
+ment ( Fig. 4 ) and guides the user through the data input.
+The process characteristics are usually described in detail in the
+(separate) event documentation database. Here, the process char-
+acteristics are expressed in terms of mean deposition heights
+around the building. If the deposit height varies around the
+building, a further input form supports the user to document the
+process characteristics on all sides of the building.
+The input values are stored in the database and are, therefore,
+available for subsequent computation steps, such as the imple-
+mented mathematical function which calculates the monetary
+value of the total construction costs of the buildings based on the
+ofﬁcial price index of the Autonomous Province of Bozen-South
+Tyrol ( Autonomous Province of Bozen-South Tirol, 2012a ). In
+2012, the of ﬁcial prices of construction costs were V342 per cubic
+metre of building volume, which is, respectively, V1369 per square
+metre net living area. After the input of the ground plan area and
+the number of ﬂoors, the value of the building is calculated and
+inserted in the database.
+Another mathematical function calculates the monetary value of
+the restoration costs by using the average hourly salaries and the
+general cost calculation guidelines for constructions of the
+Autonomous Province of Bozen-South Tyrol (2012b) . This of ﬁcial
+database stores the necessary material costs and associated
+Fig. 3. The structure of the integrated toolbox.M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 161
+Fig. 4. The screen shot of the graphical user interface of the tool for damage documentation.M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 162
+personnel working hours in standardised units. The data is acces-
+sible via an XML interface for use in any software, or in terms of a
+MS Access ©database. The vulnerability tool uses the MS Access ©
+tables of the price-index database for further computation. The
+ofﬁcial data sets were imported into the tool database representing
+the construction costs of this speci ﬁc region. The mathematical
+function implemented in the tool considers the dimension of the
+building and the other input data (e.g. number of broken windows
+and doors, area of walls to be repainted, etc. see Table 1 ) to compute
+the necessary costs for each individual working step during the
+potential re-instatement of the building. Finally, the costs of each
+individual working step and the necessary material costs are
+summed up. After the input of the documented damages, the
+calculated costs are shown in the documentation form ( Fig. 5 ). If the
+documented damage is connected with a GIS-dataset of the
+buildings, the results of the documentation tool can be shown in a
+map ( Fig. 6 ).
+The record set of the damage documentation for each building is
+subsequently complemented by two computed values: (a) the
+construction costs of the building and (b) the costs for repairing the
+damage due to the respective hazard event. These two values arethen used by the tool for the assessment of loss of future events and
+for the update of the vulnerability function.
+4.2. Loss assessment of future events
+The tool for loss assessment of future events requires the input
+of information, such as the building category and functionality, the
+ﬂoor plan, the number of ﬂoors and the existence of a basement,
+the use of the ground ﬂood and the upper ﬂoors, and additional
+information on auxiliary buildings such as garages, sheds and
+storerooms. Using this data, the tool calculates the total value of the
+construction costs using the of ﬁcial price index ( Autonomous
+Province of Bozen-South Tirol, 2012a ) as described above.
+Furthermore, since the expected process intensity is expressed as
+the height of debris deposits, this information is also needed. On
+the basis of this value, the tool computes the degree of loss using
+the vulnerability function ( Fig. 5 ).
+If the presence of a basement is unknown, the tool calculates
+two values. As a minimum value, the construction costs are calcu-lated without considering a basement. In the maximum value, the
+construction costs of a basement the size of the ﬁrstﬂoor are
+considered. Additionally, based on the minimum and maximum
+construction costs, a mean value is also given. The tool calculates
+the potential damage by multiplying the degree of loss with the
+mean value of the construction costs.
+This procedure was also incorporated as a GIS-procedure in the
+ArcGIS software environment. On the basis of an overlay of the GIS-
+dataset of the building characteristics (function, use of the building,
+ground plan area, ﬂoors) and the hazard maps (scenarios with
+process intensities), the potential losses caused by selectedscenarios can be computed over large areas. The GIS-procedure
+uses the vulnerability function computed from the tool database.
+4.3. Update of the vulnerability curve
+The vulnerability curve derives from the degree of loss associ-
+ated with an expected process intensity. After recording the new
+damage documentation data (including information regarding the
+value of the buildings, the intensity of the process and the loss
+height), the update module of the tool re-calculates the parameters
+of the stored vulnerability function. The degree of loss is expressed
+as the ratio between repairing costs (monetary damage) and con-
+struction costs (object value) in terms of a Weibull function
+(Formula 1 (Totschnig et al., 2011; Papathoma-K €ohle et al., 2012a ,
+b)).
+y¼1/C0ea/C18
+xþb
+b/C01/C19c
+(1)
+Where:
+y: degree of loss
+a,b,c: factors describing the shape of the Weibull-function
+x: process intensity
+The factors describing the shape of the vulnerability curve (a,b,c)
+are recalculated based on the newly recorded datasets. The func-
+tion itself does not change. It is assumed that with a growing
+dataset and detailed and improved documentation of damage of
+individual buildings, the vulnerability curve will become more and
+more reliable.
+5. Implementation and practical use
+The toolbox was used into three different applications. The three
+tools (damage documentation, loss assessment of future scenarios,
+and updating of the vulnerability curve) have been implemented
+into a Microsoft SQL Server and ESRI ArcGIS. The system offers the
+graphical user interface for data entry and output (as shown in
+Figs. 4 and 5 ); it contains the knowledge base for calculating the
+total amount and costs of restoration works (extract from the
+ofﬁcial price list of construction costs), and the database for the
+insertion of damage documentation. The routines and functions for
+the cost calculation and the calculation of the vulnerability curve
+are also implemented in the database as server functions. The
+database forms are accessible via internet.
+5.1. Damage documentation
+During the damage documentation in the ﬁeld, shortly after a
+hazard event, a mobile internet connection is not always possible.Table 1
+Modi ﬁed functional approaches for regression analysis of vulnerability. As Frechet distributions with different numbers of parameters were tested, a nu meral suf ﬁx was used to
+distinguish between them. The RMSE for the Exponential, Weibull and Frechet functions is provided in the last column.
+Distribution Mathematical notation Number of unknown parameters Interval of the explaining variable Root mean square error
+Modi ﬁed Weibull
+1/C0e/C0a/C18
+xþb
+b/C01/C19c3
+a, b, c[0;þ∞) 0.1318
+Modi ﬁed Exponential
+1/C0e/C0a/C18
+xþb
+b/C01/C192
+a, b[0;þ∞) 0.1437
+Modi ﬁed Frechet no. 1
+e/C0/C18
+xþb
+b/C01/C19/C0a2
+a, b[0;þ∞) 0.1355
+Modi ﬁed Frechet no. 2
+e/C0c/C18
+xþb
+b/C01/C19/C0a3
+a, b, c[0;þ∞) 0.1355M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 163
+Therefore, the tool was implemented into an MS Excel spreadsheet
+by using VBA and the same windows forms of the database. The
+spreadsheet contains the same graphical user interface as the
+database and stores the data in the same data format for an easy
+import into the database. The spreadsheet-based tool can be used
+on a tablet computer without internet connection.
+The damage documentation tool was tested during the damage
+documentation in the consequences of numerous debris ﬂow
+events in the area of Vipiteno/Sterzing, Autonomous Province of
+Bozen eSouth Tyrol, Italy (August 4th and 5th, 2012; refer to Zischg
+(2012) for details). A heavy rainfall event triggered more than ten
+debris ﬂows. The debris ﬂows damaged 52 mostly residential or
+residential/agricultural buildings. The physical characteristics of
+the debris ﬂow events were documented by the of ﬁcial authorities
+of the Autonomous Province of Bozen eSouth Tyrol. The damage
+on the buildings and houses were documented during a ﬁeld
+campaign ﬁve days after the event with the presented tool. Thedamaged buildings were surveyed and the damage was recorded
+using the damage documentation form shown in Fig. 4 . The tool
+was used on a tablet computer and supported an ef ﬁcient docu-
+mentation and time-saving damage assessment; the 52 buildings
+were documented and the related losses subsequently estimated
+within one day. Besides the photographic documentation, the tool
+did not require post- ﬁeld processing.
+5.2. Loss estimation
+The total sum of incurring losses caused by the event was esti-
+mated by the tool to be 1.3 Mio. V. The process intensities
+impacting the building envelopes were locally very high with
+deposition heights of more than 2 m, with a mean of 0.7 m and a
+median of 0.3 m. Two thirds of the buildings affected by the debris
+ﬂow did not experience structural damage. Two buildings were
+totally destroyed. Eleven buildings experienced damage in the
+Fig. 5. Graphical user interface of the loss assessment tool.M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 164
+interior because the debris entered into the building through
+broken windows or doors. The spatial pattern of the deposition
+height and ﬂooding as well as the damage distribution in the
+speci ﬁc area are shown in Fig. 6 .
+A comparison of the estimated loss (1.3 Mio. V) with the actual
+cost of this event is not possible because the estimation of the local
+authorities included also monetary losses regarding the content of
+the buildings and agricultural equipment.
+5.3. Updating of the vulnerability curve
+After recording the damage into the database, and after calcu-
+lating the losses with the ﬁrst two parts of the tool, the parameters
+of the vulnerability function were recalculated with the third part.
+The entire dataset consists of 271 documented damages: 136 from
+Austria ( Totschnig and Fuchs, 2013 ), 34 from Martell valley (South
+Tirol, Italy) ( Papathoma-K €ohle et al., 2012a ), and 100 damage from
+the Vipiteno/Sterzing and P ﬁtsch/Val die Vizze areas as described
+above.
+The dataset is divided into a training dataset (80% of the original
+data) and a test dataset (20% of the original data). The test dataset
+was strati ﬁed as such that both datasets contained the same
+amount of high and low values ( Fig. 7 ).
+The training dataset, composed from a total of 217 cases, was
+further divided randomly into ten subsets of equal size (22 caseseach) in order to cross-validate the different data models tenfold.
+Subsequently, we tested different possible loss functions for their
+power to ﬁt best the training dataset. These functions had to
+comply with the mathematical requirements of (a) de ﬁning
+vulnerability as the dependent variable in a closed interval [0; 1];
+(b) a steady and monotonic increase within the interval of its
+explaining variable (intensity); (c) steadiness with respect to higher
+orders within the de ﬁned interval; and (d) de ﬁnition of its
+explaining variable either in the unbounded interval ( /C0∞;þ∞)o r
+in the half-open interval, bounded from below [0; þ∞). Following
+Totschnig et al. (2011) , an Exponential function, as well as a Weibull
+and two Frechet distributions were tested. These different func-
+tions were trained on the ten sub-samples of 22 data points
+(tenfold cross-validation), and as a result a Root Mean Square Error
+(RMSE) was obtained for each one of them (see Table 1 ).
+As the modi ﬁed Weibull distribution obtained the smallest
+RMSE (0.1318), this function was chosen to best represent the
+training dataset. In a second set of calculation, the Weibull function
+was tested taking the 20% residual test dataset. The RMSE increased
+slightly to 0.1358, which means that this function is able to project
+future (unknown) events with an accuracy of almost 87%.
+InFig. 8 , the alteration of the Weibull distribution is presented in
+dependence on the amount of data considered. It is shown that, for
+the Martell event, the losses were slightly lower for small and
+medium process intensities up to 1.5 m deposition height, and
+Fig. 6. Map of showing the spatial pattern of the process intensity distribution (left) and the monetary damage distribution (Fussendrass, community of Val le di Vizze/P ﬁtsch)).
+Fig. 7. The training and the test dataset used for the recalculation of the parameters of the vulnerability function.M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 165
+slightly above the population for higher process intensities. The
+combination of different sample data (Austria, Martell case study
+and the damage from Vipiteno/Sterzing and P ﬁtsch/Val die Vizze)
+shows how the shape of the function is altered due to different
+values of the parameters a, b and c calculated according to Equation
+(1).I nTable 2 , the values of the parameters describing the Weibull
+function (a, b, c) for the different case studies and respective curves
+are shown.
+In general, the results also show that the spread is considerable
+for medium process intensities. Therefore, if the vulnerability func-
+tion is used to calculate damage on single objects, the results may
+over- or underestimate the real losses. The method implies consid-
+eration of a minimum number of some objects in loss assessments.
+However, it is dif ﬁcult to set a minimum number of data, as more
+factors may in ﬂuence the reliability of the curve. For example, the
+data points should represent cases of the full spectrum of values. In
+other words, buildings that have suffered very high degree of loss
+should be used as well as others that have suffered minimum loss.
+6. Discussion
+The toolbox presented herein offers a number of solutions to
+various challenges that decision makers and planners have to deal
+with, such as: a) future change (climate and socio-economic) and
+associated increasing of damage costs, b) reliable vulnerabilityassessment that will contribute to improved risk analysis, and c)
+better documentation of events and associated damage in large
+scale, etc. In the following paragraphs, the most important bene ﬁts
+and limitations of the present study are described. Finally, ideas for
+further development of the presented tool in the future are also
+outlined.
+6.1. Bene ﬁts
+The greatest bene ﬁt of the toolbox is its multi-functionality. The
+toolbox presented here can be used for loss estimation, rapid
+damage assessment and documentation at local level, and
+improvement through continuous updating of the existing core
+vulnerability curve. The tool has the ability to self-improve and to
+work against one of the greatest drawbacks in the ﬁeld of risk
+analysis, which is the lack of reliable and adequate data. The tool
+improves the data collection procedure by providing a user-friendly
+and standardised data collection method that does not require a
+high number of quali ﬁed personnel. The data collection can take
+place on site within a short time period after the event. Depending
+on the availability of an internet connection, the data can be stored
+directly in the database or in a spreadsheet.
+The toolbox can also be used as a basis for cost bene ﬁt analysis.
+Once the overall monetary loss of a hypothetical event is assessed,the alternative monetary loss by using mitigation measures may
+also be calculated. In this way, the best alternative risk mitigation
+and management strategies can be chosen. The implementation of
+the functions in a GIS-procedure is unproblematic when a dataset
+of buildings including their functionality and extent is available.
+Through the integrated functions, the reconstruction values of each
+building can be calculated on the basis of the attributes of the input
+dataset. The function delineates the vulnerability value from the
+intersection between the buildings dataset and the hazard intensity
+map and, therefore, calculates the expected loss for every object
+exposed to the hazard. Using GIS, not only the assessment of
+Fig. 8. Results of the recalculation of the vulnerability curve after the increase in the sample dataset. The green curve shows the vulnerability function ca lculated on the basis of all
+the data. (For interpretation of the references to colour in this ﬁgure legend, the reader is referred to the web version of this article.)
+Table 2
+The parameters a, b, c for the Weibull function for the different case studies/curvesshown in Fig. 8 .
+Austria
+(orange curve)Austria and
+Italy/Martell(blue curve)Italy/Martell
+(black curve)All data
+(green curve)
+a /C01.253 /C01.138 /C00.27 /C01.671
+b 2.438 2.177 1.287 3.189C 1.892 2.202 2.974 1.746M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 166
+potential losses on buildings over large areas is possible, but also,
+the databases can be easily updated and the results can be visual-
+ised. The vulnerability of the elements at risk is not calculated in a
+static way, but, through the connection to GIS, the spatial pattern of
+the vulnerability may be also visualised and, in this way, the rela-
+tionship between the natural process and its consequences may be
+better investigated. Moreover, databases including loss data may be
+exported and used in other applications.
+An important bene ﬁt of the toolbox is that it can be used by
+multiple users that are not necessarily experts or experienced spe-
+cialists. Decision makers and stakeholders with different back-
+grounds, such as, scientists, technicians, and administrative
+personnel, may all make use of the advantages of the toolbox. The
+situation and damage pattern following a disastrous event may
+change very quickly due to the need of the authorities and the local
+population to bring the situation back to normal. The tool offers a
+quick way of documenting damage directly on site, so that the
+original situation of the damaged elements following an event can be
+directly recorded. An innovative element of the toolbox is that, apart
+from the recorded damage, it also records (and creates a database of)
+building characteristics that in ﬂuence its overall vulnerability
+(vulnerability indicators). In this way, two of the most commonly
+used methods for vulnerability assessment (vulnerability curves and
+vulnerability indicators) are integrated in the same tool supporting
+rather than opposing each other. Furthermore, the scale that the
+toolbox is used at offers a great detail of the damage pattern. Until
+now damage databases are maintained mostly at community level
+and they miss great detail (e.g. damage and intensity per building).
+The toolbox also offers possibilities of improvement and expansion
+such as additional elements at risks (infrastructure, agricultural
+areas, and open spaces) and hazard types. However, the most
+important bene ﬁt that the toolbox can demonstrate through the
+present study is its capacity to actively support risk reduction stra-
+tegies and climate change adaptation efforts.
+Finally, an additional strength of the tool is that, although the
+core vulnerability curve itself cannot be transferred and used in
+another area with different characteristics and type of built envi-
+ronment, the tool itself may be immediately used by local data and
+start performing by tuning itself automatically to the local context.
+6.2. Limitations and improvement
+One of the most signi ﬁcant limitations of the tool is the dif ﬁculty
+of recording information regarding the intensity of the process on
+each building. The intensity of the ﬂuvial bedload transport or debris
+ﬂow has been expressed in this paper as the height of debris de-
+posits. However, in many cases this height was assumed by looking
+at the size of destruction or at the stains that material and water
+have left on the walls of the building. Moreover, the intensity of the
+process depends, apart from the deposition height, also on other
+factors, such as the velocity, the viscosity and the direction of the
+ﬂow that approaches the building. These factors are generally
+challenging to record for each affected building. However, in some
+recent studies ( Quan Luna et al., 2011; Jakob et al., 2012 ), informa-
+tion regarding the velocity and the viscosity of debris ﬂows has been
+acquired through modelling of past events. In the case of the pre-
+sented tool, intensity of the process is recorded through improved
+documentation, establishing the link between event and damage
+documentation. Nevertheless, during the development of the tool
+many assumptions had to be made which increased the level of
+uncertainty. There are uncertainties associated with the input data
+(e.g object value, intensity assessment), and uncertainties associ-
+ated with the model procedure (e.g. monetary loss assessment) that
+were not considered or quanti ﬁed in this study. In more detail,
+sources of uncertainties are related to: a) the estimation of theprocess intensity, b) the estimation of the degree of loss, c) the value
+of buildings and d) the credibility of the existing data. However, the
+quanti ﬁcation of these uncertainties within the tool and recom-
+mendations regarding their reduction could be one of the potential
+future improvements. The quanti ﬁcation of uncertainties is very
+important for the end-users of the tool that, in this way, may get an
+indication of how well the tool is expected to perform. The un-
+certainties related to the development of the vulnerability curve
+which formed the basis of the tool presented in this paper have been
+quanti ﬁed in a recent study ( Eidsvig et al., 2014 ). However, their
+quanti ﬁcation is not yet included as a function of the tool.
+Furthermore, the tool may be transferable to areas with houses
+of similar type of construction and similar construction costs.
+However, if the building types are different, a new vulnerability
+curve has to be developed. The database of the construction costs
+can be easily adapted to other regions, if mean values for the single
+restoration works are available there in a standardized format. The
+development of the curve is often prevented by data limitations.
+However, the tool itself with its rapid damage assessment function
+is expected to improve data availability.
+Moreover, since the database at the moment contains only a
+limited number of documented cases, the function is calculated
+based on all building types available. Nevertheless, in the future, a
+growing set of documented data will allow the development of
+more than one vulnerability functions for the different types of
+buildings (use, type of construction etc.).
+6.3. Outlook
+A future development of the tool, apart from its applications in
+other areas, must include more elements at risk. A similar toolbox
+could include critical infrastructure, such as powerlines, railway
+and road networks, industrial or other important buildings, such as
+airports and railway stations. Moreover, the tool could also be used
+for the loss estimation of agricultural areas, based on the intensity
+of the process and monetary loss, which includes for example the
+cleaning costs, replanting and the harvest loss. The tool could be
+also adequately modi ﬁed to be used for other hazard types, such as
+ﬂoods. Although this paper is focussing mainly on direct losses to
+the built environment, the focus of the risk reduction strategies is
+always the protection of the human life. In this respect, the toolbox
+could be expanded to include data regarding the population e.g.
+number of inhabitants, population density, characteristics of the
+population, such as health condition, income, mobility, and density
+during different times of the year and the day. Information on
+people could also be included in the documentation process (e.g.
+number of casualties per building etc.). Nonetheless, one of the
+most important developments of the existing toolbox could be the
+possibility of quantifying its uncertainties in order to enable deci-
+sion making. As it was mentioned in the previous paragraph, work
+concerning the quanti ﬁcation of uncertainties has already been
+done and the next step is the integration of the quanti ﬁcation of
+uncertainties in the tool. Finally, the tool could be used remotely
+from unquali ﬁed users as a phone or tablet application in order to
+populate a central database with data by ordinary people (non-
+experts) that are located on the spot during or right after an eventand may assist in the post-damage data collection and documen-
+tation. This would be a step towards solving one of the biggest
+problems in the loss estimation and vulnerability assessment ﬁeld,
+which is the one of data availability.
+7. Conclusion
+A toolbox for loss documentation for landslide hazards is pre-
+sented. The toolbox can be used by decision makers to assessM. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 167
+potential losses of future debris ﬂow events but also to document
+and record damage of real events in a rapid, suf ﬁcient and detailed
+way. The toolbox is a valuable instrument in the hands of stake-
+holders considering the on-going changes in the frequency and
+magnitude of hazardous events and also in the spatial pattern of
+the elements at risk. The tool offers also a solution to one of the
+most common challenges in risk assessment, which is the lack of
+adequate data. The databases included in the toolbox may be
+exported and used for other applications, but also the new data may
+be used to continuously update the tool and increase its reliability.
+Although the toolbox is an important step towards loss estimation
+at local level for debris ﬂow hazards, there is still a need for
+continuous research in the ﬁeld, in order to better understand the
+interactions between natural processes and the built environment,
+so that we are able to reduce the vulnerability of elements at risk
+and eventually the costs related to natural disasters.
+Acknowledgements
+The authors would like to thank Bruno Mazzorana from the
+Department of Hydraulic Engineering of the Autonomous Province
+of Bozen eSouth Tyrol, Italy. He supported the documentation of
+the damaged buildings following the debris ﬂow events in August
+2012 in the Vipiteno/Sterzing area and provided information on the
+process intensities. Furthermore, the authors would like to thank
+the reviewers and the editors for their valuable comments and
+suggestions to an earlier version of this paper. Funding for the
+presented research was provided by the Austrian Science Fund
+(FWF, L535-N10) and the EU project MOVE (Methods for the
+Improvement of Vulnerability Assessment in Europe; http://www.
+move-fp7.eu , contract number 211590).
+References
+Akbas, S.O., Blahut, J., Sterlacchini, S., 2009. Critical assessment of existing physical
+vulnerability estimation approaches for debris ﬂows. In: Malet, J.P., Remaître, A.,
+Bogaard, T. (Eds.), Proceedings of Landslide Processes: from GeomorphologicMapping to Dynamic Modeling, Strasbourg, 6 e7 Feb 2009, pp. 229 e233.
+APAT eAgenzia per la Protezione dell ‘Ambiente e per i Servizi Tecnici, 2007.
+Rapporto sulle frane in Italia. Il progetto IFFI- Metodologia, risultati e rapport
+regionali. Rapporti 78/2007. Roma. ISBN 978-88-448-0310-0 .
+Apel, H., Aronica, G., Kreibich, H., Thieken, A., 2009. Flood risk analyses ehow
+detailed do we need to be? Nat. Hazards 49 (1), 79 e98.
+Autonome Provinz Bozen Südtirol, 2012a. Beschluss der Landesregierung vom 18.
+Juni 2012, Nr. 904. Amtsblatt Nr. 26/I-II vom 27/06/2012. http://www.regione.
+taa.it/bur/pdf/I-II/2012/26/BO/BO26120179833.pdf . access on July 2013.
+Autonome Provinz Bozen Südtirol, 2012b. Resort Bauen. Abteilung 11: Hochbau und
+technischer Dienst. Richtpreisverzeichnis Hochbauarbeiten 2012. Online data-
+base version. http://www.provinz.bz.it/Hochbau/downloads/hoed_2012.pdf .
+http://www.provinz.bz.it/Hochbau/browse_d.aspx . access on July 2013.
+Balica, S.F., Popescu, I., Beevers, L., Wright, N.G., 2013. Parametric and physically
+based modelling techniqures for ﬂood risk and vulnerability assessment: a
+comparison. Environ. Model. Softw. 41, 84 e92.
+Barredo, J.I., 2009. Normalised ﬂood losses in Europe: 1970 e2006. Nat. Hazards
+Earth Syst. Sci. 9, 97 e104.
+Bendimerad, F., 2001. Loss estimation: a powerful tool for risk assessment and
+mitigation. Soil Dyn. Earthq. Eng. 21, 467 e472.
+Berger, E., Grisotto, S., Hübl, J., Kienholz, H., Kollarits, S., Leber, D., Loipersberger, A.,
+Marchi, L., Mazzorana, B., Moser, M., N €ossig, T., Riedler, W., Scheidl, C.,
+Schmid, F., Schnetzer, I., Siegel, H., Volk, G., 2007. DIS-alp: Disaster Information
+System of Alpine Regions Final report, p. 96 .
+Birkmann, J., Cardona, O.M., Carre ~no, M.L., Barbat, A.H., Pelling, M.,
+Schneiderbauer, S., Kienberger, S., Keiler, M., Alexander, D., Zeil, P., Welle, T.,
+2013. Framing vulnerability, risk and societal responses: the MOVE framework.
+Nat. Hazards 67 (2), 193 e211.
+Bründl, M., Romang, H.E., Bischof, N., Rheinberger, C.M., 2009. The risk concept and
+its application in natural hazard risk management in Switzerland. Nat. Hazards
+Earth Syst. Sci. 9, 801 e813.
+Bründl, M., 2012. Econo-Me-Develop ea software tool for assessing natural hazard
+risk and economic optimisation of mitigation measures. In: Proceedings, 2012
+International Snow Science Workshop, Anchorage, Alaska, pp. 639 e643.
+Burren, S., Eyer, W., 2000. STORME- ein Informationsgestützter Ereignis-Kataster
+der Schweiz. Internationales Symposion Intrpr €avent 2000. Band 1, 25 e37
+(Villach: Kreiner Druck) .Ciurean, R.L., Schr €oter, D., Glade, T., 2013. Conceptual frameworks of vulnerability
+assessments for natural disasters reduction. In: Tiefenbacher, J. (Ed.), Ap-
+proaches to Disaster Management eExamining the Implications of Hazards,
+Emergencies and Disasters. InTech, pp. 3 e32.
+EEA, 2012. Climate Change, Impacts and Vulnerability in Europe 2012. Of ﬁce for
+Ofﬁcial Publications of the European Union, Luxembourg, p. 300 .
+Eidsvig, U.M.K., Papathoma-K €ohle, M., Du, J., Glade, T., Vangelsten, B.V., 2014.
+Quanti ﬁcation of model uncertainty in debris ﬂow vulnerability assessment.
+Eng. Geol. 181, 15 e26.
+Fuchs, S., 2009. Susceptibility versus resilience to mountain hazards in Austria e
+paradigms of vulnerability revisited. Nat. Hazards Earth Syst. Sci. 9 (2),
+337e352.
+Fuchs, S., 2013. Cost-bene ﬁt analysis of natural hazard mitigation. In: Bobrowski, P.
+(Ed.), Encyclopedia of Natural Hazards. Springer, Dordrecht, pp. 121 e125.
+Fuchs, S., Bründl, M., 2005. Damage potential and losses resulting from snow ava-
+lanches in settlements of the canton of Grisons, Switzerland. Nat. Hazards 34
+(1), 53 e69.
+Fuchs, S., Keiler, M., Zischg, A., Bründl, M., 2005. The long-term development of
+avalanche risk in settlements considering the temporal variability of damage
+potential. Nat. Hazards Earth Syst. Sci. 5 (6), 893 e901.
+Fuchs, S., Heiss, K., Hübl, J., 2007a. Towards an empirical vulnerability function for
+use in debris ﬂow risk assessment. Nat. Hazards Earth Syst. Sci. 7 (5), 495 e506.
+Fuchs, S., Th €oni, M., McAlpin, M.C., Gruber, U., Bründl, M., 2007b. Avalanche hazard
+mitigation strategies assessed by cost effectiveness analyses and cost bene ﬁt
+analyses eevidence from Davos. Switz. Nat. Hazards 41 (1), 113 e129.
+Fuchs, S., Kuhlicke, C., Meyer, V., 2011. Editorial for the special issue: vulnerability to
+natural hazards ethe challenge of integration. Nat. Hazards 58 (2), 609 e619.
+Fuchs, S., Birkmann, J., Glade, T., 2012a. Vulnerability assessment in natural hazard
+and risk analysis: current approaches and future challenges. Nat. Hazards 64
+(3), 1969 e1975 .
+Fuchs, S., Ornetsmüller, C., Totschnig, R., 2012b. Spatial scan statistics in vulnera-
+bility assessment ean application to mountain hazards. Nat. Hazards 64 (3),
+2129e2151 .
+Fuchs, S., Tsao, T.-C., Keiler, M., 2012c. Quantitative vulnerability functions for use in
+mountain hazard risk management ethe challenge of transfer. In:
+Koboltschng, G., Hübl, J., Braun, J. (Eds.), Internationales Symposion Inter-
+praevent, Genoble, April 23 e26, 2012. Internationale Forschungsgesellschaft
+Interpraevent, Klagenfurt, pp. 885 e896.
+Fuchs, S., Keiler, M., Sokratov, S.A., Shnyparkov, A., 2013. Spatiotemporal dynamics:
+the need for an innovative approach in mountain hazard risk management. Nat.
+Hazards 68 (3), 1217 e1241 .
+Füssel, H.-M., 2007. Vulnerability: a generally applicable conceptual framework for
+climate change research. Glob. Environ. Change 17 (2), 155 e167.
+Giupponi, C., Giove, S., Giannini, V., 2013. A dynamic assessment tool for exploring
+and communicating vulnerability to ﬂoods and climate change. Environ. Model.
+Softw. 44, 136 e147.
+Glade, T., 2003. Vulnerability assessment in landslide risk analysis. Die Erde 134,
+121e138.
+Greiving, S., Fleischhauer, M., Lückenk €otter, J., 2006. A methodology for an inte-
+grated risk assessment of spatially relevant hazards. J. Environ. Plan. Manag. 49
+(1), 1e19.
+Hilker, N., Badoux, A., Hegg, C., 2009. The Swiss ﬂood and landslide damage data-
+base 1972 e2007. Nat. hazards earth Syst. Sci. 9, 913 e925.
+Holub, M., Fuchs, S., 2009. Mitigating mountain hazards in Austria elegislation, risk
+transfer, and awareness building. Nat. Hazards Earth Syst. Sci. 9 (2), 523 e537.
+Holub, M., Suda, J., Fuchs, S., 2012. Mountain hazards: reducing vulnerability by
+adapted building design. Environ. Earth Sci. 66 (7), 1853 e1870 .
+Hübl, J., Kienholz, H., Loipersberger, A., 2002. DOMODIS-documentation of Moun-
+tain Disasters, p. 40 .
+Hufschmidt, G., Glade, T., 2010. Vulnerability analysis in geomorphic risk assess-
+ment. In: Alc /C19antara-Ayala, I., Goudie, A.S. (Eds.), Geomorphological Hazards and
+Disaster Prevention. Cambridge University Press, pp. 233 e243.
+Hungr, O., Evans, S., Bovis, M., Hutchinson, J., 2001. A review of the classi ﬁcation of
+landslides of the ﬂow type. Environ. Eng. Geoscience 7 (3), 221 e238.
+IPCC, 2012. Managing the risks of extreme events and disasters to advance climate
+change adaptation. A Special Report of Working Groups I and II of the Inter-governmental Panel on Climate Change. In: Field, C.B., Barros, V., Stocker, T.F.,
+Qin, D., Dokken, D.J., Ebi, K.L., Mastrandrea, M.D., Mach, K.J., Plattner, G.-K.,
+Allen, S.K., Tignor, M., Midgley, P.M. (Eds.). Cambridge University Press, Cam-
+bridge, UK, and New York, NY, USA, 582 pp.
+Jakob, M., Stein, D., Ulmi, M., 2012. Vulnerability of buildings to debris ﬂow impact.
+Nat. Hazards 60 (2), 241 e261.
+Kappes, M., Keiler, M., von Elverfeldt, K., Glade, T., 2012a. Challenges of analyzing
+multi-hazard risk: a review. Nat. Hazards 64 (2), 1925 e1958 .
+Kappes, M., Papathoma-K €ohle, M., Keiler, M., 2012b. Assessing physical vulnera-
+bility for multi-hazards using an indicator-based methodology. Appl. Geogr. 32(2), 577 e590.
+Kaswalder, C., 2009. Sch
+€atzungsstudie zur Berechnung des Schadenspotentials bei
+hochwasserereignissen durch die Rienz im Abschnitt Bruneck-St (Lorenzen.
+Autonome Provinz Bozen, Südtirol) .
+Keiler, M., 2011. Geomorphology and complexity einseparable connected? Z. für
+Geomorphol. 55 (Suppl. 3), 233 e257.
+Keiler, M., Zischg, A., Fuchs, S., Hama, M., St €otter, J., 2005. Avalanche related damage
+potential echanges of persons and mobile values since the mid-twentieth
+century, case study Galtür. Nat. Hazards Earth Syst. Sci. 5 (1), 49 e58.M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 168
+Keiler, M., Sailer, R., J €org, P., Weber, C., Fuchs, S., Zischg, A., Sauermoser, S., 2006.
+Avalanche risk assessment ea multi-temporal approach, results from Galtür,
+Austria. Nat. Hazards Earth Syst. Sci. 6 (4), 637 e651.
+Keiler, M., Knight, J., Harrison, S., 2010. Climate change and geomorphological
+hazards in the eastern European Alps. Philosophical Transactions of the Royal
+Society of London Series A: Mathematical. Phys. Eng. Sci. 368, 2461 e2479 .
+Keiler, M., Kellerer-Pirklbauer, A., Otto, J.-C., 2012. Concepts and implications of
+environmental change and human impact: studies from Austrian geomorpho-
+logical research. Geogra ﬁska Annaler Series A. Phys. Geogr. 94 (1), 1 e5.
+Keiler, M., 2013. World-wide trends in natural disasters. In: Bobrowsky, P. (Ed.),
+Encyclopaedia of Natural Hazards. Springer, pp. 1111e1114 .
+Kienholz, H., Krummenacher, B., Kipfer, A., Perret, S., 2004. Aspects of integral risk
+management in practice econsiderations with respect to mountain hazards in
+Switzerland.€Osterreichische Wasser- Abfallwirtsch. 56 (3 e4), 43e50.
+Lo, W.-C., Tsao, T.-C., Hsu, C.-H., 2012. Building vulnerability to debris ﬂows in
+Taiwan: a preliminary study. Nat. Hazards 64 (3), 2107 e2128 .
+Markantonis, V., Meyer, V., Schwarze, R., 2012. Valuating the intangible effects of
+natural hazards. Review and analysis of the costing methods. Nat. Hazards EarthSyst. Sci. 12 (5), 1633 e1640 .
+Marulanda, M.C., Carreno, M.L., Cardona, O.D., Ordaz, M.G., Barbat, A.H., 2013.
+Probabilistic Earthquake Risk Assessment Using CAPRA: Application to the City
+of Barcelona, Spain. Natural hazards, Online ﬁrst.http://dx.doi.org/10.1007/
+s11069-013-0685-z .
+Mazzorana, B., Fuchs, S., 2010. Fuzzy Formative Scenario Analysis for woody ma-
+terial transport related risks in mountain torrents. Environ. Model. Softw. 25
+(10), 1208 e1224 .
+Meyer, V., Becker, N., Markantonis, V., Schwarze, R., van den Bergh, J.C.J.M.,
+Bouwer, L.M., Bubeck, P., Ciavola, P., Genovese, E., Green, C., Hallegatte, S.,
+Kreibich, H., Lequeux, Q., Logar, I., Papyrakis, E., Pfurtscheller, C., Poussin, J.,
+Przyluski, V., Thieken, A., Viavattene, C., 2013. Review article: assessing the costsof natural hazards estate of the art and knowledge gaps. Nat. Hazards Earth
+Syst. Sci. 13 (5), 1351 e1373 .
+Papathoma-K €ohle, M., Kappes, M., Keiler, M., Glade, T., 2011. Physical vulnerability
+assessment for alpine hazards: state of the art and future needs. Nat. Hazards
+58 (2), 645 e680.
+Papathoma-K €ohle, M., Keiler, M., Totschnig, R., Glade, T., 2012a. Improvement of
+vulnerability curves using data from extreme events: debris ﬂow event in South
+Tyrol. Nat. Hazards 64 (3), 2083 e2105 .
+Papathoma-K €ohle, M., Totschnig, R., Keiler, M., Glade, T., 2012b. A new vulnerability
+function for debris ﬂ
+owethe importance of physical vulnerability assessment
+in alpine areas. In: Koboltschng, G., Hübl, J., Braun, J. (Eds.), Internationales
+Symposion Interpraevent, Genoble, April 23 e26, 2012. Klagenfurt, Inter-
+nationale Forschungsgesellschaft Interpraevent, pp. 1033 e1043 .
+Pﬁtscher, A., 1996. Wasserkatastrophen im Martelltal eDer 24./25. August 1987.
+Municipality 23 Martell .Pogson, M., Hastings, A., Smith, P., 2012. Sensitivity of crop model predictions to
+entire meteorological and soil input datasets highlights vulnerability to
+drought. Environ. Model. Softw. 29, 37 e43.
+Quan Luna, B., Blahut, J., Van Westen, C.J., Sterlacchini, S., Van Asch, T.W.J., AkbasS,
+2011. The application of numerical debris ﬂow modelling for the generation of
+physical 26 vulnerability curves. Nat. Hazards Earth Syst. Sci. 11, 2047 e2060 .
+Samarasinghe, S., Strickert, G., 2013. Mixed-method integration and advances in
+fuzzy cognitive maps for computational policy simulations for natural hazard
+mitigation. Environ. Model. Softw. 39, 188 e200.
+Scawthorn, C., Blais, N., Seligson, H., Tate, E., Mif ﬂin, E., Thomas, W., Murphy, J.,
+Jones, C., 2006. HAZUS-MH ﬂood loss estimation methodology. I: overview and
+ﬂood hazard characterization. Nat. Hazards Rev. 7, 60 e71.
+Schmidt, J., Matcham, I., Reese, S., King, A., Bell, R., Henderson, R., Smart, G.,
+Cousins, J., Smith, W., Heron, D., 2011. Quantitative multi-risk analysis for nat-
+ural hazards: a framework for multi rsk modelling. Nat. Hazards 58, 1169 e1192 .
+Serra, L., Juan, P., Varga, D., Mateu, J., Saez, M., 2013. Spatial pattern modelling of
+wildﬁres in Catalonia, Spain 2004-2008. Environ. Model. Softw. 40, 235 e244.
+Smith, K., Ward, R., 1998. Floods: Physical Processes and Human Impacts. John
+Wiley &Sons, Chichester .
+Tena-Chollet, F., Tixier, J., Dusserre, G., Mangin, J.-F., 2013. Development of a spatial
+risk assessment tool for the transportation of hydrocarbons: mateorology and
+implementation in a geographical information system. Environ. Model. Softw.
+46, 61 e74.
+Totschnig, R., Sedlacek, W., Fuchs, S., 2011. A quantitative vulnerability function for
+ﬂuvial sediment transport. Nat. Hazards 58 (2), 681 e703.
+Totschnig, R., Fuchs, S., 2013. Mountain torrents: quantifying vulnerability and
+assessing uncertainties. Eng. Geol. 155, 31 e44.
+UNDRO, 1984. Disaster Prevention and Mitigation ea Compendium of Current
+Knowledge. United Nations, New York .
+Uzielli, M., Nadim, F., Lacasse, S., Kaynia, A., 2008. A conceptual framework for
+quantitative estimation of physical vulnerability to landslides. Eng. Geol. 102
+(3e4), 251 e256.
+Zischg, A., Fuchs, S., Keiler, M., St €otter, J., 2005. Temporal variability of damage
+potential on roads as a conceptual contribution towards a short-term avalanche
+risk simulation. Nat. Hazards Earth Syst. Sci. 5 (2), 235 e242.
+Zischg, A., Macconi, P., Pollinger, R., Sperling, M., Mazzorana, B., Marangoni, N.,
+Berger, E., Staf ﬂer, H.P., 2007. Historische Überschwemmungs- und Murgan-
+gereignisse in Südtirol. Erhebung und Dokumentation. Der Schlern 3, 3 e16.
+Zischg, A., 2012. Systematische Erhebung der Gef €ahrdungs- und Schadensbilder für
+die Objektkategorien Wohnh €auser, Wirtschaftsgeb €aude und Verkehrswege in
+ausgew €ahlten Auswirkungssystemen des Großraumereignisses des 4. und 5. In:
+August 2012 P ﬁtscherbach eOberer Eisack als planungsunterstützende Ele-
+mente des integralenNaturgefahrrisikomanagements im IREK eProjektgebiet.
+Projekt Interreg IVA Italien e€Osterreich IREK e Integrales Rau-
+mentwicklungskonzept für ausgew €ahlte Lebensr €aume des Wipptals. Bozen .M. Papathoma-K €ohle et al. / Environmental Modelling & Software 63 (2015) 156 e169 169

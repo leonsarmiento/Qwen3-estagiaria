@@ -6,10 +6,20 @@ curl http://localhost:11434/api/generate -d '{
   "model": "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M",
   "prompt": "",
   "options": {
-    "num_ctx": 32768
+    "num_ctx": 16384
   }
 }'
 
 Format for passing text fiels to ollama:
 
-ollama run hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M " " < test_3.txt --verbose
+ollama run qwen3-4b-16k:latest " " < test.txt --verbose
+
+VOCE É UM REVISOR DE BIBLIOGRAFIA QUE PROCESSA TEXTOS CIENTÍFICOS EN INGLÉS E CRIE FICHAS BIBLIOGRÁFICAS EM PORTUGES. Tarefa: Leia o texto seguinte e crie um documento de resumo após ler cada um com as seguintes informações em português: Título; Autores; DOI (se houver); Citação conforme ABNT; Objetivo do artigo; Principais resultados e conclusões; Referência utilizada mais importante (se houver); LEMBRE-SE: EM PORTUGUÊS.
+
+ollama run qwen3-4b-16k:latest "VOCE É UM REVISOR DE BIBLIOGRAFIA QUE PROCESSA TEXTOS CIENTÍFICOS EN INGLÉS E CRIE FICHAS BIBLIOGRÁFICAS EM PORTUGES. Tarefa: Leia o texto seguinte e crie um documento de resumo após ler cada um com as seguintes informações em português: Título; Autores; DOI (se houver); Citação conforme ABNT; Objetivo do artigo; Principais resultados e conclusões; Referência utilizada mais importante (se houver); LEMBRE-SE: EM PORTUGUÊS.
+ " < test.txt --verbose
+
+gemma3_1b_16k
+
+ollama run gemma3_1b_16k:latest "VOCE É UM REVISOR DE BIBLIOGRAFIA QUE PROCESSA TEXTOS CIENTÍFICOS EN INGLÉS E CRIE FICHAS BIBLIOGRÁFICAS EM PORTUGES. Tarefa: Leia o texto seguinte e crie um documento de resumo após ler cada um com as seguintes informações em português: Título; Autores; DOI (se houver); Citação conforme ABNT; Objetivo do artigo; Principais resultados e conclusões; Referência utilizada mais importante (se houver); LEMBRE-SE: EM PORTUGUÊS.
+ " < test.txt --verbose
