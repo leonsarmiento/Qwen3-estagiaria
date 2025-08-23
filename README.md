@@ -47,7 +47,7 @@ ollama pull hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
 
 Se voce voce tem um computador "vintage":
 ```bash
-ollama pull qwen3:1.7b 
+ollama pull granite3.3:2b
 ```
 
 Se você quiser usar uma configuração de modelo personalizada, pode criar uma usando o arquivo modelfile fornecido:
@@ -59,7 +59,7 @@ ollama create MyModel -f custom_qwen.modelfile
 
 Ou para computadores vintage:
 ```bash
-ollama create MyModel -f custom_qwen_mini.modelfile
+ollama create MyModel -f custom_granite.modelfile
 ```
 
 ### Uso
@@ -108,7 +108,7 @@ Para um arquivo de entrada `artigo.pdf`, o processo cria:
 
 - A aplicação criará automaticamente os diretórios necessários
 - A conversão de PDF e Word requer as respectivas bibliotecas estarem instaladas
-- O processamento com LLM usa o modelo `MyModel:latest` via Ollama. Este é Qwen3_1.7b ou Qwen3_4b comcontexto de 16K tokens, consumindo < 4gb ou < 8gb de RAM respeitivamente.
+- O processamento com LLM usa o modelo `MyModel:latest` via Ollama. Este é Granite3.3_2b ou Qwen3_4b comcontexto de 16K tokens, consumindo < 4gb ou < 8gb de RAM respeitivamente.
 
 ### Créditos
 
