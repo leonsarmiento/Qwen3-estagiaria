@@ -29,31 +29,57 @@ Esta é uma ferramenta que permite fazer o processamento de textos privados ou q
 ### Requisitos
 
 #### Dependências Python
-- Python 3.6+
+- Python 3.6+ (instalado no computador, ou ainda melhor, num environment de conda)
 - PyPDF2 (`conda install -c conda-forge pypdf2` ou `pip install pypdf2`)
 - python-docx (`conda install -c conda-forge python-docx` ou `pip install python-docx`)
 
 #### Configuração do Ollama
-Esta aplicação requer que o Ollama esteja instalado e em execução na sua máquina. A aplicação usa especificamente o modelo `qwen3-4b-32k`. Você pode baixar o Ollama em: [https://ollama.com/download](https://ollama.com/download)
+Esta aplicação requer que o Ollama esteja instalado e em execução na sua máquina. A aplicação usa especificamente o modelo `qwen3-4b-16k`. Você pode baixar o Ollama em: [https://ollama.com/download](https://ollama.com/download)
 
 #### Instalação do Modelo
 Antes de usar esta aplicação, você deve ter o modelo necessário do Ollama instalado. Execute o seguinte comando em seu terminal:
+
+Se seu computador tem menos de 3 anos (RECOMENDADO)
 
 ```bash
 ollama pull hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
 ```
 
+Se voce voce tem um computador "vintage":
+```bash
+ollama pull qwen3:1.7b 
+```
+
 Se você quiser usar uma configuração de modelo personalizada, pode criar uma usando o arquivo modelfile fornecido:
 
+de novo, para computadores relativamente novos (RECOMENDADO)
 ```bash
-ollama create qwen3-4b-32k -f qwen3-4b-32k.modelfile
+ollama create MyModel -f custom_qwen.modelfile
+```
+
+Ou para computadores vintage:
+```bash
+ollama create MyModel -f custom_qwen_mini.modelfile
 ```
 
 ### Uso
 
-1. Execute a aplicação GUI:
+1. No Windows: Execute a aplicação GUI:
+   ```
+   python3 ia_stagiaria.py
+   ```
+   Ou asism se voce usa um environment de conda:
+   ```
+   python ia_stagiaria.py
+   ```
+
+   No Mac/Linux: Execute a aplicação GUI:
    ```
    python3 qwen_stagiaria.py
+   ```
+   Ou asism se voce usa um environment de conda:
+   ```
+   python qwen_stagiaria.py
    ```
 
 2. Na GUI:
@@ -82,7 +108,7 @@ Para um arquivo de entrada `artigo.pdf`, o processo cria:
 
 - A aplicação criará automaticamente os diretórios necessários
 - A conversão de PDF e Word requer as respectivas bibliotecas estarem instaladas
-- O processamento com LLM usa o modelo `qwen3-4b-32k:latest` do Ollama
+- O processamento com LLM usa o modelo `qwen3-4b-16k:latest` via Ollama
 - Certifique-se de que o Ollama esteja em execução em modo serve antes de iniciar a aplicação
 
 ### Créditos
