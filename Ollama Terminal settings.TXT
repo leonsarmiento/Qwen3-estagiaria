@@ -2,14 +2,27 @@ in the terminal:
 
 ollama pull hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
 
-curl http://localhost:11434/api/generate -d '{
-  "model": "hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M",
-  "prompt": "",
-  "options": {
-    "num_ctx": 32768
-  }
-}'
+Model Setup, Custom models:
+
+ollama show {ModelName} --modelfile > custom.modelfile
+
+ollama show qwen3:1.7b --modelfile > custom.modelfile
+
+# insert after adjusting FROM line accordingly:
+PARAMETER num_ctx 16384
+
+ollama create MyModel -f custom.modelfile
+
+#check:
+ollama list
 
 Format for passing text fiels to ollama:
 
-ollama run hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M " " < test_3.txt --verbose
+ollama run MyModel:latest " " < test.txt --verbose
+
+VOCE É UM REVISOR DE BIBLIOGRAFIA QUE PROCESSA TEXTOS CIENTÍFICOS EN INGLÉS E CRIE FICHAS BIBLIOGRÁFICAS EM PORTUGES. Tarefa: Leia o texto seguinte e crie um documento de resumo após ler cada um com as seguintes informações em português: Título; Autores; DOI (se houver); Citação conforme ABNT; Objetivo do artigo; Principais resultados e conclusões; Referência utilizada mais importante (se houver); LEMBRE-SE: EM PORTUGUÊS.
+
+ollama run MyModel:latest "VOCE É UM REVISOR DE BIBLIOGRAFIA QUE PROCESSA TEXTOS CIENTÍFICOS EN INGLÉS E CRIE FICHAS BIBLIOGRÁFICAS EM PORTUGES. Tarefa: Leia o texto seguinte e crie um documento de resumo após ler cada um com as seguintes informações em português: Título; Autores; DOI (se houver); Citação conforme ABNT; Objetivo do artigo; Principais resultados e conclusões; Referência utilizada mais importante (se houver); LEMBRE-SE: EM PORTUGUÊS.
+ " < test.txt --verbose
+
+ ollama run MyModel:latest "do que trata esta imagem?" < imagen_1.png --verbose

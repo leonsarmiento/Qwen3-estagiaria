@@ -2,7 +2,7 @@
 # To build a new Modelfile based on this, replace FROM with:
 # FROM hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
 
-FROM hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+FROM C:\Users\jleon\.ollama\models\blobs\sha256-3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597
 TEMPLATE """{{- $lastUserIdx := -1 -}}
 {{- range $idx, $msg := .Messages -}}
 {{- if eq $msg.Role "user" }}{{ $lastUserIdx = $idx }}{{ end -}}
@@ -53,12 +53,11 @@ For each function call, return a json object with function name and arguments wi
 {{- if and (ne .Role "assistant") $last }}<|im_start|>assistant
 {{ end }}
 {{- end }}"""
-PARAMETER top_k 20
-PARAMETER top_p 0.95
 PARAMETER stop <|im_start|>
 PARAMETER stop <|im_end|>
 PARAMETER temperature 0.6
 PARAMETER min_p 0
 PARAMETER repeat_penalty 1
-PARAMETER num_ctx 32768
+PARAMETER top_k 20
+PARAMETER top_p 0.95
 

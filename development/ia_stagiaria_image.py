@@ -23,7 +23,7 @@ except ImportError:
 class TextProcessorGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Qwen3-stagiaria 1.0 - PDF/Word to Text Converter")
+        self.root.title("Qwen3-stagiaria 1.0 - Multimodal Document Processor")
         self.root.geometry("600x500")
         
         # Default prompt text from the original script
@@ -39,7 +39,7 @@ class TextProcessorGUI:
         main_frame.columnconfigure(1, weight=1)
         
         # Input directory selection
-        ttk.Label(main_frame, text="Input Directory (with PDF/Word files):").grid(row=0, column=0, sticky=tk.W, pady=5)
+        ttk.Label(main_frame, text="Input Directory (with PDF/Word/Image files):").grid(row=0, column=0, sticky=tk.W, pady=5)
         self.input_dir_var = tk.StringVar()
         input_entry = ttk.Entry(main_frame, textvariable=self.input_dir_var, width=50)
         input_entry.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=5)
@@ -95,6 +95,7 @@ class TextProcessorGUI:
                 f"Following libraries are not installed for PDF/Word parsing:\n{', '.join(missing_libs)}\n\n"
                 "To enable PDF/Word support, please install them using:\npip install PyPDF2 python-docx"
             )
+        # Note: No specific image processing libraries are checked here as we are relying on Ollama's multimodal capabilities.
     
     def browse_input_dir(self):
         """Open dialog to select input directory"""
@@ -147,52 +148,52 @@ class TextProcessorGUI:
         thread.start()
     
     def process_files(self, input_dir, output_dir, prompt_text):
-        """Process all files in the input directory"""
+        """Process all files in the input directory, separating text and image files."""
         try:
-            # Create a temporary directory for processed text files
-            temp_dir = os.path.join(output_dir, "temp_processed")
-            os.makedirs(temp_dir, exist_ok=True)
+            temp_text_dir = os.path.join(output_dir, "temp_processed_text")
+            os.makedirs(temp_text_dir, exist_ok=True)
             
-            # Get all files in input directory
-            files = [f for f in os.listdir(input_dir) 
-                    if os.path.isfile(os.path.join(input_dir, f))]
+            text_files_to_process = []
+            image_files_to_process = []
+
+            all_files = [f for f in os.listdir(input_dir) 
+                         if os.path.isfile(os.path.join(input_dir, f))]
             
-            total_files = len(files)
+            total_files = len(all_files)
             processed_count = 0
             
-            # Process each file
-            for filename in files:
+            for filename in all_files:
                 file_path = os.path.join(input_dir, filename)
                 self.status_var.set(f"Processing {filename}...")
                 
-                # Determine file type and process accordingly
                 if filename.lower().endswith('.pdf'):
                     if pdf_support:
-                        self.process_pdf_file(file_path, temp_dir, filename)
+                        self.process_pdf_file(file_path, temp_text_dir, filename)
+                        text_files_to_process.append(os.path.join(temp_text_dir, os.path.splitext(filename)[0] + "_source.txt"))
                     else:
                         self.status_var.set(f"Skipping {filename} - PDF support not available")
-                        continue
-                        
                 elif filename.lower().endswith(('.doc', '.docx')):
                     if word_support:
-                        self.process_word_file(file_path, temp_dir, filename)
+                        self.process_word_file(file_path, temp_text_dir, filename)
+                        text_files_to_process.append(os.path.join(temp_text_dir, os.path.splitext(filename)[0] + "_source.txt"))
                     else:
                         self.status_var.set(f"Skipping {filename} - Word support not available")
-                        continue
-                        
+                elif filename.lower().endswith(('.jpeg', '.jpg', '.png')):
+                    image_files_to_process.append(file_path)
                 else:
                     # Assume it's already a text file
-                    self.copy_text_file(file_path, temp_dir, filename)
+                    self.copy_text_file(file_path, temp_text_dir, filename)
+                    text_files_to_process.append(os.path.join(temp_text_dir, os.path.splitext(filename)[0] + "_source.txt"))
                 
                 processed_count += 1
                 self.update_progress(processed_count, total_files)
             
-            # Now process all the text files with LLM
-            self.process_text_files_with_llm(temp_dir, output_dir, prompt_text)
+            # Now process all the text files and image files with LLM
+            self.process_with_llm(temp_text_dir, output_dir, prompt_text, image_files_to_process)
             
             # Cleanup temp directory
             import shutil
-            shutil.rmtree(temp_dir, ignore_errors=True)
+            shutil.rmtree(temp_text_dir, ignore_errors=True)
             
             self.status_var.set("Processing complete!")
             
@@ -272,66 +273,66 @@ class TextProcessorGUI:
         except Exception as e:
             raise Exception(f"Error processing text file {original_filename}: {e}")
     
-    def process_text_files_with_llm(self, input_dir, output_dir, prompt_text):
-        """Process text files with LLM using the original script logic"""
+    def process_with_llm(self, temp_text_dir, output_dir, prompt_text, image_paths):
+        """Process text files and image files with LLM."""
         try:
-            # Create fichas directory if it doesn't exist
             fichas_dir = os.path.join(output_dir, "fichas")
             os.makedirs(fichas_dir, exist_ok=True)
             
-            # Process each text file in the input directory
-            for filename in os.listdir(input_dir):
+            # Collect all text content
+            all_text_content = []
+            for filename in os.listdir(temp_text_dir):
                 if filename.endswith("_source.txt"):
-                    # Create full paths
-                    input_path = os.path.join(input_dir, filename)
-                    output_filename = filename.replace("_source.txt", "_ficha.txt")
-                    output_path = os.path.join(fichas_dir, output_filename)
-                    
-                    self.status_var.set(f"Processing {filename} with LLM...")
-                    
-                    try:
-                        # Read the content of the input file
-                        with open(input_path, 'r', encoding='utf-8') as f:
-                            file_content = f.read()
-                        
-                        # Create the command with proper escaping
-                        cmd = ['ollama', 'run', 'MyModel:latest', prompt_text]
-                        
-                        # Set environment variables for proper Unicode handling on Windows
-                        env = os.environ.copy()
-                        env['PYTHONIOENCODING'] = 'utf-8'
-                        
-                        # Execute the command with the file content as stdin
-                        # Explicitly set encoding for Windows compatibility
-                        result = subprocess.run(
-                            cmd,
-                            input=file_content,
-                            text=True,
-                            encoding='utf-8',
-                            capture_output=True,
-                            check=True,
-                            env=env
-                        )
-                        
-                        # Ensure the output is properly encoded before writing
-                        output_content = result.stdout
-                        
-                        # Write the output to the fichas directory with error handling
-                        with open(output_path, 'w', encoding='utf-8', errors='replace') as f:
-                            f.write(output_content)
-                        
-                    except subprocess.CalledProcessError as e:
-                        if "failed to connect" in str(e.stderr).lower() or "connection refused" in str(e.stderr).lower():
-                            raise Exception("Ollama is not running or not accessible. Please start Ollama server.")
-                        raise Exception(f"Error processing {filename}: {e}")
-                    except UnicodeEncodeError as ue:
-                        # Handle specific encoding errors
-                        raise Exception(f"Encoding error processing {filename}: {ue}. The content may contain unsupported characters.")
-                    except Exception as e:
-                        raise Exception(f"Unexpected error processing {filename}: {e}")
-                        
+                    input_path = os.path.join(temp_text_dir, filename)
+                    with open(input_path, 'r', encoding='utf-8') as f:
+                        all_text_content.append(f.read())
+            
+            combined_text = "\n\n".join(all_text_content)
+            
+            # Prepare the Ollama command
+            # As per user feedback and `ollama run --help` output,
+            # image paths are passed as positional arguments directly after the prompt.
+            cmd = ['ollama', 'run', 'MyModel:latest']
+            
+            # Add prompt text
+            cmd.append(prompt_text)
+            
+            # Add image paths if any
+            cmd.extend(image_paths)
+            
+            self.status_var.set("Processing with LLM (multimodal)...")
+            
+            env = os.environ.copy()
+            env['PYTHONIOENCODING'] = 'utf-8'
+            
+            # Execute the command with combined text as stdin
+            result = subprocess.run(
+                cmd,
+                input=combined_text,
+                text=True,
+                encoding='utf-8',
+                capture_output=True,
+                check=True,
+                env=env
+            )
+            
+            output_content = result.stdout
+            
+            # Save the combined ficha output
+            output_filename = "combined_ficha.txt"
+            output_path = os.path.join(fichas_dir, output_filename)
+            
+            with open(output_path, 'w', encoding='utf-8', errors='replace') as f:
+                f.write(output_content)
+            
+        except subprocess.CalledProcessError as e:
+            if "failed to connect" in str(e.stderr).lower() or "connection refused" in str(e.stderr).lower():
+                raise Exception("Ollama is not running or not accessible. Please start Ollama server.")
+            raise Exception(f"Error processing with LLM: {e.stderr}")
+        except UnicodeEncodeError as ue:
+            raise Exception(f"Encoding error processing with LLM: {ue}. The content may contain unsupported characters.")
         except Exception as e:
-            raise Exception(f"Error in LLM processing: {e}")
+            raise Exception(f"Unexpected error during LLM processing: {e}")
     
     def update_progress(self, current, total):
         """Update progress bar"""
