@@ -1,0 +1,1494 @@
+Review article
+Application of arti ﬁcial intelligence in three aspects of landslide risk
+assessment: A comprehensive review
+Rongjie Hea, Wengang Zhangb, Jie Douc, Nan Jiangd, Huaixian Xiaod, Jiawen Zhoua,*
+aState Key Laboratory of Hydraulics and Mountain River Engineering, Sichuan University, Chengdu, 610065, China
+bSchool of Civil Engineering, Chongqing University, Chongqing, 400044, China
+cBadong National Observation and Research Station of Geohazards, China University of Geosciences, Wuhan, 430074, China
+dCollege of Water Resources and Hydropower, Sichuan University, Chengdu, 610065, China
+ARTICLE INFO
+Keywords:
+LandslidesArtiﬁcial intelligence
+Machine learningDetection and mappingLandslide susceptibility
+Prediction and warningABSTRACT
+Landslides are one of the geological disasters with wide distribution, high impact and serious damage around the
+world. Landslide risk assessment can help us know the risk of landslides occurring, which is an effective way toprevent landslide disasters in advance. In recent decades, arti ﬁcial intelligence (AI) has developed rapidly and has
+been used in a wide range of applications, especially for natural hazards. Based on the published literatures, this
+paper presents a detailed review of AI applications in landslide risk assessment. Three key areas where theapplication of AI is prominent are identi ﬁed, including landslide detection, landslide susceptibility assessment,
+and prediction of landslide displacement. Machine learning (ML) containing deep learning (DL) has emerged as
+the primary technology which has been considered successfully due to its ability to quantify complex nonlinear
+relationships of soil structures and landslide predisposing factors. Among the algorithms, convolutional neuralnetworks (CNNs) and recurrent neural networks (RNNs) are two models that are most widely used with satis-
+factory results in landslide risk assessment. The generalization ability, sampling training strategies, and hyper-
+parameters optimization of these models are crucial and should be carefully considered. The challenges andopportunities of AI applications are also fully discussed to provide suggestions for future research in landslide risk
+assessment.
+1. Introduction
+Landslides (including the movement of rocks, soils or debris down a
+slope) are one of the most prevalent geological hazards in the world,
+posing signi ﬁcant threats and causing substantial losses to human soci-
+ety. According to the Global Fatal Landslide Database (GFLD), Fig. 1
+shows the spatial distribution of the fatal landslides which has caused
+serious damage to human society ( Froude and Petley, 2018 ). Unlike
+other engineering materials, soils and rocks are three-phased system with
+strong spatial variability and are sensitive to the change of moisture
+content and the environment conditions, and respond in a highly
+non-linear manner. These characteristics of soil structures make it dif ﬁ-
+cult for us to prevent landslides effectively in advance. Therefore,
+research on landslide risk assessment is crucial for the advancement of
+human society.
+Landslide risk assessment is de ﬁned as an assessment of the likelihood
+of landslides occurring and the potential hazards that could result. Thepotential hazards contain the injuries, the loss of life and damaged assets
+which could occur to a system like community or society in a given
+period ( Guo et al., 2020a,b ). This paper mainly discusses the monitoring,
+evolution and probabilistic analyses of landslides occurring which don't
+address the impact on towns, residents and socio-economics. Landslide
+risk assessment is divided into two categories: soft risk assessment
+approach and hard risk assessment approach ( Lei et al., 2023 ). The
+former focuses on the risk of landslides in a region and the latter pays
+more attention to the risk of individual landslide ( Chen and Chen, 2021 ;
+Lei et al., 2023 ).
+In recent decades, studies have mainly focused on establishing
+knowledge-driven expert systems to assess the risk of landslides ( Althu-
+waynee et al., 2012 ;Kayastha et al., 2013 ;Pourghasemi et al., 2012a,b ;
+Tien Bui et al., 2012a ). The results rely heavily on the personal experi-
+ence of senior engineers with strong subjectivity. Moreover, the strong
+spatial variability of soils and rocks causes uncertainty and diversity of
+landslides in different regions ( Li et al., 2016a ;Liu and Leung, 2018 ).
+* Corresponding author.
+E-mail address: jwzhou@scu.edu.cn (J. Zhou).
+Contents lists available at ScienceDirect
+Rock Mechanics Bulletin
+journal homepage: www.keaipublishing.com/en/journals/rock-mechanics-bulletin
+https://doi.org/10.1016/j.rockmb.2024.100144
+Received 7 March 2024; Received in revised form 3 June 2024; Accepted 20 June 2024
+Available online 6 July 20242773-2304/ ©2024 Chinese Society for Rock Mechanics &Engineering. Publishing services by Elsevier B.V. on behalf of KeAi Co. Ltd. This is an open access article
+under the CC BY-NC-ND license ( http://creativecommons.org/licenses/by-nc-nd/4.0/ ).Rock Mechanics Bulletin 3 (2024) 100144
+Thus, expert systems are only applicable in their designated survey area,
+which are highly dependent on manual labor and subjective experience
+of engineers. Semi-automated and automated operations which can
+represent the complex non-linear relationships of soil structures are in
+high demand.
+Artiﬁcial intelligence (AI) is an advanced technology aiming to
+automate intellectual tasks that are normally performed by humans. It
+has an excellent ability to characterize the inherent nonlinear relation-
+ships between big data especially the geotechnical data ( Baghbani et al.,
+2022 ). There are many branches of AI, including machine learning,
+natural language processing, cloud computing and others ( Fig. 2 ).
+Currently, AI is widely used in many areas, such as facial recognition,autonomous driving and human-machine interaction ( Fig. 2 ). The main
+aim of this paper is to investigate the applications of AI in landslide risk
+assessment. Research shows that the primary focus of AI applications in
+landslide risk assessment is machine learning (ML) containing deep
+learning (DL) ( Dikshit et al., 2021 ). It is a data-driven method combining
+statistics with optimization theory.
+This paper fully investigates the related studies of applications of AI in
+landslide risk assessment published in recent decades including reviews
+and research papers until 2024. This paper begins with the brief over-view of the AI techniques mainly used in landslide risk assessment. The
+next section describes how AI techniques have been used in landslide risk
+assessment. It categorizes the topics into three parts including landslide
+detection, landslide susceptibility assessment and prediction of landslide
+displacement. Other applications like sampling strategies, hyper-
+parameters optimization and the development of graphical user inter-
+face (GUI) are also brie ﬂy introduced. In the next section, the challenges
+and future opportunities of AI techniques applied in landslide risk
+assessment are also provided. Finally, the overall conclusions are made to
+summarize the whole paper. The explainable AI combining with physical
+meaning and the generalization ability of the used models are crucial for
+future development.
+2. Brief overview of AI techniques in landslide risk assessment
+This section provides a brief overview of different AI techniques used
+in landslide risk assessment including ML, DL, hybrid models (HMs),
+performance testing of models and GUI. The former four are the methods
+and the GUI represents the useful tool mainly applied in landslide risk
+assessment.
+2.1. Machine learning
+ML is a data-driven method combining statistics with optimization
+theory. As shown in Fig. 3 , it can be used for prediction and classi ﬁcation
+(Jordan and Mitchell, 2015 ). For supervised learning, the collected data
+are labeled before training, but for unsupervised learning, the data are all
+unlabeled ( Jordan and Mitchell, 2015 ).
+Fig. 1. Distribution of the NASA global fatal landslide database (modi ﬁed from GFLD, https://svs.gsfc.nasa.gov/4710 ).
+Fig. 2. The technologies of arti ﬁcial intelligence and its main application ﬁelds.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+2
+Widely used ML models include linear regression, logistic regression
+(LR), support vector machine (SVM), K nearest neighbors (KNN), clus-
+tering, decision tree (DT), random forest (RF), naive bayes (NB), etc. The
+crucial step is to determine the optimal parameter values of the model.
+For the collected data, a training set is used for ﬁtting the parameters, and
+a testing set is used for validating the ef ﬁciency of the outputs. The loss
+function is an important index to measure the performance of the model.2.2. Deep learning
+DL is an advanced ML approach that requires a larger amount of data
+(LeCun et al., 2015 ). DL framework is established with neural networks,
+and there are almost always more than three neuron layers ( Fig. 4 a–d).
+DL mainly has three steps ( Fig. 4 e). First, all the input data are subjected
+to a linear regression operation to obtain a series of results. Second, the
+Fig. 3. The main objective of machine learning: (a) prediction of future trends based on historical data and (b) classi ﬁcation of the data according to speci ﬁc laws.
+Fig. 4. Different deep learning models: (a) deep feedforward network; (b) long short-term memory; (c) recurrent neural network; (d) convolutional neural n etwork
+and (e) working principle of one single neuron.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+3
+linear regression results are substituted into an activation function to
+obtain the outputs. The aim is to map the linear regression results to the
+speciﬁc interval of the activation function. Third, the outputs are used as
+inputs in the next layer of neurons. The calculation process is repeated to
+eliminate the invalid features, and then the ﬁnal outputs can be obtained.
+Compared with ML, the framework of DL more closely resembles the
+complexity of the operating mechanism of the human neurological
+system.
+Convolutional neural network (CNN) and recurrent neural network
+(RNN) are the two main DL frameworks that are most commonly used.
+CNN is mainly used in the ﬁelds of image recognition, object recognition
+and computer vision ( Fig. 4 d). RNN, on the other hand, is mainly used in
+ﬁelds such as natural language processing and time series analyses
+(Fig. 4 c). In time series prediction, Long-short-term (LSTM) neural net-
+work's forgetting gate and memory gate effectively overcome the
+forgetting problem of RNN, which can memorize the historical infor-
+mation effectively ( Fig. 4 b).
+Recently, transformer model consisting of encoders and decoders has
+been gradually widely used in geotechnical engineering. The architecture
+of transformer is shown in Fig. 5 . The model based on the attention
+mechanism provides an effective solution for long-sequence time series
+prediction and natural language processing ( Vaswani et al., 2017 ).
+2.3. Hybrid model
+HM integrates two or more ML models ( Kadavi et al., 2018 ), fully
+combining the advantages of different models. It's also called ensemblelearning including bagging, boosting and stacking, etc. For instance, the
+RF model is the simplest hybrid model and is composed of several de-
+cision trees which can solve the over- ﬁtting problem of a single decision
+tree ( Fig. 6 ). Some strategies like majority voting and averaging are used
+to obtain the optimal result ( Fig. 6 ).
+2.4. Performance testing of the model
+The evaluation indexes are used to evaluate the performance of the
+ML models. In general, seventy percent or eighty percent of the dataset is
+used to train the model, and thirty percent or twenty percent of the
+dataset is used to validate the ef ﬁciency of the model. The commonly
+used evaluation indexes include accuracy, precision, recall, F1 score,
+intersection over union (IoU), root mean square error (RMSE), meanabsolute error (MAE), area under curve (AUC), etc. These indexes are
+deﬁned in Eqs. (1) –(7) as shown below ( Baghbani et al., 2022 ):
+Accuracy ¼TPþTN
+TPþFPþTNþFN(1)
+Precision ¼TP
+TPþFP(2)
+Recall ¼TP
+TPþFN(3)
+F1 score ¼2precision /C1recall
+precision þrecall(4)
+IoU¼Intersection Area
+Union Area(5)
+RMSE ¼ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+1
+nXn
+i¼1ðPi/C0OiÞ2r
+(6)
+MAE ¼Pn
+i¼1jPi/C0Oij
+n(7)
+where TP is the true positive value, i.e. the data predicted to be true and
+actually true; FN is the false negative value, i.e. the data predicted to be
+false but actually true; FP is the false positive value, i.e. the data predicted
+to be true but actually false; TN is true negative value, i.e. the data pre-
+dicted to be false but actually false; Pirepresents the actual outputs; Qi
+represents the prediction outputs. AUC is the area under the receiver
+operating characteristics curve (ROC).
+The higher the accuracy, precision, recall, F1 score, IoU and AUC, and
+the lower the RMSE and MAE, the more effective the model is. IoU is an
+index mainly used in image recognition like object detection and se-
+mantic segmentation. Selecting reasonable evaluation indexes is crucial
+before model training. It's necessary to understand how these indexes
+behave overall, not individually.
+2.5. Graphical user interface
+GUIs are important tools that help normal users to implement com-
+plex algorithmic functions through a simple interface to make the land-
+slide risk assessment. Generally speaking, a GUI encapsulates the
+complex mathematical models of ML and provides a visual platform for
+normal users. It enables normal users to easily apply relevant ML models
+Fig. 5. The main architecture of the Transformer model (modi ﬁed from Vas-
+wani et al., 2017 ).
+Fig. 6. The architecture of the simplest hybrid model named random forest.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+4
+to solve practical problems even if they do not understand the mathe-
+matical principles of the models. The development of a GUI is essential to
+realize the widespread application and popularization of AI techniques.
+3. How AI techniques have been applied in landslide risk
+assessment
+This section describes how AI techniques have been used in landslide
+risk assessment. Three key areas are identi ﬁed and discussed including
+landslide detection, landslide susceptibility assessment and prediction of
+landslide displacement in this section. Other applications like sampling
+strategies, hyper-parameter optimization and GUIs are also discussed.
+Among these areas, landslide detection and landslide susceptibility
+assessment both belong to the soft risk assessment approach (regional)
+and prediction of landslide displacement belongs to the hard riskassessment approach (individual) ( Lei et al., 2023 ).
+ML is an algorithm that can learn from data without relying on rules-
+based programming. The statistical models used in the following sections
+are the formalization of relationships between variables in the form of
+mathematical equations which are distinguished from ML. Generally, ML
+is a subset of AI and DL is a subset of ML ( Fig. 2 ). But in the following
+sections of the paper, ML and DL are distinguished. ML speci ﬁcally refers
+to the conventional algorithms like SVM, LR, linear regression, DT, RF,
+AdaBoost, clustering, KNN, NB and others. DL refers to the neural
+network constructed by different frameworks like arti ﬁcial neural
+network (ANN), CNN, RNN, graph neural network (GNN), LSTM and
+others.
+Figure 7 shows the statistical results of the representative studies
+published in recent decades using AI techniques in landslide risk
+assessment for several main ﬁelds. Landslide susceptibility assessment
+has the highest number of studies followed by landslide displacement
+prediction, landslide detection and GUI. Landslide detection still relies
+heavily on visual interpretation by remote sensing techniques without
+the use of AI techniques. DL has been used as the main technique grad-
+ually replacing ML methods and statistical models. It still lacks advanced
+GUI tools that can be effectively used in this ﬁeld.
+3.1. Landslide detection
+To prevent disasters caused by landslides, it is essential to identify
+slopes where landslides have previously occurred. Landslide detection
+involves the recognition and mapping of landslides in a region, providing
+information on the location, type, boundary, volume, and date of land-
+slides. This is a critical prerequisite for determining landslide
+susceptibility.
+Traditionally, landslide detection methods rely on the visual inter-
+pretation of remote sensing images and aerial photography, as supported
+byﬁeld surveys ( Zhang et al., 2024 ). However, this approach is resourceintensive, time-consuming, and subject to interpretation bias ( Das et al.,
+2023 ;Wang et al., 2020b ). Therefore, semi-automated or automated
+method by AI is crucial in generating landslide maps, which can effec-
+tively reduce the workload of manual landslide detection ( Das et al.,
+2023 ;Liu et al., 2023a ;Liu et al., 2023b ,Liu et al., 2023c ,Liu et al.,
+2024a ;Lv et al., 2023 ;Zhang et al., 2024 ). Moreover, traditional land-
+slide detection based on visual interpretation relies heavily on people's
+subjective judgment. This leads to inconsistent criteria for detecting
+landslides. The criteria for detecting landslides based on AI models are
+uniform and the results obtained are more objective than manual
+detection.
+The application of AI, particularly image recognition technology, has
+emerged as a useful method in recognizing landslides using remote
+sensing and aerial photography data. The general ﬂowchart of this
+approach is depicted in Fig. 8 . This approach enables the accurate and
+efﬁ
+cient identi ﬁcation of landslides and reduces the dependence on
+human interpretation, improving the reliability and reproducibility of
+landslide detection.
+3.1.1. ML in landslide detection
+Initially, pixel-based ML models were utilized to detect landslides.
+These models focus on detecting landslides and non-landslides at the
+pixel level. Thus, complex features of geomorphological factors such as
+rivers, trees, mountains, and trenches are not considered ( Fig. 9 ). In
+2005, Nichol and Wong (2005) employed a pixel-based maximum like-
+lihood classi ﬁer with satellite images, achieving approximately 70%
+detection of existing landslides. Borghuis et al. (2007) utilized both su-
+pervised and unsupervised pixel-based ML methods and successfully
+detected landslides. Various pixel-based methods have varying perfor-
+mance levels. For instance, pixel-based support vector machine models
+have outperformed other models, such as RF and maximum likelihood
+classi ﬁers ( Dikshit et al., 2021 ). Generally, pixel-based methods have
+been applied successfully in landslide detection and continue to be
+widely used as an effective semi-automated method at present ( Liu et al.,
+2023a ;Liu et al., 2023d ;Liu et al., 2024b ;Lv et al., 2023 ;Zhang et al.,
+2024 ).
+In object-based ML approaches to landslide detection, the physical
+meaning of each complex geological feature consisting of landslides is
+considered ( Fig. 9 ).Figure 10 shows the recognition results of different
+landslides and non-landslides at pixel-based and object-based level,
+respectively. Comparing with the pixel-based method, the object-based
+method may be more appropriate for identifying complex geological
+features and natural phenomena ( H€olbling et al., 2012 ). For instance, not
+like the exposed landslides, the landslides covered with vegetation are
+usually dif ﬁcult to recognize. To address this situation, ( Li et al., 2015 )
+proposed an object-based approach to detect forested landslides, reach-
+ing an accuracy of 89.11%. At present, object-based methods are widely
+Fig. 7. Distribution of the use of AI techniques in landslide risk assessment in
+different application areas.
+ Fig. 8. General ﬂowchart of landslide detection.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+5
+used for semi-automated landslide detection ( Amatya et al., 2021 ;
+Bhuyan et al., 2023 ;Chandra et al., 2023 ;Comert et al., 2019 ;Feizizadeh
+et al., 2017 ;Sreelakshmi and Vinod Chandra, 2024 ).
+The studies above mainly focused on analyzing the spectral infor-
+mation of satellite and UAV images from the same period. However,
+some slopes are potential landslides that lack obvious geological features
+such as cracks and surface exposure and are hard to directly recognize
+through visual interpretation. Essentially, the deformation of these kinds
+of slopes must be analyzed. The ﬁrst useful way to obtain deformationinformation is to analyze and interpret satellite and UAV images from
+different periods. The core technology involves ﬁnding pixel differences
+between images. For instance, in 2015, Hoelbling et al. (2015) performed
+change detection of potential landslides covered with vegetation. In
+2017, Feizizadeh et al. (2017) used an object-based method to analyze
+multi-temporal images to detect changes in landslides, reaching an ac-
+curacy of 94.74%. The second useful way to obtain deformation infor-
+mation is to use synthetic aperture radar data, such as those from InSAR
+(Hu et al., 2023 ;Chen et al., 2023 ;Confuorto et al., 2023 ;Li et al., 2024 ;
+Fig. 9. The principle of pixel-based and object-based image recognition.
+Fig. 10. The landslide recognition results in Aosta Valley, northwestern Italy: (a) pixel-based landslide recognition and (b) object-based landslide reco gnition
+(modi ﬁed from H€olbling et al., 2012 ).R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+6
+Li et al., 2023a ;Xu et al., 2023 ;Yi et al., 2023a ;Yi et al., 2023b ). In 2018,
+Rosi et al. (2018) updated the landslide inventory in the Tuscany region
+by using InSAR with the persistent scatter interferometry technique to
+detect changes in landslides. In 2021, Liu et al. (2021) proposed a new
+InSAR-based procedure to detect landslides by integrating the geomor-
+phological conditions from one period and changing the detection of
+landslides from different periods. The integration of spectral information
+and change detection can facilitate the recognition of landslides with
+higher accuracy, as it enables the mutual veri ﬁcation of the recognition
+results ( Dai et al., 2023 ;Phakdimek et al., 2023 ).
+3.1.2. DL in landslide detection
+Recently, DL methods have been gradually used. Among the DL
+models, CNNs are the most widely used framework in landslide detection
+like U-net, Seg-Net and Yolo ( Chandra et al., 2023 ;Han et al., 2023 ;Hu
+et al., 2023 ;Li et al., 2023c ;Lu et al., 2023 ;Wang et al., 2020 ). The
+details of the operation process are shown in Fig. 11 , and the following
+discusses the main development process of DL applications in landslide
+detection.
+To verify the ef ﬁcacy and superiority of DL models, in 2019, the
+performance of ML and DL in landslide detection were compared, and the
+results showed that DL methods don't signi ﬁcantly outperform ML
+methods because DL in landslide detection was still in its infancy
+(Ghorbanzadeh et al., 2019 ). The design of the framework of DL, such as
+the layer depth, input window size and training strategy, evidently in-
+ﬂuence the outputs ( Ghorbanzadeh et al., 2019 ). For instance, RNN with
+different designs perform differently in the mapping of landslides ( Wang
+et al., 2020a,b ). A better understanding of DL models for landslide
+detection is in high demand and still needs further research.
+Based on the above background, in 2019, Lei et al. (2019) proposed a
+novel approach integrating a fully convolutional network with pyramid
+pooling to detect landslides, and the experimental results showed that the
+methods were signi ﬁcantly improved and could outperform ML models,
+yielding higher precision and lower overall error. In 2020, Prakash et al.
+(2020) adapted a CNN using ResNet-34 blocks for feature extraction and
+proved that results with higher accuracy could be obtained using thismethod compared with those of ML methods. In 2022, Ghorbanzadeh
+et al. (2022) compared the performances of different object-based DL
+models and found that ResU-Net-OBIA performed better than the
+ResU-Net and OBIA approaches. In 2023, the Yolov7 algorithm based on
+the SE squeezed attention mechanism is veri ﬁed to have higher gener-
+alization and can be used to detect landslides more accurately with fewer
+missed detections ( Liu et al., 2023a ). The research above all proves that a
+reasonable DL framework is crucial, which can help improve the results
+of landslide detection effectively with higher generalization ability and
+replace state-of-the-art approaches.
+3.2. Landslide susceptibility assessment
+Landslide susceptibility (LS) re ﬂects the possibility of landslides
+occurring in a speci ﬁc region. The process of landslide susceptibility
+mapping (LSM) involves considering various in ﬂuencing factors, such as
+elevation, slope angle, lithology, soil type, aspect, distance to roads,
+distance to faults and distance to rivers, to analyze the likelihood oflandslides as the input parameters. In general, steeper slopes, weaker soil
+shear strength, and closer proximity to rivers increase the LS of an area.
+Correlation analyses are supposed to be carried out between different
+inﬂuencing factors, with the strongly correlated in ﬂuencing factors being
+eliminated and the weakly correlated in ﬂuencing factors being retained.
+It's the critical standard for selecting input in ﬂuencing factors for LSM.
+Analyzing LS can aid policy-makers in taking effective measures to
+avoid disasters and reduce losses. The developments of LS studies are
+shown in Fig. 12 . The conception was ﬁrst proposed in the 1960s.
+Traditionally, LS has relied on statistical methods and expert systems,
+where senior engineers determine the parameter values of the model
+based on statistical results and practical experience. Currently, ML has
+become an ef ﬁcient and objective approach to map LS. Figure 13 shows
+the primary ﬂowchart of ML applied in LS. It has several advantages over
+traditional methods, such as higher objectivity and ef ﬁciency.
+3.2.1. ML in landslide susceptibility assessment
+In 2012, Mamdani fuzzy algorithms based on expert opinions were
+Fig. 11. Landslide recognition with a convolutional neural network: (a) process of the convolutional neural network and (b) two main pooling operations.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+7
+used to successfully map LS in Sinop City, with an AUC value of 0.855,
+which indicates good ﬁtness ( Akgun et al., 2012 ).Althuwaynee et al.
+(2012) indicated that evidential belief functions can be effectively used
+in LSM. Tien Bui et al. (2012a) investigated the application of an adaptive
+neuro-fuzzy inference system for LSM and proved that the accuracy of the
+results can be quite satisfactory. In 2013, Kayastha et al. (2013) applied
+the analytical hierarchy process to LSM, and the analytical results were in
+good agreement with those of past landslides. The results were further
+validated by other research ( Chang et al., 2023 ; Dou et al., 2019; Nath
+et al., 2024 ;Zhou et al., 2023 ). From the studies above, the evidential
+belief functions, fuzzy models and analytical hierarchy process can all
+perform well in the application of LSM.Toﬁnd the optimal models for LSM, most studies have focused on
+comparing the performance of these models. In 2012, Tien Bui et al.
+(2012b) compared the performance of evidential belief functions and
+fuzzy logic models and found that although both models perform well in
+terms of LSM, evidential belief functions are better, yielding higher ac-
+curacy. Pourghasemi et al. (2012a,b) found that fuzzy logic models
+perform better than the analytical hierarchy process in LSM. Of the three
+models above, evidential belief functions have the highest prediction
+capability. In addition to the models above, many researchers have also
+investigated other statistical models, such as the index of entropy, con-
+ditional probability models, frequency ratio, weights of evidence, cer-
+tainty factor and index of entropy ( Devkota et al., 2013 ;Ozdemir and
+Fig. 12. The development of landslide susceptibility over time (modi ﬁed from Dou et al., 2022 ).
+Fig. 13. The main process of landslide susceptibility mapping using machine learning.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+8
+Altural, 2013 ;Pourghasemi et al., 2012a,b ;Regmi et al., 2014 ). The re-
+sults show that all the models above perform well and have similar ac-
+curacy in terms of LSM.
+Some researchers compared ML models with statistical models and
+proved that ML models can obtain better results ( Akgun, 2012 ;Ali et al.,
+2021 ;Felicísimo et al., 2013 ;Goetz et al., 2015 ;Huang et al., 2020 ;
+Pradhan, 2013 ). Thus, ML models have become the main research di-
+rection in LSM, and many studies have focused on comparisons between
+different ML models to obtain the optimal model. Fig. 14 shows the
+susceptibility mapping of landslides in Algeria using different ML models.
+Different models perform differently in terms of the ﬁnal results. SVM,
+LR, NB, RF and other ML models were compared, and the results proved
+that all these ML models can perform LSM well; however, SVM, LR and
+RF are promising methods with better outputs ( Chen et al., 2017 ;Guo
+et al., 2021 ;Pradhan, 2013 ;Tsangaratos and Ilia, 2016 ;Youssef et al.,
+2016 ;Youssef and Pourghasemi, 2021 ).
+3.2.2. DL in landslide susceptibility assessment
+DL has also increasingly been utilized in the ﬁeld of LSM. In 2014,
+Conforti et al. (2014) used ANN for LSM in the Turbolo River catchment
+in southern Italy and found that the results were satisfactory. This studydemonstrated the effectiveness of neural network models for LSM. In a
+recent study by Dou et al. (2020) , DL models were applied to a case study
+in the Muong Lay district, and LSM outputs with good ﬁtting to the
+testing set were obtained. Some researchers have become interested in
+whether DL models perform better than ML models. In 2020, Bui et al.
+(2020) compared DL models with ML models, such as SVM, DT and RF,
+for LSM. The results showed that the accuracies of the LSM results of the
+DL models were 3% –7% higher than those of other ML models. In 2021,
+Mandal et al. (2021) compared a CNN with ML models such as RF and
+bagging models and found that the CNN outperformed the other models
+and achieved higher precision. In summary, DL models have been proven
+to be better, i.e., higher LSM accuracy, compared with ML models ( Jiang
+et al., 2023 ). The performances of different DL models are also compared
+in some studies ( Ge et al., 2023 ;Kim and Lee, 2024 ). Currently, the two
+main DL frameworks used for LSM are CNNs and RNNs ( Fan and Hua,
+2009 ;Wang et al., 2020a,b ;Yi et al., 2020 ;Mandal et al., 2021 ;Jiang
+et al., 2023 ).
+3.2.3. HM in landslide susceptibility assessment
+In addition to using single model, many studies have explored the use
+of HM to improve the LSM. Several studies demonstrated the superiority
+Fig. 14. The susceptibility mapping of landslides in Algeria using different machine learning models: (a) logistic regression; (b) naïve Bayes; (c) support vector
+machine and (d) random forest (modi ﬁed from Merghadi et al., 2020 ).R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+9
+of HM, including those by Pourghasemi et al. (2012) ,Chen et al. (2017) ,
+Goetz et al. (2015) ,Trinh et al. (2023) ,Youssef et al. (2016) ,Liu et al.,
+2024a ,Yang et al. (2024a) . In 2014, Althuwaynee et al. (2014) inte-
+grated evidential belief functions and the analytical hierarchy process for
+LSM and found that the novel model showed better performances than
+that of a single LR model. In 2020, Wang et al. (2020a) compared HM (an
+ensemble model of an SVM, an ANN and a gradient boosting DT) with
+single ML models and found that the AUC value of the HM was 0.11 –0.35
+higher than those of the ML models. Wang et al. (2020b) used an SVM
+with bagging, boosting, and stacking ensemble ML framework with data
+from a mountainous watershed in Japan to improve landslide assess-
+ment. This HM is proven to be better. ( Di Napoli et al., 2020 ) found that
+the integration of different ML models can produce robust and more
+stable LSM outputs. Many studies also compared the performance of
+different HMs and proved that accuracy differences still exist ( Balogun
+et al., 2021 ;Chen et al., 2019 ;Chen et al., 2016 ;Nguyen et al., 2019 ;Tien
+Bui et al., 2019 ).
+3.3. Prediction of landslide displacement
+Regional studies that focused on determining slopes with higher
+landslide risk were described above (soft risk assessment approach). The
+following section discussed studies related to mitigating potential haz-
+ards for these slopes (hard risk assessment approach). Predicting the
+evolution of these slopes is crucial for understanding the occurrence
+process of landslide disasters and forecasting them in advance.
+The evolution of landslides, especially accumulation landslides,
+mainly contains three stages, i.e., the initial deformation stage, constant
+deformation stage and accelerative deformation stage. In the later period
+of the accelerative deformation stage, the tangent angle of deformation
+approaches 90/C14, and the risk of landslide failure reaches the maximum.
+The regulation shows that displacement is a very important factor in
+characterizing the evolution of landslides. To obtain the evolution of
+slopes with a high risk suffering from landslides, the main strategy is to
+monitor the displacement of these slopes with equipment, such as GNSS,
+displacement gauges, inclinometer and remote sensing, including InSAR
+and UAV, and then use ML models to predict the future displacement
+based on historical monitoring data ( Zhang and Huang, 2009 ;Casagli
+et al., 2023 ;Xu et al., 2023 ). The development of landslide displacement
+prediction studies is shown in Fig. 15 and the main ﬂowchart of landslide
+displacement prediction is shown in Fig. 16 .
+3.3.1. ML in the prediction of landslide displacement
+In the 1980s and 1990s, the prediction of landslide displacement wasmainly based on statistical models like fuzzy theory and gray system
+theory ( Fig. 15 ). Since the 1990s, research has increasingly focused on
+nonlinearity, systematics and intelligence ( Fig. 15 ). The ﬁeld of AI,
+especially relevant ML models, has been introduced into the displace-
+ment prediction of landslides and has achieved good results ( Fig. 15 ). For
+instance, in 2009, based on the time series of landslide displacement, Fan
+and Hua (2009) used phase space reconstruction and an SVM to effec-
+tively predict future landslide displacement. In 2013, Zhang et al. (2013)
+used exponential smoothing and nonlinear regression analysis to predict
+the displacement of landslides with high accuracy. Different ML models
+perform differently in landslide displacement prediction ( Liu et al., 2012 ;
+Miao et al., 2010 ). Some studies compared the performance of the
+Gaussian process (GP), SVM and RBF networks and found that the GP
+models performed better than the other two models ( Liu et al., 2012 ,
+2014 ). As a result, to obtain better outputs, the selection of ML models
+Fig. 15. The development of landslide displacement prediction over time (modi ﬁed from Dou et al., 2022 ).
+Fig. 16. Flowchart of landslide displacement prediction using machine
+learning: (a) model establishment and (b) model validation.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+10
+should be considered carefully for landslide displacement prediction.
+For landslides, especially reservoir landslides, rainfall and ﬂuctua-
+tions in the reservoir water level are two main factors that induce land-
+slide disasters ( Du et al., 2013 ;Zhang et al., 2019 ). Heavy rain or
+reservoir impoundment will signi ﬁcantly decrease the shear strength of
+rocks and soils ( Fig. 17 ). However, the methods above only predict
+landslide displacement based on the time series of data and do not take
+the impact of induced factors into account. The risk of potential land-
+slides will be greatly underestimated with these prediction results. To
+improve the prediction results, more research has begun to focus on
+considering the essential factors mentioned above. In 2013, Peng et al.
+(2013) used SVM to predict step-type landslide displacement. In this
+study, landslide displacement was split into two terms, the trend term
+and seasonal term ( Fig. 17 ). The two terms were predicted separately,
+and then they were added to obtain the ﬁnal output ( Fig. 17 ). The trend
+term is related to the geological conditions of landslides, while the sea-
+sonal term has a high correlation with the in ﬂuencing factors of water
+(Fig. 17 ). In 2014, Lian et al. (2014) proposed that the ensemble extreme
+learning machine performs well for predicting the accumulative
+displacement of landslides separated into trend terms and periodic terms.
+In 2018, Miao et al. (2018) used a support vector regression model to
+predict and separate landslide displacement into three terms: the trend
+term, periodic term and random term. This study clari ﬁed that the
+random term represents some uncertainties that will accelerate the
+evolution of landslides, such as anthropogenic activities and other social
+factors. In future research, to obtain prediction results with higher pre-cision, the separation of landslide displacement into two or more terms is
+an indispensable step ( Yang et al., 2019a ;Zhang et al., 2021a ;Zhang
+et al., 2021b ).3.3.2. DL in the prediction of landslide displacement
+DL has also gradually been applied to the prediction of landslide
+displacement. In 2015, ( Chen et al., 2015 ) used an RNN to predict the
+displacement of the Baishuihe landslide and found that the prediction
+accuracy was much higher than that of conventional ML models. In 2016,
+Jiang and Chen (2016) demonstrated the effectiveness of generalized
+regression neural networks on the prediction of landslide displacement.
+In 2022, Huang et al. (2022) used a modi ﬁed CNN to accurately predict
+landslide displacement. The feasibility and superiority of DL models has
+also been validated by many other studies ( Chen et al., 2016 ;Jiang et al.,
+2023b ;Li et al., 2016b ;Lian et al., 2016a,b ;Lin et al., 2023 ;Nava et al.,
+2023 ;Yang et al., 2023 ;Yang et al., 2024b ,Yang et al., 2024c ;Zeng et al.,
+2023
+).
+In 2018, Xu and Niu (2018) proposed an LSTM neural network to
+predict the displacement of landslides. This dynamic model can
+remember prior information and apply it to later outputs. In these
+studies, it was found that dynamic models perform better than static
+models. This conclusion was further validated in many other studies
+(Duan et al., 2023 ;Li et al., 2023a ;Xie et al., 2019 ;Xing et al., 2019 ;Xing
+et al., 2020 ;Yang et al., 2019b ). Moreover, for the same kinds of dynamic
+models, LSTM performs better than the Elman network, which means
+that different DL models perform differently even though they possess
+the same functions ( Niu et al., 2021 ;Xu and Niu, 2018 ). LSTM has also
+been used to compare with RNNs and other DL models ( Gao et al., 2022 ;
+Niu et al., 2021 ). The results showed that LSTM performs best and can be
+regarded as a main tool for landslide displacement prediction ( Zhang
+et al., 2022 ;Duan et al., 2023 ;Li et al., 2023b ). From the above, it seems
+that the Elman network is not an effective dynamic model. To address
+this problem, in 2019, Zhang et al. (2019) proposed an improved Elman
+Fig. 17. Displacement prediction of the Baishuihe landslide: (a) landslide displacement induced by rainfall and water level; (b) monitoring data and displa cement
+decomposition; (c) prediction results of trend displacement and (d) prediction results of cumulative displacement (modi ﬁed from Wang et al., 2022 ).R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+11
+network based on the piecewise time weighted gradient by considering
+the current and historical gradients simultaneously. The incorporation of
+slope stability models that account for the dynamic changes in slope
+gradients can result in more accurate modeling of real-world situations.
+This suggests that modifying original models can be an effective strategy
+for improving the precision of the ﬁnal prediction results. Recently,
+Transformer model based on attention mechanism has also been utilized
+in landslide displacement prediction, which can perform obviously better
+than LSTM in the prediction of long-sequence time series ( Xi et al., 2023 ).
+3.3.3. HM in the prediction of landslide displacement
+Some studies have combined the advantages of several models to
+improve the accuracy of landslide displacement prediction. In 2013,
+Zhao et al. (2013) integrated the BP neural network with a Markov chain
+for landslide displacement prediction. The former model is used to pre-
+dict the displacement, and the latter model is used to analyze the range of
+prediction errors and adjust the parameters of the models to obtain
+minimal error values. This integrated model can effectively improve the
+accuracy of the prediction outputs.
+SVM models have been proven to be useful algorithms with good
+performance in landslide displacement prediction. However, these
+models rely heavily on the optimal selection of parameters. The param-
+eter values of SVM models will greatly in ﬂuence the precision of the ﬁnal
+output ( Li and Kong, 2014 ). In this case, to compensate for the disad-
+vantages of SVM, some models that are good at optimizing the model
+parameters can be integrated with the models to improve the perfor-mance. In 2014, Li and Kong (2014) integrated the genetic algorithm
+with SVM models for parameter optimization and found that the inte-
+grated models perform slightly better than single SVM model. The
+effectiveness of these models was further validated in many other studies
+(Wen et al., 2017 ;Zhu et al., 2018 ;Wang and Qiao, 2023 ).
+Different HMs are also compared in some studies. In 2019, Liao et al.
+(2019) compared the performance of GWO-ELM models with GWO-SVM
+models for landslide prediction. The results showed that the former is
+apparently more precise than the latter. The selection of an appropriate
+HM is very important for the analysis results. In recent years, an
+increasing number of studies have been conducted to ﬁnd the optimal
+HMs for different application cases ( Dai et al., 2022 ;Gao et al., 2022 ;Guo
+et al., 2020a,b ;Jiang et al., 2020 ;Jiang et al., 2022a ;Lin et al., 2022 ;Lu
+et al., 2021 ;Luo et al., 2023 ;Wang et al., 2021 ;Zeng et al., 2022 ;Zhanget al., 2021a ;Zhang et al., 2020 ,Zhang et al., 2021c ,Zhang et al.,
+2021d ).
+3.4. Other applications
+3.4.1. Sampling strategies
+ML sampling strategies for landslide risk assessment are also very
+important for the ﬁnal outputs ( Guo et al., 2024 ). For the samples after
+feature extraction, which data types should be selected, which data will
+be used as the training set and which data will be used as the testing set,
+what is the basis for this selection strategy and how will it affect theresults are all key questions that need to be further discussed.
+In 2017, Kornejady et al. (2017) used the maximum entropy model
+for landslide susceptibility mapping of the Ziarat watershed in Iran. Two
+different sampling strategies, named the Mahalanobis distance and
+random sampling were used, and the analysis results were compared
+with each other. The results showed that the former performed obviously
+better. In 2020, Yi et al. (2020) compared the performance of ML models
+using different scales of the training set (small scale, medium scale and
+large scale) and found that small-scale datasets yield better performance
+than large-scale datasets. As the scale increases, the accuracy of the ﬁnal
+output slightly decreases. In 2020, Dou et al. (2020) analyzed the in ﬂu-
+ence of different types of samples on the outputs of ML and DL as shown
+inFig. 18 . The results showed that the sample type has a signi ﬁcant in-
+ﬂuence on the accuracy of conventional ML models. For DL models,
+especially CNNs, although the sample types are different, the outputs still
+have similar precision, which means that sample types are less conse-
+quential to the DL models. Currently, much research has focused on
+ﬁnding the optimal sampling strategies ( Chang et al., 2023 ;Hong et al.,
+2024 ;Ke et al., 2023 ;Khabiri et al., 2023 ;Liu et al., 2023a ;Ma et al.,
+2023 ;Trinh et al., 2023 ;Xing et al., 2023 ).
+3.4.2. Hyper-parameter optimization
+Hyper-parameters are parameters that need to be set before the ML
+process begins. For instance, the number of layers and nodes of a neural
+network and the number of trees in a RF are all very important hyper-
+parameters that need to be determined before calculations are per-
+formed. Hyper-parameters are closely linked with the design of the
+neural network framework and other ML models. Understanding the
+inﬂuence of hyper-parameters is essential in comprehending the working
+Fig. 18. Different sampling strategies: (a) centroid of a landslide body; (b) samples of a landslide body; (c) centroid of a landslide scarp and (d) samples of a landslide
+scarp (modi ﬁed from Dou et al., 2020 ).R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+12
+mechanism of ML, and it helps improve the ﬁnal outputs.
+In 2020, Sun et al. (2020) used a RF model for LSM, and a bayesian
+model was used to optimize the hyper-parameters of the RF models. The
+main aim is to obtain the optimal RF framework design to ensure an
+output with high accuracy. Based on former studies, in 2021, Sun et al.
+(2021) used a Bayesian model to optimize the hyper-parameters of RF
+and LR simultaneously and compared the performance of the two
+modiﬁed models. The results showed that both modi ﬁed models perform
+better than the unmodi ﬁed models, and the LR models optimized by
+Bayes perform much better than the modi ﬁed RF models. The optimi-
+zation of hyper-parameters can help us design better model frameworks.
+The optimization process is very useful to ensure the high precision of the
+ﬁnal output.
+3.4.3. Development of GUI
+The development of GUIs is the ﬁnal step in AI applications. A GUI
+encapsulates complex landslide detection, LSM and landslide displace-
+ment prediction ML models and provides a visual platform for normal
+users. GUI development is essential in realizing the popularization of AI
+technology for the mitigation of landslide disasters.
+In 2017, Lagomarsino et al. (2017) used MATLAB to encapsulate a RF
+model and developed a GUI to obtain LSM. This GUI is a straightforward
+and easy application providing a useful tool for normal users. In 2021,
+Song et al. (2021) also encapsulated ML models to develop a GUI for LS
+assessment. This GUI contains more useful functions, including param-
+eter initialization and determination of landslide boundary conditions.
+GUI development for landslides is still in its infancy. Advanced GUIs
+containing functions such as landslide detection, LSM and landslide
+displacement prediction, which can be operated easily by normal users,
+are still in high demand in the ﬁeld of landslide disaster mitigation.
+4. Discussions
+This section discusses the challenges and provides suggestions for the
+future development of AI applications in three aspects of landslide risk
+assessment. Table 1 suggests the main algorithms used for the three key
+areas and Fig. 19 summarizes the main challenges and opportunities
+ahead.
+4.1. Challenges and opportunities for landslide detection
+The main types of landslide detection methods are shown in Table 2 .
+Some major problems still exist for landslide detection by AI. First, soil
+has strong spatial variability, i.e., soil parameters vary by location.
+Moreover, the geological conditions also vary greatly in different regions.
+These factors lead to obvious differences in the features of different
+landslides. This greatly increases the dif ﬁculty of landslide detection.
+Moreover, it still relies heavily on manual detection which is resource
+intensive, time-consuming and subject to interpretation bias. Credible
+general criteria for landslide detection is still lacking. The existing
+determination methods are mostly based on engineering experience and
+lack rigorous and systematic theoretical support. Second, although DL
+models can ﬁlter out invalid features from training data and retain the
+most useful features, there is still a lack of evidence to conclude that DL
+models have a higher capability of landslide detection than that of ML
+models. The application of DL models in this ﬁeld is still in its infancy.
+How to design the framework of DL models appropriately to improve the
+model performance and the generalization ability is still ambiguous and
+requires more research. The future of landslide detection can be
+described as follows:
+(1) The design of a DL model framework, which contains layers,
+nodes and hyper-parameters, is very important to ensure the ef-
+ﬁciency and generalization of landslide detection results.
+(2) Object-based DL models, especially object-based CNN models, will
+be the main useful method for landslide detection. The integrationof object-based CNN models with other models and the appro-
+priate modi ﬁcation of object-based CNN models will be the main
+research directions to improve the generalizability, precision and
+robustness of ML for landslide detection.
+(3) The criteria applicable to determine different landslides in
+different regions are very useful in accurate landslide recognition.
+More general criteria are needed to consider the spatial variability
+of soil parameters and the speci ﬁcity of landslide characteristics.
+(4) The integration of spectral analysis and slope deformation infor-
+mation will be essential in landslide recognition. Integrated
+methods can play a role in mutual validation to ensure the pre-
+cision of the detection results. Future research should focus on the
+proposal of better algorithms to improve the accuracy of image
+recognition and the interpretation precision of slope deformation
+toﬁnd potential landslides, especially landslides covered with
+vegetation.
+(5) Few studies have focused on obtaining the rigorous boundaries,
+volume and types of landslides. Future research should focus on
+the proposal of useful and optimal algorithms to achieve this goal.
+(6) It still lacks for advanced GUI tools for landslide detection. The
+development of related products is very important to realize the
+generalizability of AI technology for landslide detection.
+4.2. Challenges and opportunities for LSM
+Compared with other ML models, LR, RF and SVM models perform
+better and have higher precision in LSM. HMs combine the advantages of
+different ML models and perform better than single ML models. DL
+models, especially CNN and RNN models, which have been widely used
+are the advanced technologies in LSM, perform better than conventional
+ML models. From the literature above, the future of landslide suscepti-
+bility mapping can be described as follows:
+(1) Hyper-parameter and sampling strategies are also very important
+for the ﬁnal accuracy in LSM. Different RF frameworks, different
+layers and different numbers of nodes in DL models have a sig-
+niﬁcant in ﬂuence on the ﬁnal outputs. The appropriate framework
+design is essential. Different selections, scales and types of training
+sets also greatly in ﬂuence the ﬁnal outputs. Both hyper-parameter
+and sampling strategies should be considered simultaneously in
+LSM.
+(2) DL models, especially CNN and RNN models, are the advanced
+technologies for LSM at present. Future research should focus on
+the optimization of these two models, including the appropriate
+selection of hyper-parameters and sampling strategies, integration
+with other advanced models and modi ﬁcations to improve the
+robustness, generalizability and precision of the ﬁnal outputs.
+(3) The strategies for integrating different ML models, setting hyper-
+parameters and training sets still need further research. The kinds
+of strategies truly needed in different situations still lack discus-
+sion. Further studies for ﬁnding the optimal strategies are still
+needed.
+(4) All the ML models described considered several in ﬂuencing fac-
+tors of landslides to analyze and obtain the LSM results. However,
+few studies clari ﬁed why these factors were selected over otherTable 1
+The main ML models summarized for the three application areas.
+Field Models with best performances
+Landslide detection Support vector machine, convolutional neural network,
+recurrent neural network and related hybrid models
+Landslide susceptibility
+mappingSupport vector machine, logistic regression, random
+forest, convolutional neural network, recurrent neuralnetwork and related hybrid models
+Landslide displacement
+predictionLong short-term memory, transformer and related hybrid
+modelsR. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+13
+factors and exactly how many in ﬂuencing factors should be
+selected. Furthermore, the obtained LSM results are static and
+only have reference values for policy-making in a given period.
+For landslides, especially reservoir landslides, rainfall, ﬂuctua-
+tions in the water level, earthquakes and anthropogenic factors
+will all cause changes in in ﬂuencing factors such as the geological
+conditions, shear strength and water content of soil. It is very
+important to obtain a dynamic LSM that has long-term reference
+values for the government by taking the in ﬂuencing factors into
+account. In addition to improving the accuracy, researchers
+should also focus on improving the computational ef ﬁciency of
+models, which is often overlooked.
+(5) Advanced GUI tools are also rare for this ﬁeld. The development of
+related products can help to realize the generalizability of AI
+technology to LSMs. For the calculation algorithms, in addition to
+accuracy, researchers should also improve the calculation ef ﬁ-
+ciency of the models, which is rarely considered.
+4.3. Challenges and opportunities for landslide displacement prediction
+The current research mainly focuses on the prediction of single pointlandslide displacement by GNSS. The monitoring and prediction results
+can only re ﬂect the deformation of the instrument installation position
+and cannot represent the overall deformation characteristics of a land-
+slide. Sudden deformation rate changes of individual points do not mean
+that the overall deformation of a landslide follows this trend. This is very
+likely to lead to the misjudgment of landslide deformation and
+instability.
+In recent years, non-contact monitoring techniques like InSAR, UAV
+and terrestrial laser scanning have been gradually used to get the su-
+perﬁcial deformation of landslides for different periods ( Jiang et al.,
+2021 ;Jiang et al., 2022b ;Kulshrestha et al., 2022 ). The displacement
+prediction through the data obtained by non-contact monitoring tech-
+niques is still rarely considered and only a few studies have already
+discussed this research direction using DL ( Kulshrestha et al., 2022 ).
+As a result, the future of landslide displacement prediction can be
+described as follows:
+(1) Most studies divided landslide displacement prediction into two
+parts, a trend term and a periodic term. The trend term is corre-
+lated with geological conditions, and the periodic term is deter-
+mined by the periodic rainfall or ﬂuctuation of the water level of
+Fig. 19. The conclusions of current practices and future work.R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+14
+the reservoir. Actually, landslide displacement is not only in ﬂu-
+enced by these factors. Many uncertainty factors, such as earth-
+quake and anthropogenic factors should also be considered. Thus,
+some scholars divided landslide displacement prediction into
+three parts: a trend term, a periodic term and an uncertainty term.
+It is still dif ﬁcult to quantitatively analyze the uncertainty term,
+which needs to be considered carefully in further research.
+(2) For the prediction of landslide displacement, LSTM neural
+network is a dynamic DL model that has been proven to be the
+most useful model and has been widely used in many studies in
+recent years. Future research should mainly focus on the optimi-
+zation of DL models, especially LSTM, by integrating this model
+with other advanced models or modifying the framework of the
+model itself.
+(3) The DL models like RNN and LSTM can't predict the long sequence
+time series well. Transformer model based on attention mecha-
+nism can solve these problems effectively to predict the evolution
+of landslide in long term. Informer performed better than the
+Transformer. It represents the main techniques used in the future.
+(4) It is important to obtain the time series of the three-dimensional
+deformation ﬁeld of a landslide in a reservoir area and then
+carry out the intelligent prediction of the future three-dimensional
+deformation ﬁeld of the landslide based on ML and DL models.
+The predictions are not only limited to single point displacements,
+but also to super ﬁcial deformation obtained by non-contact
+monitoring techniques or deformation ﬁelds.
+(5) There is a high demand for the development of useful GUI tools for
+normal users to directly predict the displacement of landslides.
+This GUI can be built in combination with the establishment of an
+early warning system for landslide disasters.
+4.4. Other recommendations
+Many studies have been conducted to enhance the performance of ML
+models for landslide analyses through DL, HMs, and hyper-parameteroptimization. However, these approaches do not provide a clear under-
+standing of the underlying mechanisms of landslides, which is necessary
+for informed decisions to prevent or mitigate landslide risks. To address
+this, the research should integrate ML models with physical models of
+landslides to create more explainable AI models ( Guo et al., 2023 ). This
+would enable a deeper understanding of the mechanisms behind land-
+slides and more effective policy-making. For the region with limited data,
+transfer learning can be used as a useful tool to solve these problems.
+5. Conclusions
+This paper reviewed hundreds of literatures related to applications of
+AI in landslide risk assessment. In recent years, there has been a sharp
+increase in number of research papers published on this topic. Three key
+prominent areas including landslide detection, landslide susceptibility
+mapping and prediction of landslide displacement were discussed where
+AI applications have been applied prominently.
+Recently, DL methods have gradually replaced statistical methods and
+ML methods with better performance. CNNs and RNNs are two dominant
+DL methods used in the three areas. In landslide detection, CNNs are
+mainly used with satisfactory results; in landslide susceptibility assess-
+ment, both CNNs and RNNs are mainly used, and in landslide displace-
+ment prediction, RNNs are mainly used. RF, LR and SVM are also proved
+well in LSM. LSTM and Transformer are both reliable in landslide
+displacement prediction which can overcome the forgetting problem and
+predict the long-sequence time series. The method for construction of DLframework has a great impact on the ﬁnal results.
+HM combines the advantages of different models which can effec-
+tively improve the outputs. The selection of appropriate HM is critical for
+the future development of AI applications. The sampling training stra-
+tegies, hyper-parameters optimization and the generalization ability of
+these models are also crucial. Advanced GUI tools in this ﬁeld should be
+developed to realize the widespread use of relevant techniques by normal
+users.
+Overall, the application of AI techniques in the three aspects of
+landslide risk assessment has yielded successful and promising results,
+which can describe the nonlinear relationships of soil and rock structures
+and predisposing factors. The explainable AI combining with physical
+meaning and transfer learning should be considered carefully in future
+research.
+CRediT authorship contribution statement
+Rongjie He: Writing –original draft, Methodology, Investigation,
+Formal analysis, Data curation. Wengang Zhang: Writing –review &
+editing, Resources, Formal analysis. Jie Dou:
+Writing –review &editing,
+Visualization, Formal analysis. Nan Jiang: Validation, Software, Inves-
+tigation. Huaixian Xiao: Visualization, Investigation, Formal analysis.
+Jiawen Zhou: Writing –review &editing, Supervision, Project admin-
+istration, Funding acquisition, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing ﬁnancial
+interests or personal relationships that could have appeared to in ﬂuence
+the work reported in this paper.
+Acknowledgments
+This work was supported by the National Natural Science Foundation
+of China (U2240221 and 52379105) and the Sichuan Youth Science andTechnology Innovation Research Team Project (2020JDTD0006). Crit-
+ical comments by the anonymous reviewers greatly improved the initial
+manuscript.Table 2
+Summary of landslide types and recognition methods.
+Types Recognition indicators Main recognition
+methods
+Exposed landslides
+without deformationPresents a circular chair shape,
+with landslide rear wall,landslide sidewall andmultilevel abutment, invisibledeformationSatellite and UAV
+images from oneperiod;LiDAR point cloud
+Exposed landslides
+with deformationPresents a circular chair shape,
+with landslide rear wall,landslide sidewall andmultilevel abutment, visibledeformationSatellite and UAV
+images from differentperiods;LiDAR cloud pointfrom different periods;SAR images such asInSAR to interpret thedeformation
+Landslides covered
+with vegetation andwithout deformationCracks and small-scale collapse
+at the front edge, invisibledeformationSatellite and UAV
+images from oneperiod;LiDAR cloud point toremove surfacevegetation
+Landslides covered
+with vegetation and
+with deformationCracks and small-scale collapse
+at the front edge, visible
+deformationLiDAR cloud point
+from different periods;
+Satellite and UAV
+images from differentperiods;SAR images such asInSAR to interpret thedeformation
+Slopes with the
+possibility of
+landslide occurrenceNo morphological or
+deformation informationGeophysical
+exploration and
+drillingR. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+15
+References
+Akgun, A., 2012. A comparison of landslide susceptibility maps produced by logistic
+regression, multi-criteria decision, and likelihood ratio methods: a case study at
+_Izmir, Turkey. Landslides 9 (1), 93 –106. https://doi.org/10.1007/s10346-011-0283-
+7.
+Akgun, A., Sezer, E.A., Nefeslioglu, H.A., Gokceoglu, C., Pradhan, B., 2012. An easy-to-use
+MATLAB program (MamLand) for the assessment of landslide susceptibility using a
+Mamdani fuzzy algorithm. Comput. Geosci. 38 (1), 23 –34.https://doi.org/10.1016/
+j.cageo.2011.04.012 .
+Ali, S.A., Parvin, F., Vojtekov /C19a, J., Costache, R., Linh, N.T.T., Pham, Q.B., Vojtek, M.,
+Gigovi /C19c, L., Ahmad, A., Ghorbani, M.A., 2021. GIS-based landslide susceptibility
+modeling: a comparison between fuzzy multi-criteria and machine learning
+algorithms. Geosci. Front. 12 (2), 857 –876. https://doi.org/10.1016/
+j.gsf.2020.09.004 .
+Althuwaynee, O.F., Pradhan, B., Park, H., Lee, J.H., 2014. A novel ensemble bivariate
+statistical evidential belief function with knowledge-based analytical hierarchyprocess and multivariate statistical logistic regression for landslide susceptibility
+mapping. Catena 114, 21 –36.https://doi.org/10.1016/j.catena.2013.10.011 .
+Althuwaynee, O.F., Pradhan, B., Lee, S., 2012. Application of an evidential belief function
+model in landslide susceptibility mapping. Comput. Geosci. 44, 120 –135. https://
+doi.org/10.1016/j.cageo.2012.03.003 .
+Amatya, P., Kirschbaum, D., Stanley, T., Tanyas, H., 2021. Landslide mapping using
+object-based image analysis and open source tools. Eng. Geol. 282, 106000. https://
+doi.org/10.1016/j.enggeo.2021.106000 .
+Baghbani, A., Choudhury, T., Costa, S., Reiner, J., 2022. Application of arti ﬁcial
+intelligence in geotechnical engineering: a state-of-the-art review. Earth Sci. Rev.228, 103991. https://doi.org/10.1016/j.earscirev.2022.103991 .
+Balogun, A., Rezaie, F., Pham, Q.B., Gigovi /C19c, L., Drobnjak, S., Aina, Y.A., Panahi, M.,
+Yekeen, S.T., Lee, S., 2021. Spatial prediction of landslide susceptibility in western
+Serbia using hybrid support vector regression (SVR) with GWO, BAT and COA
+algorithms. Geosci. Front. 12 (3), 101104. https://doi.org/10.1016/
+j.gsf.2020.10.009 .
+Bhuyan, K., Tanyas ¸, H., Nava, L., Puliero, S., Meena, S.R., Floris, M., van Westen, C.,
+Catani, F., 2023. Generating multi-temporal landslide inventories through a general
+deep transfer learning strategy using HR EO data. Sci. Rep. 13 (1), 162. https://
+doi.org/10.1038/s41598-022-27352-y .
+Bui, D.T., Tsangaratos, P., Nguyen, V., Liem, N.V., Trinh, P.T., 2020. Comparing the
+prediction performance of a Deep Learning Neural Network model with conventionalmachine learning models in landslide susceptibility assessment. Catena 188, 104426.
+https://doi.org/10.1016/j.catena.2019.104426 .
+Casagli, N., Intrieri, E., Tofani, V., Gigli, G., Raspini, F., 2023. Landslide detection,
+monitoring and prediction with remote-sensing techniques. Nat. Rev. Earth Environ.
+4 (1), 51 –64.https://doi.org/10.1038/s43017-022-00373-x .
+Chandra, N., Sawant, S., Vaidya, H., 2023. An ef ﬁcient U-net model for improved
+landslide detection from satellite images. PFG –Journal of Photogrammetry, Remote
+Sensing and Geoinformation Science 91 (1), 13 –28.https://doi.org/10.1007/
+s41064-023-00232-4 .
+Chang, Z., Huang, J., Huang, F., Bhuyan, K., Meena, S.R., Catani, F., 2023. Uncertainty
+analysis of non-landslide sample selection in landslide susceptibility prediction using
+slope unit-based machine learning models. Gondwana Res. 117, 307 –320. https://
+doi.org/10.1016/j.gr.2023.02.007 .
+Chen, H., Zeng, Z., Tang, H., 2015. Landslide deformation prediction based on recurrent
+neural network. Neural Process. Lett. 41 (2), 169 –178. https://doi.org/10.1007/
+s11063-013-9318-5 .
+Chen, J., Zeng, Z., Jiang, P., Tang, H., 2016. Application of multi-gene genetic
+programming based on separable functional network for landslide displacement
+prediction. Neural Comput. Appl. 27 (6), 1771 –1784. https://doi.org/10.1007/
+s00521-015-1976-y .
+Chen, L., Zhao, C., Chen, H., Kang, Y., Li, B., Liu, X., 2023. The detection and control
+factor analysis of active landslides in guizhou province, China, using sentinel-1 SAR
+imagery. Rem. Sens. 15 (23), 5468. https://doi.org/10.3390/rs15235468 .
+Chen, W., Shahabi, H., Shirzadi, A., Hong, H., Akgun, A., Tian, Y., Liu, J., Zhu, A., Li, S.,
+2019. Novel hybrid arti ﬁcial intelligence approach of bivariate statistical-methods-
+based kernel logistic regression classi ﬁer for landslide susceptibility modeling. Bull.
+Eng. Geol. Environ. 78 (6), 4397 –4419. https://doi.org/10.1007/s10064-018-1401-
+8.
+Chen, W., Xie, X., Wang, J., Pradhan, B., Hong, H., Bui, D.T., Duan, Z., Ma, J., 2017.
+A comparative study of logistic model tree, random forest, and classi ﬁcation and
+regression tree models for spatial prediction of landslide susceptibility. Catena 151,
+147–160. https://doi.org/10.1016/j.catena.2016.11.032 .
+Chen, X., Chen, W., 2021. GIS-based landslide susceptibility assessment using optimized
+hybrid machine learning methods. Catena 196, 104833. https://doi.org/10.1016/
+j.catena.2020.104833 .
+Comert, R., Avdan, U., Gorum, T., Nefeslioglu, H.A., 2019. Mapping of shallow landslides
+with object-based image analysis from unmanned aerial vehicle data. Eng. Geol. 260,
+105264. https://doi.org/10.1016/j.enggeo.2019.105264 .
+Conforti, M., Pascale, S., Robustelli, G., Sdao, F., 2014. Evaluation of prediction capability
+of the arti ﬁcial neural networks for mapping landslide susceptibility in the Turbolo
+River catchment (northern Calabria, Italy). Catena 113, 236 –250. https://doi.org/
+10.1016/j.catena.2013.08.006 .
+Confuorto, P., Casagli, N., Casu, F., De Luca, C., Del Soldato, M., Festa, D., Lanari, R.,
+Manzo, M., Onorato, G., Raspini, F., 2023. Sentinel-1 P-SBAS data for the update of
+the state of activity of national landslide inventory maps. Landslides 20 (5),
+1083 –1097. https://doi.org/10.1007/s10346-022-02024-0 .Dai, K., Li, Z., Xu, Q., Tomas, R., Li, T., Jiang, L., Zhang, J., Yin, T., Wang, H., 2023.
+Identi ﬁcation and evaluation of the high mountain upper slope potential landslide
+based on multi-source remote sensing: the Aniangzhai landslide case study.
+Landslides 20 (7), 1405 –1417. https://doi.org/10.1007/s10346-023-02044-4 .
+Dai, Y., Dai, W., Yu, W., Bai, D., 2022. Determination of landslide displacement warning
+thresholds by applying DBA-LSTM and numerical simulation algorithms. Appl. Sci.-Basel 12 (13), 6690. https://doi.org/10.3390/app12136690 .
+Das, S., Sharma, P., Pain, A., Kanungo, D.P., Sarkar, S., 2023. Deep learning based
+landslide detection using open-source resources: opportunities and challenges. Earth
+Sci. Inform. 16 (4), 4035 –4052. https://doi.org/10.1007/s12145-023-01141-1 .
+Devkota, K.C., Regmi, A.D., Pourghasemi, H.R., Yoshida, K., Pradhan, B., Ryu, I.C.,
+Dhital, M.R., Althuwaynee, O.F., 2013. Landslide susceptibility mapping using
+certainty factor, index of entropy and logistic regression models in GIS and their
+comparison at Mugling –Narayanghat road section in Nepal Himalaya. Nat. Hazards
+65 (1), 135
+–165. https://doi.org/10.1007/s11069-012-0347-6 .
+Di Napoli, M., Carotenuto, F., Cevasco, A., Confuorto, P., Di Martire, D., Firpo, M.,
+Pepe, G., Raso, E., Calcaterra, D., 2020. Machine learning ensemble modelling as a
+tool to improve landslide susceptibility mapping reliability. Landslides 17 (8),1897 –1914. https://doi.org/10.1007/s10346-020-01392-9 .
+Dikshit, A., Pradhan, B., Alamri, A.M., 2021. Pathways and challenges of the application
+of arti ﬁcial intelligence to geohazards modelling. Gondwana Res. 100, 290 –301.
+https://doi.org/10.1016/j.gr.2020.08.007 .
+Dou, J., Xiang, Z., Xu, Q., Zheng, P., Wang, X., Su, A., Liu, J., Luo, W., 2022. Application
+and development trend of machine learning in landslide intelligent disaster
+prevention and mitigation. Earth Science 48 (5), 1657 –1674. https://doi.org/
+10.3799/dqkx.2022.419 .
+Dou, J., Yunus, A.P., Merghadi, A., Shirzadi, A., Nguyen, H., Hussain, Y., Avtar, R.,
+Chen, Y., Pham, B.T., Yamagishi, H., 2020. Different sampling strategies for
+predicting landslide susceptibilities are deemed less consequential with deep
+learning. Sci. Total Environ. 720, 137320. https://doi.org/10.1016/
+j.scitotenv.2020.137320 .
+Du, J., Yin, K., Lacasse, S., 2013. Displacement prediction in colluvial landslides, three
+gorges reservoir, China. Landslides 10 (2), 203 –218. https://doi.org/10.1007/
+s10346-012-0326-8 .
+Duan, G., Su, Y., Fu, J., 2023. Landslide displacement prediction based on multivariate
+LSTM model. Int. J. Environ. Res. Publ. Health 20 (2), 1167. https://doi.org/
+10.3390/ijerph20021167 .
+Fan, Q., Hua, X., 2009. A novel method for forecasting landslide displacement based on
+phase space reconstruction and support vector machine. Geomatics Inf. Sci. Wuhan
+Univ. 34 (2), 248 –251.
+Feizizadeh, B., Blaschke, T., Tiede, D., Moghaddam, M.H.R., 2017. Evaluating fuzzy
+operators of an object-based image analysis for detecting landslides and theirchanges. Geomorphology 293, 240 –254. https://doi.org/10.1016/
+j.geomorph.2017.06.002 .
+Felicísimo, /C19A.M., Cuartero, A., Remondo, J., Quir /C19os, E., 2013. Mapping landslide
+susceptibility with logistic regression, multiple adaptive regression splines,
+classi ﬁcation and regression trees, and maximum entropy methods: a comparative
+study. Landslides 10 (2), 175 –189. https://doi.org/10.1007/s10346-012-0320-1 .
+Froude, M.J., Petley, D.N., 2018. Global fatal landslide occurrence from 2004 to 2016.
+Nat. Hazards Earth Syst. Sci. 18 (8), 2161 –2181. https://doi.org/10.5194/nhess-18-
+2161-2018 .
+Gao, Y., Chen, X., Tu, R., Chen, G., Luo, T., Xue, D., 2022. Prediction of landslide
+displacement based on the combined VMD-stacked LSTM-TAR model. Rem. Sens. 14
+(5), 1164. https://doi.org/10.3390/rs14051164 .
+Ge, Y., Liu, G., Tang, H., Zhao, B., Xiong, C., 2023. Comparative analysis of ﬁve
+convolutional neural networks for landslide susceptibility assessment. Bull. Eng.
+Geol. Environ. 82 (10), 377. https://doi.org/10.1007/s10064-023-03408-9 .
+Ghorbanzadeh, O., Blaschke, T., Gholamnia, K., Meena, S., Tiede, D., Aryal, J., 2019.
+Evaluation of different machine learning methods and deep-learning convolutionalneural networks for landslide detection. Rem. Sens. 11 (2), 196. https://doi.org/
+10.3390/rs11020196 .
+Ghorbanzadeh, O., Shahabi, H., Crivellari, A., Homayouni, S., Blaschke, T., Ghamisi, P.,
+2022. Landslide detection using deep learning and object-based image analysis.
+Landslides 19 (4), 929 –
+939. https://doi.org/10.1007/s10346-021-01843-x .
+Goetz, J.N., Brenning, A., Petschko, H., Leopold, P., 2015. Evaluating machine learning
+and statistical prediction techniques for landslide susceptibility modeling. Comput.
+Geosci. 81, 1 –11.https://doi.org/10.1016/j.cageo.2015.04.007 .
+Guo, Z., Chen, L., Gui, L., Du, J., Yin, K., Hien, M.D., 2020a. Landslide displacement
+prediction based on variational mode decomposition and WA-GWO-BP model.
+Landslides 17 (3), 567 –583. https://doi.org/10.1007/s10346-019-01314-4 .
+Guo, Z., Chen, L., Yin, K., Shrestha, D.P., Zhang, L., 2020b. Quantitative risk assessment of
+slow-moving landslides from the viewpoint of decision-making: a case study of the
+Three Gorges Reservoir in China. Eng. Geol. 273, 105667. https://doi.org/10.1016/
+j.enggeo.2020.105667 .
+Guo, Z., Shi, Y., Huang, F., Fan, X., Huang, J., 2021. Landslide susceptibility zonation
+method based on C5.0 decision tree and K-means cluster algorithms to improve theefﬁciency of risk management. Geosci. Front. 12 (6), 101249. https://doi.org/
+10.1016/j.gsf.2021.101249 .
+Guo, Z., Tian, B., He, J., Xu, C., Zeng, T., Zhu, Y., 2023. Hazard assessment for regional
+typhoon-triggered landslides by using physically-based model - a case study from
+southeastern China. Georisk 17 (4), 740 –754. https://doi.org/10.1080/
+17499518.2023.2188465 .
+Guo, Z., Tian, B., Zhu, Y., He, J., Zhang, T., 2024. How do the landslide and non-landslide
+sampling strategies impact landslide susceptibility assessment? A catchment-scale
+case study from China. J. Rock Mech. Geotech. Eng. 16 (3), 877 –894. https://
+doi.org/10.1016/j.jrmge.2023.07.026 .R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+16
+Han, Z., Fang, Z., Li, Y., Fu, B., 2023. A novel Dynahead-Yolo neural network for the
+detection of landslides with variable proportions using remote sensing images. Front.
+Earth Sci. 10, 1077153. https://doi.org/10.3389/feart.2022.1077153 .
+Hoelbling, D., Friedl, B., Eisank, C., 2015. An object-based approach for semi-automated
+landslide change detection and attribution of changes to landslide classes in northern
+Taiwan. Earth Sci. Inform. 8 (2), 327 –335. https://doi.org/10.1007/s12145-015-
+0217-3 .
+H€olbling, D., Füreder, P., Antolini, F., Cigna, F., Casagli, N., Lang, S., 2012. A semi-
+automated object-based approach for landslide detection validated by persistent
+scatterer interferometry measures and landslide inventories. Rem. Sens. 4 (5),
+1310 –1336. https://doi.org/10.3390/rs4051310 .
+Hong, H., Wang, D., Zhu, A., Wang, Y., 2024. Landslide susceptibility mapping based on
+the reliability of landslide and non-landslide sample. Expert Syst. Appl. 243, 122933.
+https://doi.org/10.1016/j.eswa.2023.122933 .
+Hu, Z., Yi, B., Li, H., Zhong, C., Gao, P., Chen, J., Yao, Q., Guo, H., 2023. Comparative
+evaluation of state-of-the-art semantic segmentation networks for long-term landslide
+map production. Sensors 23 (22), 9041. https://doi.org/10.3390/s23229041 .
+Huang, D., He, J., Song, Y., Guo, Z., Huang, X., Guo, Y., 2022. Displacement prediction of
+the muyubao landslide based on a GPS time-series analysis and temporal
+convolutional network model. Rem. Sens. 14 (11), 2656. https://doi.org/10.3390/
+rs14112656 .
+Huang, F., Cao, Z., Guo, J., Jiang, S., Li, S., Guo, Z., 2020. Comparisons of heuristic,
+general statistical and machine learning models for landslide susceptibility predictionand mapping. Catena 191, 104580. https://doi.org/10.1016/j.catena.2020.104580 .
+Jiang, N., Li, H., Li, C., Xiao, H., Zhou, J., 2022a. A fusion method using terrestrial laser
+scanning and unmanned aerial vehicle photogrammetry for landslide deformation
+monitoring under complex terrain conditions. IEEE Trans. Geosci. Rem. Sens. 60,
+4707214. https://doi.org/10.1109/TGRS.2022.3181258 .
+Jiang, H., Li, Y., Zhou, C., Hong, H., Glade, T., Yin, K., 2020. Landslide displacement
+prediction combining LSTM and svr algorithms: a case study of shengjibao landslidefrom the three gorges reservoir area. Appl. Sci.-Basel 10 (21), 7830. https://doi.org/
+10.3390/app10217830 .
+Jiang, N., Li, H., Hu, Y., Zhang, J., Dai, W., Li, C., Zhou, J., 2021. A monitoring method
+integrating terrestrial laser scanning and unmanned aerial vehicles for different
+landslide deformation patterns. IEEE J. Sel. Top. Appl. Earth Obs. Rem. Sens. 14,10242 –10255. https://doi.org/10.1109/JSTARS.2021.3117946 .
+Jiang, P., Chen, J., 2016. Displacement prediction of landslide based on generalized
+regression neural networks with K-fold cross-validation. Neurocomputing 198,
+40–47.https://doi.org/10.1016/j.neucom.2015.08.118 .
+Jiang, Y., Liao, L., Luo, H., Zhu, X., Lu, Z., 2023a. Multi-scale response analysis and
+displacement prediction of landslides using deep learning with jtfa: a case study in
+the three gorges reservoir, China. Rem. Sens. 15 (16), 3995. https://doi.org/
+10.3390/rs15163995 .
+Jiang, S., Liu, H., Lian, M., Lu, C., Zhang, S., Li, J., Li, P., 2022b. Rock slope displacement
+prediction based on multi-source information fusion and SSA-DELM model. Front.
+Environ. Sci. 10, 982069. https://doi.org/10.3389/fenvs.2022.982069 .
+Jiang, Z., Wang, M., Liu, K., 2023b. Comparisons of convolutional neural network and
+other machine learning methods in landslide susceptibility assessment: a case study
+in pingwu. Rem. Sens. 15 (3), 798. https://doi.org/10.3390/rs15030798 .
+Jordan, M.I., Mitchell, T.M., 2015. Machine learning: trends, perspectives, and prospects.
+Science 349 (6245), 255 –260. https://doi.org/10.1126/science.aaa8415 .
+Kadavi, P.R., Lee, C., Lee, S., 2018. Application of ensemble-based machine learning
+models to landslide susceptibility mapping. Rem. Sens. 10 (8), 1252. https://doi.org/
+10.3390/rs10081252 .
+Kayastha, P., Dhital, M.R., De Smedt, F., 2013. Application of the analytical hierarchy
+process (AHP) for landslide susceptibility mapping: a case study from the Tinau
+watershed, west Nepal. Comput. Geosci. 52, 398 –408. https://doi.org/10.1016/
+j.cageo.2012.11.003
+.
+Ke, C., He, S., Qin, Y., 2023. Comparison of natural breaks method and frequency ratio
+dividing attribute intervals for landslide susceptibility mapping. Bull. Eng. Geol.
+Environ. 82 (10), 384. https://doi.org/10.1007/s10064-023-03392-0 .
+Khabiri, S., Crawford, M.M., Koch, H.J., Haneberg, W.C., Zhu, Y., 2023. An assessment of
+negative samples and model structures in landslide susceptibility characterization
+based on bayesian network models. Rem. Sens. 15 (12), 3200. https://doi.org/
+10.3390/rs15123200 .
+Kim, J., Lee, S., 2024. Comparative study of deep neural networks for landslide
+susceptibility assessment: a case study of pyeongchang-gun, South Korea.
+Sustainability 16 (1), 245. https://doi.org/10.3390/su16010245 .
+Kornejady, A., Ownegh, M., Bahremand, A., 2017. Landslide susceptibility assessment
+using maximum entropy model with two different data sampling methods. Catena
+152, 144 –162. https://doi.org/10.1016/j.catena.2017.01.010 .
+Kulshrestha, A., Chang, L., Stein, A., 2022. Use of LSTM for sinkhole-related anomaly
+detection and classi ﬁcation of InSAR deformation time series. IEEE J. Sel. Top. Appl.
+Earth Obs. Rem. Sens. 15, 4559 –4570. https://doi.org/10.1109/
+JSTARS.2022.3180994 .
+Lagomarsino, D., Tofani, V., Segoni, S., Catani, F., Casagli, N., 2017. A tool for
+classi ﬁcation and regression using random forest methodology: applications to
+landslide susceptibility mapping and soil thickness modeling. Environ. Model. Assess.
+22 (3), 201 –214. https://doi.org/10.1007/s10666-016-9538-y .
+LeCun, Y., Bengio, Y., Hinton, G., 2015. Deep learning. Nature 521 (7553), 436 –444.
+https://doi.org/10.1038/nature14539 .
+Lei, T., Zhang, Y., Lv, Z., Li, S., Liu, S., Nandi, A.K., 2019. Landslide inventory mapping
+from bitemporal images using deep convolutional neural networks. Geosci. Rem.Sens. Lett. IEEE 16 (6), 982 –986. https://doi.org/10.1109/LGRS.2018.2889307 .Lei, Y., Huang, J., Cui, Y., Jiang, S., Wu, S., Ching, J., 2023. Time capsule for landslide risk
+assessment. Georisk 17 (4), 613 –634. https://doi.org/10.1080/
+17499518.2023.2164899 .
+Li, D., Tang, X., Tu, Z., Fang, C., Ju, Y., 2023a. Automatic detection of forested landslides:
+a case study in jiuzhaigou county, China. Rem. Sens. 15 (15), 3850. https://doi.org/
+10.3390/rs15153850 .
+Li, J., Cassidy, M.J., Huang, J., Zhang, L., Kelly, R., 2016a. Probabilistic identi ﬁcation of
+soil strati ﬁcation. Geotechnique 66 (1), 16 –26.https://doi.org/10.1680/jgeot.14 ,
+242.
+Li, X., Cheng, X., Chen, W., Chen, G., Liu, S., 2015. Identi ﬁcation of forested landslides
+using LiDar data, object-based image analysis, and machine learning algorithms.Rem. Sens. 7 (8), 9705 –9726. https://doi.org/10.3390/rs70809705 .
+Li, Y., Fu, P., Ji, W., Shi, S., Zhang, Y., Zhang, T., 2016b. Predictive method of nonlinear
+system based on arti ﬁcial neural network and SVM. Oxid. Commun. 39 (1A),
+1226 –1235 .
+Li, X.Z., Kong, J.M., 2014. Application of GA-SVM method with parameter optimization
+for landslide development prediction. Nat. Hazards Earth Syst. Sci. 14 (3), 525 –533.
+https://doi.org/10.5194/nhess-14-525-2014 .
+Li, Z., Dai, K., Deng, J., Liu, C., Shi, X., Tang, G., Yin, T., 2023c. Identifying potential
+landslides in steep mountainous areas based on improved seasonal interferometrystacking-InSAR. Rem. Sens. 15 (13), 3278. https://doi.org/10.3390/rs15133278 .
+Li, Y., Feng, X., Li, Y., Jiang, W., Yu, W., 2024. Detection and analysis of potential
+landslides based on SBAS-InSAR technology in alpine canyon region. Environ. Sci.Pollut. Res. 31 (4), 6492 –6510. https://doi.org/10.1007/s11356-023-31473-w .
+Li, L., Wang, C., Wen, Z., Gao, J., Xia, M., 2023b. Landslide displacement prediction based
+on the ICEEMDAN, ApEn and the CNN-LSTM models. J. Mt. Sci. 20 (5), 1220 –1231.
+https://doi.org/10.1007/s11629-022-7606-0 .
+Lian, C., Chen, C.L.P., Zeng, Z., Yao, W., Tang, H., 2016a. Prediction intervals for
+landslide displacement based on switched neural networks. IEEE Trans. Reliab. 65
+(3), 1483 –1495. https://doi.org/10.1109/TR.2016.2570540 .
+Lian, C., Zeng, Z., Yao, W., Tang, H., Chen, C.L.P., 2016b. Landslide displacement
+prediction with uncertainty based on neural networks with random hidden weights.
+IEEE Transact. Neural Networks Learn. Syst. 27 (12), 2683 –2695. https://doi.org/
+10.1109/TNNLS.2015.2512283 .
+Lian, C., Zeng, Z., Yao, W., Tang, H., 2014. Ensemble of extreme learning machine for
+landslide displacement prediction based on time series analysis. Neural Comput.
+Appl. 24 (1), 99 –107. https://doi.org/10.1007/s00521-013-1446-3 .
+Liao, K., Wu, Y., Li, L., Miao, F., Xue, Y., 2019. Displacement prediction model of landslide
+based on time series and GWO-ELM. J. Cent. S. Univ. 50 (3), 619 –626. https://
+doi.org/10.11817/j.issn.1672-7207.2019.03.015 .
+Lin, Q., Yang, Z., Huang, J., Deng, J., Chen, L., Zhang, Y., 2023. A landslide displacement
+prediction model based on the ICEEMDAN method and the TCN –BiLSTM combined
+neural network. Water 15 (24), 4247. https://doi.org/10.3390/w15244247 .
+Lin, Z., Sun, X., Ji, Y., 2022. Landslide displacement prediction based on time series
+analysis and double-BiLSTM model. Int. J. Environ. Res. Publ. Health 19 (4), 2077.
+https://doi.org/10.3390/ijerph19042077 .
+Liu, Q., Wu, T., Deng, Y., Liu, Z., 2023a. Intelligent identi ﬁcation of landslides in loess
+areas based on the improved YOLO algorithm: a case study of loess landslides in Baoji
+City. J. Mt. Sci. 20 (11), 3343 –3359. https://doi.org/10.1007/s11629-023-8128-0 .
+Liu, B., Guo, H., Li, J., Ke, X., He, X., 2024a. Application and interpretability of ensemble
+learning for landslide susceptibility mapping along the Three Gorges Reservoir area,
+China. Nat. Hazards 120, 4601 –4632. https://doi.org/10.1007/s11069-023-06374-
+3.
+Liu, W., Leung, Y., 2018. Characterising three-dimensional anisotropic spatial correlation
+of soil properties through in situ test results. Geotechnique 68 (9), 805 –819. https://
+doi.org/10.1680/jgeot.16.P.336 .
+Liu, X., Xu, L., Zhang, J., 2024b. Landslide detection with Mask R-CNN using complex
+background enhancement based on multi-scale samples. Geomatics, Nat. Hazards
+Risk 15 (1), 2300823. https://doi.org/10.1080/19475705.2023.2300823 .
+Liu, X., Zhao, C., Zhang, Q., Lu, Z., Li, Z., Yang, C., Zhu, W., Liu-Zeng, J., Chen, L., Liu, C.,
+2021. Integration of Sentinel-1 and ALOS/PALSAR-2 SAR datasets for mapping active
+landslides along the Jinsha River corridor, China. Eng. Geol. 284, 106033. https://
+doi.org/10.1016/j.enggeo.2021.106033 .
+Liu, Y., Meng, Z., Zhu, L., Hu, D., He, H., 2023d. Optimizing the sample selection of
+machine learning models for landslide susceptibility prediction using information
+value models in the dabie mountain area of anhui, China. Sustainability 15 (3), 1971.
+https://doi.org/10.3390/su15031971 .
+Liu, X., Peng, Y., Lu, Z., Li, W., Yu, J., Ge, D., Xiang, W., 2023c. Feature-Fusion
+segmentation network for landslide detection using high-resolution remote sensing
+images and digital elevation model data. IEEE Trans. Geosci. Rem. Sens. 61, 1 –14.
+https://doi.org/10.1109/TGRS.2022.3233637
+.
+Liu, Z., Shao, J., Xu, W., Chen, H., Shi, C., 2014. Comparison on landslide nonlinear
+displacement analysis and prediction with computational intelligence approaches.
+Landslides 11 (5), 889 –896. https://doi.org/10.1007/s10346-013-0443-z .
+Liu, Q., Wu, T., Deng, Y., Liu, Z., 2023b. SE-YOLOv7 landslide detection algorithm based
+on attention mechanism and improved loss function. Land 12 (8), 1522. https://
+doi.org/10.3390/land12081522 .
+Liu, Z., Xu, W., Shao, J., 2012. Gauss process based approach for application on landslide
+displacement analysis and prediction. CMES-Comp. Model. Eng. Sci. 84 (2), 99 –122.
+Lu, W., Hu, Y., Zhang, Z., Cao, W., 2023. A dual-encoder U-Net for landslide detection
+using Sentinel-2 and DEM data. Landslides 20 (9), 1975 –1987. https://doi.org/
+10.1007/s10346-023-02089-5 .
+Lu, X., Miao, F., Xie, X., Li, D., Xie, Y., 2021. A new method for displacement prediction of
+"step-like" landslides based on VMD-FOA-SVR model. Environ. Earth Sci. 80 (17).
+https://doi.org/10.1007/s12665-021-09825-x .R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+17
+Luo, W., Dou, J., Fu, Y., Wang, X., He, Y., Ma, H., Wang, R., Xing, K., 2023. A novel hybrid
+LMD-ETS-TCN approach for predicting landslide displacement based on GPS time
+series analysis. Rem. Sens. 15 (1), 229. https://doi.org/10.3390/rs15010229 .
+Lv, P., Ma, L., Li, Q., Du, F., 2023. ShapeFormer: a shape-enhanced vision transformer
+model for optical remote sensing image landslide detection. IEEE J. Sel. Top. Appl.
+Earth Obs. Rem. Sens. 16, 2681 –2689. https://doi.org/10.1109/
+JSTARS.2023.3253769 .
+Ma, S., Shao, X., Xu, C., 2023. Landslide susceptibility mapping in terms of the slope-unit
+or raster-unit, which is better? J. Earth Sci. 34 (2), 386 –397. https://doi.org/
+10.1007/s12583-021-1407-1 .
+Mandal, K., Saha, S., Mandal, S., 2021. Applying deep learning and benchmark machine
+learning algorithms for landslide susceptibility modelling in Rorachu river basin of
+Sikkim Himalaya, India. Geosci. Front. 12 (5), 101203. https://doi.org/10.1016/
+j.gsf.2021.101203 .
+Merghadi, A., Yunus, A.P., Dou, J., Whiteley, J., Binh, T., Dieu, T.B., Avtar, R.,
+Abderrahmane, B., 2020. Machine learning methods for landslide susceptibility
+studies: a comparative overview of algorithm performance. Earth Sci. Rev. 207,
+103225. https://doi.org/10.1016/j.earscirev.2020.103225 .
+Miao, F., Wu, Y., Xie, Y., Li, Y., 2018. Prediction of landslide displacement with step-like
+behavior based on multialgorithm optimization and a support vector regression
+model. Landslides 15 (3), 475 –488. https://doi.org/10.1007/s10346-017-0883-y .
+Miao, H., Yin, K., Xu, F., Liu, B., 2010. Comprehensive evaluation on multiple predictions
+of the landslide displacements based on component analysis. J. Wuhan Univ.Technol. 32 (19), 65 –70.https://doi.org/10.3963/j.issn.1671-4431.2010.19.017 .
+Nath, N.K., Gautam, V.K., Pande, C.B., Mishra, L.R., Raju, J.T., Moharir, K.N., Rane, N.L.,
+2024. Development of landslide susceptibility maps of Tripura, India using GIS and
+analytical hierarchy process (AHP). Environ. Sci. Pollut. Res. 31 (5), 7481 –7497.
+https://doi.org/10.1007/s11356-023-31486-5 .
+Nava, L., Carraro, E., Reyes-Carmona, C., Puliero, S., Bhuyan, K., Rosi, A., Monserrat, O.,
+Floris, M., Meena, S.R., Galve, J.P., Catani, F., 2023. Landslide displacementforecasting using deep learning and monitoring data across selected sites. Landslides
+20 (10), 2111 –2129. https://doi.org/10.1007/s10346-023-02104-9 .
+Nguyen, V., Pham, B., Vu, B., Prakash, I., Jha, S., Shahabi, H., Shirzadi, A., Ba, D.,
+Kumar, R., Chatterjee, J., Tien Bui, D., 2019. Hybrid machine learning approaches for
+landslide susceptibility modeling. Forests 10 (2), 157. https://doi.org/10.3390/
+f10020157 .
+Nichol, J., Wong, M., 2005. Detection and interpretation of landslides using satellite
+images. Land Degradation and Development 16, 243 –255. https://doi.org/10.1002/
+ldr.648 .
+Niu, X., Ma, J., Wang, Y., Zhang, J., Chen, H., Tang, H., 2021. A novel decomposition-
+ensemble learning model based on ensemble empirical mode decomposition and
+recurrent neural network for landslide displacement prediction. Appl. Sci.-Basel 11(10), 4684. https://doi.org/10.3390/app11104684 .
+Ozdemir, A., Altural, T., 2013. A comparative study of frequency ratio, weights of
+evidence and logistic regression methods for landslide susceptibility mapping: sultan
+Mountains, SW Turkey. J. Asian Earth Sci. 64, 180 –197. https://doi.org/10.1016/
+j.jseaes.2012.12.014 .
+Peng, L., Niu, R., Wu, T., 2013. Time series analysis and support vector machine for
+landslide displacement prediction. J. Zhejiang Univ. Eng. Sci. 47 (9), 1672 –1679.
+https://doi.org/10.3785/j.issn.1008-973X.2013.09.024 .
+Phakdimek, S., Komori, D., Chaithong, T., 2023. Combination of optical images and SAR
+images for detecting landslide scars, using a classi ﬁcation and regression tree. Int. J.
+Rem. Sens. 44 (11), 3572 –3606. https://doi.org/10.1080/01431161.2023.2224096 .
+Pourghasemi, H.R., Mohammady, M., Pradhan, B., 2012a. Landslide susceptibility
+mapping using index of entropy and conditional probability models in GIS: safarood
+Basin, Iran. Catena 97, 71 –84.https://doi.org/10.1016/j.catena.2012.05.005 .
+Pourghasemi, H.R., Pradhan, B., Gokceoglu, C., 2012b. Application of fuzzy logic and
+analytical hierarchy process (AHP) to landslide susceptibility mapping at Haraz
+watershed, Iran. Nat. Hazards 63 (2), 965 –996. https://doi.org/10.1007/s11069-
+012-0217-2 .
+Pradhan, B., 2013. A comparative study on the predictive ability of the decision tree,
+support vector machine and neuro-fuzzy models in landslide susceptibility mapping
+using GIS. Comput. Geosci. 51, 350 –365. https://doi.org/10.1016/
+j.cageo.2012.08.023 .
+Prakash, N., Manconi, A., Loew, S., 2020. Mapping landslides on EO data: performance of
+deep learning models vs. Traditional machine learning models. Rem. Sens. 12 (3),
+346. https://doi.org/10.3390/rs12030346 .
+Regmi, A.D., Devkota, K.C., Yoshida, K., Pradhan, B., Pourghasemi, H.R., Kumamoto, T.,
+Akgun, A., 2014. Application of frequency ratio, statistical index, and weights-of-
+evidence models and their comparison in landslide susceptibility mapping in Central
+Nepal Himalaya. Arabian J. Geosci. 7 (2), 725 –742. https://doi.org/10.1007/
+s12517-012-0807-z .
+Rosi, A., Tofani, V., Tanteri, L., Tacconi Stefanelli, C., Agostini, A., Catani, F., Casagli, N.,
+2018. The new landslide inventory of Tuscany (Italy) updated with PS-InSAR:
+geomorphological features and landslide distribution. Landslides 15 (1), 5 –19.
+https://doi.org/10.1007/s10346-017-0861-4 .
+Song, Z., Li, X., Lizarraga, J.J., Zhao, L., Buscarnera, G., 2021. Shallow landslide
+triggering in unsaturated vegetated slopes: ef ﬁcient computation of susceptibility
+maps. Comput. Geosci. 154, 104826. https://doi.org/10.1016/j.cageo.2021.104826 .
+Sreelakshmi, S., Vinod Chandra, S.S., 2024. Visual saliency-based landslide identi ﬁcation
+using super-resolution remote sensing data. Results Eng 21, 101656. https://doi.org/
+10.1016/j.rineng.2023.101656 .
+Sun, D., Wen, H., Wang, D., Xu, J., 2020. A random forest model of landslide
+susceptibility mapping based on hyperparameter optimization using Bayes algorithm.
+Geomorphology 362, 107201. https://doi.org/10.1016/j.geomorph.2020.107201 .Sun, D., Xu, J., Wen, H., Wang, D., 2021. Assessment of landslide susceptibility mapping
+based on Bayesian hyperparameter optimization: a comparison between logistic
+regression and random forest. Eng. Geol. 281, 105972. https://doi.org/10.1016/
+j.enggeo.2020.105972 .
+Tien Bui, D., Pradhan, B., Lofman, O., Revhaug, I., Dick, O.B., 2012a. Landslide
+susceptibility mapping at Hoa Binh province (Vietnam) using an adaptive neuro-fuzzy inference system and GIS. Comput. Geosci. 45, 199 –211. https://doi.org/
+10.1016/j.cageo.2011.10.031 .
+Tien Bui, D., Pradhan, B., Lofman, O., Revhaug, I., Dick, O.B., 2012b. Spatial prediction of
+landslide hazards in Hoa Binh province (Vietnam): a comparative assessment of the
+efﬁcacy of evidential belief functions and fuzzy logic models. Catena 96, 28 –40.
+https://doi.org/10.1016/j.catena.2012.04.001 .
+Tien Bui, D., Shirzadi, A., Shahabi, H., Geertsema, M., Omidvar, E., Clague, J., Thai
+Pham, B., Dou, J., Talebpour Asl, D., Bin Ahmad, B., Lee, S., 2019. New ensemble
+models for shallow landslide susceptibility modeling in a semi-arid watershed.
+Forests 10 (9), 743. https://doi.org/10.3390/f10090743 .
+Trinh, T., Luu, B.T., Nguyen, D.H., Le, T.H.T., Pham, S.V., VuongThi, N., 2023. A study of
+non-landslide samples and weights for mapping landslide susceptibility usingregression and clustering methods. Earth Sci. Inform. 16 (4), 4009 –4034. https://
+doi.org/10.1007/s12145-023-01144-y .
+Tsangaratos, P., Ilia, I., 2016. Comparison of a logistic regression and Naïve Bayes
+classi ﬁer in landslide susceptibility assessments: the in
+ﬂuence of models complexity
+and training dataset size. Catena 145, 164 –179. https://doi.org/10.1016/
+j.catena.2016.06.004 .
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, L.,
+Polosukhin, I., 2017. Attention is all you need. Adv. Neural Inf. Process. Syst. 30
+(NIPS 2017), 30 .
+Wang, C., Zhao, Y., Bai, L., Guo, W., Meng, Q., 2021. Landslide displacement prediction
+method based on GA-elman model. Appl. Sci.-Basel 11 (22), 11030. https://doi.org/
+10.3390/app112211030 .
+Wang, L., Qiao, Y., 2023. Application of optimized CNN algorithm in landslide boundary
+detection. J. Meas. Eng. 11 (4), 405 –419. https://doi.org/10.21595/
+jme.2023.23401 .
+Wang, Y., Fang, Z., Wang, M., Peng, L., Hong, H., 2020a. Comparative study of landslide
+susceptibility mapping with different recurrent neural networks. Comput. Geosci.138, 104445. https://doi.org/10.1016/j.cageo.2020.104445 .
+Wang, Y., Feng, L., Li, S., Ren, F., Du, Q., 2020b. A hybrid model considering spatial
+heterogeneity for landslide susceptibility mapping in Zhejiang Province, China.
+Catena 188, 104425. https://doi.org/10.1016/j.catena.2019.104425 .
+Wang, Y., Tang, H., Huang, J., Wen, T., Ma, J., Zhang, J., 2022. A comparative study of
+different machine learning methods for reservoir landslide displacement prediction.
+Eng. Geol. 298, 106544. https://doi.org/10.1016/j.enggeo.2022.106544 .
+Wen, T., Tang, H., Wang, Y., Lin, C., Xiong, C., 2017. Landslide displacement prediction
+using the GA-LSSVM model and time series analysis: a case study of Three Gorges
+Reservoir, China. Nat. Hazards Earth Syst. Sci. 17 (12), 2181 –2198. https://doi.org/
+10.5194/nhess-17-2181-2017 .
+Xi, N., Yang, Q., Sun, Y., Mei, G., 2023. Machine learning approaches for slope
+deformation prediction based on monitored time-series displacement data: a
+comparative investigation. Appl. Sci.-Basel 13 (8), 4677. https://doi.org/10.3390/
+app13084677 .
+Xie, P., Zhou, A., ChaI, B., 2019. The application of long short-term memory(LSTM)
+method on displacement prediction of multifactor-induced landslides. IEEE Access 7,
+54305 –54311. https://doi.org/10.1109/ACCESS.2019.2912419 .
+Xing, Y., Huang, S., Yue, J., Chen, Y., Xie, W., Wang, P., Xiang, Y., Peng, Y., 2023. Patterns
+of inﬂuence of different landslide boundaries and their spatial shapes on the
+uncertainty of landslide susceptibility prediction. Nat. Hazards 118 (1), 709 –727.
+https://doi.org/10.1007/s11069-023-06025-7 .
+Xing, Y., Yue, J., Chen, C., Cong, K., Zhu, S., Bian, Y., 2019. Dynamic displacement
+forecasting of dashuitian landslide in China using variational mode decompositionand stack long short-term memory network. Appl. Sci.-Basel 9 (15), 2951. https://
+doi.org/10.3390/app9152951 .
+Xing, Y., Yue, J., Chen, C., 2020. Interval estimation of landslide displacement prediction
+based on time series decomposition and long short-term memory network. IEEE
+Access 8, 3187 –3196. https://doi.org/10.1109/ACCESS.2019.2961295 .
+Xu, Q., Zhao, B., Dai, K., Dong, X., Li, W., Zhu, X., Yang, Y., Xiao, X., Wang, X., Huang, J.,
+Lu, H., Deng, B., Ge, D., 2023. Remote sensing for landslide investigations: a progress
+report from China. Eng. Geol. 321, 107156. https://doi.org/10.1016/
+j.enggeo.2023.107156 .
+Xu, S., Niu, R., 2018. Displacement prediction of Baijiabao landslide based on empirical
+mode decomposition and long short-term memory neural network in Three Gorges
+area, China. Comput. Geosci. 111, 87 –96.https://doi.org/10.1016/
+j.cageo.2017.10.013 .
+Yang, X., Fan, X., Wang, K., Zhou, Z., 2024c. Research on landslide susceptibility
+prediction model based on LSTM-RF-MDBN. Environ. Sci. Pollut. Res. 31 (1),
+1504 –1516. https://doi.org/10.1007/s11356-023-31232-x .
+Yang, B., Guo, Z., Wang, L., He, J., Xia, B., Vakily, S., 2023. Updated global navigation
+satellite system observations and attention-based convolutional neural network –long
+short-term memory network deep learning algorithms to predict landslide
+spatiotemporal displacement. Rem. Sens. 15 (20), 4971. https://doi.org/10.3390/
+rs15204971 .
+Yang, J., Huang, Z., Jian, W., Robledo, L.F., 2024b. Landslide displacement prediction by
+using Bayesian optimization –temporal convolutional networks. Acta Geotech.
+https://doi.org/10.1007/s11440-023-02205-8 .
+Yang, B., Yin, K., Lacasse, S., Liu, Z., 2019. Time series analysis and long short-term
+memory neural network to predict landslide displacement. Landslides 16 (4),
+677–694. https://doi.org/10.1007/s10346-018-01127-x .R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+18
+Yang, C., Yin, Y., Zhang, J., Ding, P., Liu, J., 2024a. A graph deep learning method for
+landslide displacement prediction based on global navigation satellite system
+positioning. Geosci. Front. 15 (1), 101690. https://doi.org/10.1016/
+j.gsf.2023.101690 .
+Yi, Y., Xu, X., Xu, G., Gao, H., 2023a. Landslide detection using time-series InSAR method
+along the kangding-batang section of shanghai-nyalam road. Rem. Sens. 15 (5), 1452.https://doi.org/10.3390/rs15051452 .
+Yi, Y., Xu, X., Xu, G., Gao, H., 2023b. Rapid mapping of slow-moving landslides using an
+automated SAR processing platform (HyP3) and stacking-InSAR method. Rem. Sens.
+15 (6), 1611. https://doi.org/10.3390/rs15061611 .
+Yi, Y., Zhang, Z., Zhang, W., Jia, H., Zhang, J., 2020. Landslide susceptibility mapping
+using multiscale sampling strategy and convolutional neural network: a case study in
+Jiuzhaigou region. Catena 195, 104851. https://doi.org/10.1016/
+j.catena.2020.104851 .
+Youssef, A.M., Pourghasemi, H.R., Pourtaghi, Z.S., Al-Katheeri, M.M., 2016. Landslide
+susceptibility mapping using random forest, boosted regression tree, classi ﬁcation
+and regression tree, and general linear models and comparison of their performance
+at Wadi Tayyah Basin, Asir Region, Saudi Arabia. Landslides 13 (5), 839 –856.
+https://doi.org/10.1007/s10346-015-0614-1 .
+Youssef, A.M., Pourghasemi, H.R., 2021. Landslide susceptibility mapping using machine
+learning algorithms and comparison of their performance at Abha Basin, Asir Region,
+Saudi Arabia. Geosci. Front. 12 (2), 639 –655. https://doi.org/10.1016/
+j.gsf.2020.05.010 .
+Zeng, T., Glade, T., Xie, Y., Yin, K., Peduto, D., 2023. Deep learning powered long-term
+warning systems for reservoir landslides. Int. J. Disaster Risk Reduc. 94, 103820.
+https://doi.org/10.1016/j.ijdrr.2023.103820 .
+Zeng, T., Jiang, H., Liu, Q., Yin, K., 2022. Landslide displacement prediction based on
+Variational mode decomposition and MIC-GWO-LSTM model. Stoch. Environ. Res.
+Risk Assess. 36 (5), 1353 –1372. https://doi.org/10.1007/s00477-021-02145-3 .
+Zhang, Y., Tang, J., Liao, R., Zhang, M., Zhang, Y., Wang, X., Su, Z., 2021d. Application of
+an enhanced BP neural network model with water cycle algorithm on landslide
+prediction. Stoch. Environ. Res. Risk Assess. 35 (6), 1273 –1291. https://doi.org/
+10.1007/s00477-020-01920-y .
+Zhang, J., Tang, H., Tannant, D.D., Lin, C., Xia, D., Liu, X., Zhang, Y., Ma, J., 2021a.
+Combined forecasting model with CEEMD-LCSS reconstruction and the ABC-SVRmethod for landslide displacement prediction. J. Clean. Prod. 293, 126205. https://
+doi.org/10.1016/j.jclepro.2021.126205 .Zhang, J., Tang, H., Wen, T., Ma, J., Tan, Q., Xia, D., Liu, X., Zhang, Y., 2020. A hybrid
+landslide displacement prediction method based on CEEMD and DTW-ACO-SVR-
+cases studied in the three gorges reservoir area. Sensors 20 (15), 4287. https://
+doi.org/10.3390/s20154287 .
+Zhang, J., Huang, S., 2009. Relationship between landslide displacement and
+precipitation. Journal of Geomatics 34 (3), 27 –29.
+Zhang, R., Zhu, W., Li, Z., Zhang, B., Chen, B., 2024. Re-net: multibranch network with
+structural reparameterization for landslide detection in optical imagery. IEEE J. Sel.
+Top. Appl. Earth Obs. Rem. Sens. 17, 2828 –2837. https://doi.org/10.1109/
+JSTARS.2023.3344720 .
+Zhang, W., Li, Y., Li, X., Kang, Q., 2013. Forecasting of landslide displacement based on
+exponential smoothing and nonlinear regression analysis. Applied Mechanics and
+Materials, 353-356, 1101 –1105. https://doi.org/10.4028/www.scienti ﬁc
+.net/AMM.353-356.1101 .
+Zhang, X., Zhu, C., He, M., Dong, M., Zhang, G., Zhang, F., 2022. Failure mechanism and
+long short-term memory neural network model for landslide risk prediction. Rem.
+Sens. 14 (1), 166. https://doi.org/10.3390/rs14010166 .
+Zhang, L., Shi, B., Zhu, H., Yu, X.B., Han, H., Fan, X., 2021b. PSO-SVM-based deep
+displacement prediction of Majiagou landslide considering the deformation
+hysteresis effect. Landslides 18 (1), 179 –193.
+https://doi.org/10.1007/s10346-020-
+01426-2 .
+Zhang, Y., Tang, J., He, Z., Tan, J., Li, C., 2021c. A novel displacement prediction method
+using gated recurrent unit model with time series analysis in the Erdaohe landslide.Nat. Hazards 105 (1), 783 –813. https://doi.org/10.1007/s11069-020-04337-6 .
+Zhang, Y., Wang, X., Tang, H., 2019. An improved Elman neural network with piecewise
+weighted gradient for time series prediction. Neurocomputing 359, 199 –208. https://
+doi.org/10.1016/j.neucom.2019.06.001 .
+Zhao, Y., Niu, R., Li, J., Peng, L., Wang, Y., 2013. Prediction of landslide displacement
+based on kernel principal component analysis and neural network-Markov chain.
+Adv. Mater. Res. 726-731, 1512 –1520. https://doi.org/10.4028/www.scienti ﬁc
+.net/AMR.726-731.1512 .
+Zhou, J., Tan, S., Li, J., Xu, J., Wang, C., Ye, H., 2023. Landslide susceptibility assessment
+using the analytic hierarchy process (ahp): a case study of a construction site for
+photovoltaic power generation in yunxian county, southwest China. Sustainability 15
+(6), 5281. https://doi.org/10.3390/su15065281 .
+Zhu, X., Ma, S., Xu, Q., Liu, W., 2018. A WD-GA-LSSVM model for rainfall-triggered
+landslide displacement prediction. J. Mt. Sci. 15 (1), 156 –166. https://doi.org/
+10.1007/s11629-016-4245-3 .R. He et al. Rock Mechanics Bulletin 3 (2024) 100144
+19

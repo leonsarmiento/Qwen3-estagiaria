@@ -1,0 +1,1736 @@
+Multi-source data-based quantitative riskanalysisofroadnetworksto
+slow-moving landslides
+D.Pedutoa,G.Nicodemoa,*,D.Luongoa,L.Borrellib,D.Realec,S.Ferlisia,G.Fornaroc,
+G.Gullˇab
+aDepartment ofCivilEngineering, University ofSalerno,ViaGiovanni PaoloII,132,84084Fisciano, SA,Italy
+bResearch InstituteforGeo-Hydrological Protection (IRPI –CNR),National Research CouncilofItaly,ViaCavourn.4/6,87030Cosenza, Italy
+cInstituteforElectromagnetic SensingoftheEnvironment (IREA –CNR),National Research CouncilofItaly,ViaDiocleziano 328,80124Naples,Italy
+ARTICLE INFO
+Keywords:
+Slow-moving landslides
+Risk
+Roads
+Monitoring
+Damage
+Weathered rocksABSTRACT
+Thepaperaddressesthequantitative riskanalysisforastateroadcrossinganareaofsouthernItalianApennines
+diffusively affectedbyslow-moving landslides. Inthisarea,Palaeozoic gneissicrockssufferingfromintense
+weathering processes, whichproducecomplexanddeepweathering profiles,arepresent,andthisdetermines
+severepredisposing conditions todeep-seated slow-moving landslides. Althoughnotdirectlythreatening human
+lives,foryearstheseslopeinstabilities havebeencausingdamageandtemporary trafficinterruptions orlimi-
+tationstomanyroadsections.Topursueasustainable landslideriskmanagement, amethodthatfullyexploits
+multi-disciplinary dataconsisting ofgeological-geomorphological features,geotechnical characterization of
+geomaterials, bothconventional (i.e.GPSandinclinometer) andremotesensing(i.e.MT-DInSAR) displacement
+measurements, in-situandvirtual(i.e.GoogleStreetViewimages)surveys,andprobabilistic tools(i.e.fragility
+andvulnerability curves)isimplemented. Asanovelty,sucharichdatasetallowsovercoming somelimitations of
+the(few)previousstudiesinthescientificliteratureontheanalysisoftheriskposedbyslow-moving landslides
+toroadsbyexploiting i)themulti-temporal recording oftheroaddamagetocatchtheresponseoftheinfra-
+structure(i.e.boththeroadpavement andthesideretainingstructures) withtime,andii)theassociation ofthe
+cumulative landslide-induced displacements withthecorresponding damageinordertofeedempirical fore-
+castingtoolsforconsequence analyses.Thethorough knowledge oftheslow-moving landslides andtheir
+interaction withtheexposedroadsareimplemented withintheproposedmethodtoassessthedirecteconomic
+lossesintermsofrepaircosts,shouldnocountermeasures ormitigation worksbeimplemented induetime.
+Considering thatthestudiedarearesembles verytypicalconditions ofinnerroadsinhillyandmountainareasof
+southernItaly,themethodcanrepresentavaluabletoolfordecisionmakerstoprioritizemoneyallocation for
+riskadaptation andmitigation actionsforroadsinsimilargeo-environmental contexts.
+1.Introduction
+Slow-moving landslides occurinmanygeo-environmental contexts
+allovertheworldthreatening thebuiltenvironment suchasstructures
+andinfrastructure networks. InItaly,withreferencetothemainroad
+network,6180criticalroadstretches(i.e.affectedbyexistinglandslides)
+weredetectedalongthehighways, state,regionalandprovincial roads;
+particularly, 720ofthesestretchesarealongthehighways(Trigilaetal.,
+2015).Inthiscountry,richinformation existsonlandslides, their
+physicalcharacteristics andconsequences, whereasmuchlessisknownontheireconomic impact(Donninietal.,2017).Forinstance,theter-
+ritoryofCalabriaregion(southernItaly)resembles anon-sitelaboratory
+inwhichtheeffectsofslow-moving landslides arerecordedonboth
+structures androadassets,withdifferentlevelsofdamageseverity
+depending ontheevolutionary stageofthelandslide(bothsingleand
+complexphenomena), thecharacteristics andtypologyoftheroad,and
+thestateofmaintenance. Anexampleisprovidedbythelandslide
+occurredin2010inMaierato(ViboValentiaprovince,Calabria)which
+causedthedestruction ofaroadstretchofabout800m(Borrellietal.,
+2014a).Overall,intheregionthelandslideeventsof2008 –2009and
+*Corresponding author.
+E-mailaddresses: dpeduto@unisa.it (D.Peduto),gnicodemo@unisa.it (G.Nicodemo), dluongo@unisa.it (D.Luongo),borrelli@irpi.cnr.it (L.Borrelli),reale.d@
+irea.cnr.it (D.Reale),sferlisi@unisa.it (S.Ferlisi),fornaro.g@irea.cnr.it (G.Fornaro),giovanni.gulla@irpi.cnr.it (G.Gullˇa).
+ContentslistsavailableatScienceDirect
+Engineering Geology
+u{�~zkw s{yo|kro> ÐÐÐ1ow�o �to~1m{y2w{m k�o2ozrro {
+https://doi.org/10.1016/j.enggeo.2025.108011
+Received8July2024;Receivedinrevisedform12February2025;Accepted6March2025Engineering  Geology  350 (2025)  108011  
+Available  online  8 March  2025  
+0013-7952/©  2025  The Authors.  Published  by Elsevier  B.V. This is an open access  article  under  the CC BY license  ( http://creativecommons.org/licenses/by/4.0/  ). 
+2009 –2010havehighlighted, amongothereffects,theimpactproduced
+bytheincreasingly widespread damagetotheroadnetworkbecauseof
+theepisodicacceleration ofseveralexistinglandslides (Antronico etal.,
+2013;Gullˇaetal.,2012).IntheCalabriaterritory,theinteraction of
+landslides withtheroadnetworkresultsinanoverloadoftheregional
+social-economic gap;recently,thishassuggested thepromotion of
+structured knowledge onlandslides throughout theuseofNationalRe-
+coveryandResilience Plan(NRRP)founds(https://www.italiadomani.
+gov.it/content/sogei-ng/it/en/home.html ).
+Aroadinteracting withanunstableslopetypicallyrequiresaddi-
+tionalmonitoring (Donninietal.,2017;Ferlisietal.,2021;Gullˇaetal.,
+2004a,2004b)and(ordinary/extraordinary) maintenance activitiesto
+avoidinterruptions tovehiclecirculation. Theseactivities,ifcarriedout
+onaregularbasis,dependonvariousfactors(e.g.theroadtypeandthe
+averagedailytraffic,thetypeoflandslides andtheinvolvedgeo-
+materials) andtheextra-costs arerarelyaffordable bytheroadmanager,
+whomayneedtoprioritizetheroadstretcheswherethemonitoring/
+maintenance workscannolongerbepostponed. Thedrawbacks ofthis
+frequentsolutionbringalongtheprogressive reduction ofthefunc-
+tionality –oreventheabandonment –of(someprimaryandmany
+secondary) roadsininnerhilly/mountain areas,therefore further
+contributing tothecontinuous depopulation thatmanyareasofcentral-
+southernItalianApennines havebeenexperiencing forthelastdecades.
+Consequently, theneedforeasy-to-transfer/apply procedures forslow-
+movinglandslideriskanalysisbecomesmoreandmoreurgenttosup-
+portinformeddecision-making.
+Asfortheanalysisoftheriskposedbylandslides ontheinfrastruc-
+turenetwork,passingfromanalysesatsmall(i.e.1:100,000) tomedium
+(i.e.1:25,000) andtolarge(i.e.1:5000)scale,theneedofquantitative
+information increases,andmoredetaileddatawithhigherresolution are
+necessary (Ferlisietal.,2019;vanWestenetal.,2008;Winterand
+Wong,2020).Accordingly, small-andmedium-scale analysesmaybe
+performed withinaqualitative framework, whereaslarge-scale analyses
+(afortiorionadetailedscale,i.e.F1:2000)requireaquantitative
+approach. Thekeydifference betweenthetwoapproaches isthat
+whereasqualitative riskanalysismainlyreliesonindices,nominal(e.g.
+low,moderateandhigh)ornumerical scales,ontheotherhandQuan-
+titativeRiskAnalysis(QRA)quantifies agivenleveloflosswithits
+probability andassociated uncertainties (Corominas etal.,2014).
+Importantly, undertheperspective ofpracticalapplications, QRAen-
+ablestheinherentlimitations oftheresultsoflandslideriskanalysis
+conducted onaqualitative basistobeovercome (Calecaetal.,2022;
+Corominas etal.,2014;Gullˇaetal.,2021;Luetal.,2014;Winterand
+Wong,2020;Zhangetal.,2023;Zhouetal.,2024).Thisisthecasein
+Italy,wherecurrentlegislation (Law365/2000, incompliance withthe
+DecreeofthePresident oftheCouncilofMinistersof29September
+1998)leadstoofficiallandslideriskzoningmapsthat,althoughuseful
+forland-useplanningpurposes, arenotsuitablefor(FerlisiandDe
+Chiara,2016;Ferlisietal.,2016):i)theprioritization ofarealorlinear
+elementsclassifiedatthesamelevelofrisk(e.g.veryhigh)thatrequire
+mitigation measuresandtherelatedallocation offinancialresources; ii)
+theselectionofthemostappropriate riskreductionstrategy(including
+thetypeandsizeofeitherprevention orprotection works).
+Theanalysisoftheexpectedconsequences totheroadsrepresents a
+keystepinlandslideriskmanagement. Itinvolvesoftheidentifying the
+exposedroadstretchesandestimating theirphysicalvulnerability with
+relatedrepair/replacement costs.Inquantitative terms,physical
+vulnerability canbeexpressed byarelationship betweentheparameter
+representative ofthelandslideintensityandtheexpecteddamageor
+propensity forloss(Corominas etal.,2014;GalliandGuzzetti,2007;Luo
+etal.,2023;Pedutoetal.,2017,2018b;Winteretal.,2016).Thein-
+tensityparameter ofagivenlandslidetyperelatestoitsdestructiveness
+power;forslow-moving landslides, inthescientificliterature(andinthe
+presentwork)differential ortotaldisplacements arecommonly used
+(Corominas etal.,2014;Felletal.,2008;Mavroulietal.,2019;Nappo
+etal.,2019;Pedutoetal.,2017).Theestimation oftheeffectsontheroad(atmediumandlargescales)
+requiresinsitusurveystocollectinventories whereindamageseverity
+levelsareclassifiedaccording toqualitative systems,suchastheone
+basedonthevisibledamagerecordedtotheroadpavement (Ferlisi
+etal.,2021;Mavroulietal.,2019;Nappoetal.,2019).Then,coupling
+thedamageseveritylevelwiththepertaining valueofthelandslide
+intensityparameter represents theinputdataforthegeneration of
+probabilistic toolssuchasempirical fragilityandvulnerability curves
+(Ferlisietal.,2019;Fotopoulou andPitilakis,2013;Nicodemo etal.,
+2018;Pedutoetal.,2017;ZhangandNg,2005).
+CarryingoutQRAforroadscanbechallenging duetotheplentyof
+requireddata(Mavroulietal.,2019).Today,variousremotesensing
+techniques (e.g.opticaloracousticmeasurements, laserscanner,
+drones)cansupportthedesign,monitoring andmaintenance planning
+oflinearinfrastructures, whilebeingnon-invasive and,mostofall,cost-
+effectiveforanalysesoverlargeareas.Inthelastdecades,displacement
+measurements derivedfromtheDifferential Interferometric processing
+ofMultitemporal SyntheticApertureRadarimages(MT-DInSAR) have
+becomeawell-established complement totheaforementioned tech-
+niques.MT-DInSAR data,infact,providehigh-resolution measurements
+ofgrounddisplacements withmillimeter accuracy(onsufficiently long
+deformation timeseries)ataffordable costs(Frattinietal.,2018;Jour-
+naultetal.,2018;Novielloetal.,2020;Pedutoetal.,2021;Wasowski
+andBovenga,2015).Recently, Reindersetal.(2022)examined the
+compliance ofMT-DInSAR datawithgeotechnical designcodesandtheir
+applicability inthefieldoftransportation geotechnics byhighlighting
+thatthesedatacansupportandcomplement withotherconventional
+techniques inthedifferentstagesoftheprojectaspertheEurocode-7.
+Fanetal.(2024)proposedanintegrated useofMT-DInSAR, geophysical
+inversion, andnumerical simulation foranon-contact quantitative risk
+analysistolandslides affectingahighway.Theavailability ofveryhigh-
+resolution SARsensors(i.e.COSMO-SkyMed andTerraSAR-X) fostered
+theuseofMT-DInSAR datatoanalyzethebehavioroftheinfrastructure
+networksinteracting withslow-moving landslides (Cignettietal.,2023;
+Ferlisietal.,2021;Infanteetal.,2019;Nappoetal.,2019;Northetal.,
+2017;Reyes-Carmona etal.,2020).Particularly, Ferlisietal.(2021)
+pointedouthowthecombination ofMT-DInSAR anddamagedatais
+usefulforQRAonroadsbymeansofpowerfultoolssuchasfragilityand
+vulnerability curves.Forthiskindofanalysis,multi-temporal road
+damagedatasetscanhelptoinvestigate theresponseoftheinfrastruc-
+turetoslopemovements asresultingfromacombination ofdifferent
+factorssuchasthelandslidekinematics, theinvolvedgeomaterials, the
+exposedroadstretchtypologyanditspositionwithinthelandslide-
+affectedarea.However, acontinuous updatingoftheinformation on
+themaintenance stateofallroads(including notprimarytrunks)canbe
+expensive, thusittypicallyreliesonwarningsbyroadusersorlocal
+technicalofficers.
+Forstudiesatlargescale,GoogleStreetViewimagery,whose
+coverageisincreasing worldwide, canbeusedtocollectmulti-temporal
+photosoftheroadpavement andsidestructures (Nappoetal.,2019;
+Ferlisietal.,2021;Pecoraroetal.,2023);formoredetailedanalyses,the
+useofUAV-based photogrammetry productsforsemi-automatic detec-
+tionandclassification ofasphaltroaddamageinlandslide-affected areas
+allowsovercoming thesubjectivity oftraditional visualinspections of
+theroadpavement (Nappoetal.,2021).
+Undertheperspective ofasustainable riskmanagement and
+informeddecisionprocess,thepresentstudyproposesamulti-source
+basedapproach thatexploitsbackground knowledge (i.e.geological-
+geomorphological data,geotechnical monitoring andcharacterization,
+ground-based monitoring techniques, resultsofin-situsurveys),remote
+sensingdata(i.e.MT-DInSAR andGoogleStreetViewimages)and
+probabilistic tools(i.e.fragilityandvulnerability curves)toquantita-
+tivelyestimatetherisktoroads.Thesecurves,retrievedviaprocedures
+widelyadoptedinliterature(Ferlisietal.,2021;Negulescu etal.,2014;
+Pedutoetal.,2018b,2019;PitilakisandFotopoulou, 2015),allow
+forecasting theexpected damagebytakingintoaccountinherentD.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+2 
+uncertainties relatedtotheuseddatasets(e.g.information gathered
+fromdamagesurveys;theaforementioned factorspresidingoverdam-
+ageoccurrence includingthemaintenance activitiesontheroad).
+Themethodistestedinawell-studied areaaffectedbyslow-moving
+landslides andcrossedbytheStatalRoadSS660,whichrepresents the
+primaryconnection toAcritown(Calabriaregion,southernItaly)in
+southernItalianApennines.
+Thisstudyallowsenrichingtheknowledge onthespecificcasestudy
+suchasthegeometric andlithological typifyingoflandslides, whichis
+tailoredfortheanalysisofthespecificinteraction (landslide-road).
+Importantly, novelaspectswithrespecttotheexistingliteratureonQRA
+forroadsaffectedbyslow-moving landslides areaddressed, namely: i)
+anoriginalroaddamagerankingisdefinedforanalysesatlargescale;
+thislooksattheinfrastructure asawholebyconsidering boththecon-
+ditionoftheasphaltpavement andthesideretainingstructures; ii)road
+damageevolution intimewasassociated withthelandslide-induced
+cumulative displacements inbetweentworepairworkstoanalyzethe
+effectsofthemechanical interaction oftheroadwiththeunstableslope;
+iii)empiricalfragilityandvulnerability curves –specifically designedfor
+theinfrastructure understudyviathecombined exploitation ofmulti-
+sourceremotesensingdata(MT-InSAR andGoogleStreetViewimag-
+ery)andresultsofin-situsurveys –aregenerated toforecasttheeco-
+nomiclossespertaining tothewholeroadstretch,shouldno
+countermeasures betakenforlandslideriskmitigation inafixedtime
+scenario.
+2.Materials
+2.1.Geological, geomorphological, andgeotechnical settings
+Thestudyarea,locatedalongthewesternborderoftheSilaMassif
+(northernCalabria), fallswithinthemiddleportionoftheMuconeRiver
+basinandincludesthetownofAcri(Fig.1).TheclimateisMediterra-
+neanwithdrysummerandprecipitation concentrated duringmild
+winters(Terranova etal.,2007).Thearea,ranginginelevationfrom300
+to900ma.s.l.,ismadebyhigh-grade metamorphic rocksofPalaeozoic
+age,intrudedbygranitoid rocks(Fig.1a).SincetheLateMiocene,
+crystalline rocksexperienced intenseweathering processes, resultingin
+acomplexanddeepweathering profile(Borrellietal.,2007;Borrelli
+etal.,2014b).
+Themetamorphic rocksarefoundinthecentralportionofthearea,
+alongtheslopescarvedbythemainwatercourses (e.g.,MuconeRiver
+andCalamoStream),andconsistofbiotite-garnet andsillimanite gneiss.
+Thegranitoidrocksoutcropped intheeasternandnorthwestern portions
+oftheareaandmainlyconsistoftonalite.Oldfluvialconglomerates
+(UpperPleistocene) interbedded withcoarsesandandmudoccurred
+closetoAcritown,whereasrecentalluvialdeposits(Holocene) are
+foundalongtheriverbeds(Fig.1a).
+TheAcriareapresentsacomplexstructural settingbecauseseveral
+thrustfaults,formedunderacompressive regimeduringtheMiocene,
+andEarlyPleistocene NW–SE-trending left-lateral strike-slip faults,
+associated withatranspressive regime,havebeendissectedbyhigh-
+angleN–S-trending normalfaultsduringthemiddle-upper Pleistocene
+(Borrellietal.,2014b)(Fig.1a).
+Moreover, compressive, tensionaland/orstrike-slip faultmovements
+havedislocated inheritedweathering profiles(Borrellietal.,2014b)
+creatingacomplexassemblage ofweathering horizonsandsubstantially
+increasing thestateoffracturing intherockmasses(BorrelliandGullˇa,
+2017).Alongthemajorfaultplanes,verywidefaultdamagezones
+occur,withanoccasional thickargillification ofthefaultcoresthat
+reachesthemaximum thicknessalongthemainlow-angle thrustfaults
+(BorrelliandGullˇa,2017).TheQuaternary tectonicuplift,responsible of
+amorphology characterized bysteepslopesanddeep,narrowvalleys(e.
+g.,Mucone,Calamo,andCeraco),andtheintenseweathering processes
+affectingtherockmassesstronglyfavormassmovements development
+inthestudyarea(Borrellietal.,2007;Borrellietal.,2014b).Particularly, landslides (e.g.,slide-debris flows,debrisslides,androck
+slides)andDeep-Seated Gravitational SlopeDeformations (DSGSDs)are
+widespread alongtheslopesthatbordertheMuconeRiveranditstrib-
+utaries,wherethelocalreliefenergy,steepslopes,andgravitational
+landforms arecommonly associated withfaultsandrelatedfaultzones
+(Fig.1a).
+According tothemaximum thicknessoftheinvolvedmaterial,which
+wasestimated onageomorphological basis,threecategories ofland-
+slides(shallow,medium-deep, anddeep-seated) canbedistinguished
+(BorrelliandGullˇa,2017),asshowninFig.1b.Particularly, shallow
+landslides ofslideandslide-flow typesgenerallyaffectdetrital-colluvial
+covers.Theyhavefailuresurfaceslocatedatadepthuptoabout3m,a
+widthrangingfrom5mto60mandatotallengththatisstrongly
+influenced bytheirevolution. Indeed,afterthelandslidetriggering, the
+phenomenon canstoporevolveintoadebrisflow.Medium-deep land-
+slides,generally ofslidetype,involvesoil-likerocksand/orweakly
+weathered rocks(i.e.,slopedebris,colluvialsoils,residualsoilsand
+gneissicrocksfromcompletely tomoderately weathered). Theyare
+characterized byfailuresurfacesreachingadepthuptoapproximately
+30m,awidthapproximately rangingfrom50mto200mandalength
+varyingfrom100mto350m.Deeplandslides, generallytranslational
+slides,involvefresherrocks(i.e.,gneissicrocksfromcompletely to
+slightlyweathered) andshowastrongtectonicconstraint. Particularly,
+thegeometryoflandslidebodiesisdissectedbyhigh-angle faults,while
+thrustfaultsgenerally controlthedevelopment oflandslidefailure
+surfaces.Theyarecharacterized byfailuresurfacesdeeperthan30m;
+theirwidthapproximately rangesfrom200mto500mandtheirlength
+from300to800m.
+Inaddition,twolargeDSGSDsofSackung-type (SerradiBudaand
+Serricella-Croce diBaffi)affectthestudyarea(Fig.1b).TheseDSGSDs,
+withadepthequalorhigherthan200m,haverespectively alengthof
+about1.2kmand1.5km;awidthof3kmand2kmandasurfaceof3
+km2and1.5km2.Thetypicalfeaturesofthesephenomena, partially
+obliterated byshallow,medium-deep anddeeplandslides thatare
+superimposed onthem,aresummitcrown-shaped scarps,terrace-like
+flats,convexslopeprofiles,andfootprotrusions towardsthebedof
+thewatercourses (BorrelliandGullˇa,2017).Fromthegeotechnical point
+ofview,thegeomaterials produced byweathering anddegradation
+processesofthegneissicrocksinthestudyareaandinsimilargeological
+contextcanbeframedamongresidual-colluvial soilstosaproliticsoils
+(CasciniandGullˇa,1993;Gullˇaetal.,2003);theirconnection with
+tectonicsub-horizontal structures favortheformation ofdeep-seated
+failuresurfaces,asinthecaseofSerradiBudaDSGSD.Referring to
+CasciniandGullˇa(1993)andGullˇaetal.(2020),thecompletely
+degradedgneiss,whichisthegeomaterial ofmaininterestfordeep-
+seatedlandslides, exhibitsreference valuesofthefrictionangle
+rangingfrom23•to35•atthepeakshearstrengthandfrom17•to31•at
+theresidualshearstrength,withassociated interceptcohesionvalues
+respectively rangingfrom28to100kPaandfrom0to40kPa.Forthe
+heterogeneous weathered anddegradedgeomaterials involvedinthe
+deep-seated landslides, avalueof22kN/m3canbeassumedasrepre-
+sentativeofthenaturalunitweight.
+2.2.Monitoring data
+Inthestudyarea,startingfrom1998to99,aconventional moni-
+toringnetworkwasinstalledbytheResearch InstituteforGeo-
+Hydrological Protection –National Research CouncilofItaly
+(IRPI –CNR),(Gullˇaetal.,2004b;Gullˇa,2014).Itsinitialobjectivewas
+thesafereopening oftheSS660roadaffectedbytheSerradiBuda
+DSGSDmobilization. Focusingoninstruments aimedatmeasuring
+grounddisplacements, themonitoring networkconsistedof(Fig.2):
+GPS,quadrilaterals andtotalstations,inclinometers (DeiCasetal.,
+2021).Later,thisnetworkwasintegrated withgroundsurface
+displacement timeseriesachievedfromtheprocessing ofmulti-sensor
+SARimageswithinterferometric techniques (MT-DInSAR), spanningD.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+3 
+Fig.1.Thestudyarea:a)geological settingandb)landslideinventory(fromBorrelliandGullˇa,2017,modified). Legenda):1)debriscones(a)andalluvialfans(b)
+(Holocene); 2)alluvialdeposits(Holocene); 3)fluvialconglomerates (UpperPleistocene); 4)granitoidrocks(Palaeozoic); 5)biotite-garnet andsillimanite gneiss
+(Palaeozoic); 6)normalfault;7)left-orright-lateral transcurrent faultreactivated asanormalfault;8)faultwithundetermined kinematics; 9)high-angle trans-
+pressivethrust;10)low-angle thrust;11)metamorphic layering;12)activelandslidescarp;13)dormantlandslidescarp;14)activedebrisslide;15)activerockslide;
+16)activeslide/debris flow;17)dormantdebrisslide;18)dormantrockslide;19)dormantslide/debris flow;20)DSGSDscarp;and21)DSGSDbody.Legendb):1)
+alluvialdeposits;2)debrisandalluvialfan;3)landslidescarps(activeanddormant); 4)debrisslide(activeanddormant); 5)rockslide(activeanddormant); 6)slide/
+debrisflow(activeanddormant); 7)DSGSD(scarpandbody);8)shallowlandslide; 9)medium-deep landslide; and10)deeplandslide.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+4 
+fromOctober2014toJanuary2022.
+2.2.1.Geotechnical ground-based monitoring
+TheGPSnetworkovertheentirestudyareaisshowninFig.3a;five
+outofelevenworkingstationsconcentrate inanactiverockslide-
+affectedarea(i.e.01,02,03,07,08,seeFig.3b).Here,3in-
+clinometers (I3,I5,I1A),9benchmarks detectedbythetotalstationsand
+11quadrilaterals canalsobefound(Fig.3b).ExceptforGPS,ground-
+basedmonitoring systemsstoppedbeingoperative in2013.Table1
+summarizes theinformation concerning theground-based monitoring
+networkinstalledoverthestudyarea.
+2.2.2.Remotesensingmonitoring
+Multi-sensor SARdatasetconsisting ofhigh-resolution C-Band
+Sentinel-1 andofveryhigh-resolution X-BandCOSMO-SkyMed/
+COSMO-Skymed SecondGeneration (CSK,CSG)acquisitions wereana-
+lysed.Foreachsensor,acquisitions frombothascending anddescending
+passeswereexploited(Fig.2).Specifically, theSentinel-1 dataset,ac-
+quiredintheInterferometric Wide-Swath (IW)mode,includes341im-
+agesacquiredonascending orbits(relativeorbitnumber44)from08/
+10/2014to27/06/2021, whereasthedescending dataset(relativeorbit
+number124)includes335imagesacquiredfrom14/10/2014 to27/06/
+2021.Fortheaimofthestudyconcerning alimitedextentinwest-east
+direction, onlyoneoftheavailableswathsintheSentinel-1 standard
+slicewasprocessed foreachorbitdirection,specifically theIW3forthe
+ascending trackandtheIW1forthedescending track,corresponding to
+anaverageincidence angleatscenecenterofabout~44•(ascending
+track)and~34•(descending track).
+Conversely, theveryhighresolution X-BanddatasetacquiredintheStrimapmode,corresponding toaspatialgroundresolution ofabout~3
+m,includes162imagesacquiredonascending orbit(BeamH4–01,
+corresponding toanincidenceangleatscenecenterof~27•)from27/
+05/2011to23/01/2022 and51imagesondescending orbit(Beam
+H4–03,corresponding toanincidenceangleatscenecenterof~29.5•)
+inashorterperiodfrom03/03/2017 to25/12/2021.
+Aftertheinitialprocedures aimedatgenerating thestacksofco-
+registered acquisitions, eachdatasetwasprocessed throughthetwo-
+stepMT-DInSAR processing strategydescribed inFornaroetal.
+(2014).Themethodisbasedonasequenceofalow(small-scale) and
+high-resolution (large-scale) processing ofinterferometric SARdata
+acquiredoverrepeatedpasses.Thelow-resolution processing exploits
+theSBASmethoddescribed inFornaroetal.(2009)andprovidesthe
+estimation ofboththeatmospheric disturbance andthesmall-scale non-
+lineardeformation. Thisestimation allowsimplementing thedataphase
+calibration forthesubsequent full-resolution analysis,whichisper-
+formedbyapplyingtheDifferential Tomography (Fornaroetal.,2014)
+tothecalibrated stacktodetectandestimatetheparameters ofinterest
+(i.e.residualtopography andresidualdeformation rate)atfullresolu-
+tionoftargets,referredtoasPersistent Scatterers (PS),whoseelectro-
+magnetic backscattering issufficiently coherentoveralltheperiod
+spannedbytheimagedataset.Small-andlarge-scale deformation
+components arethencombined toprovidethefinallarge-scale defor-
+mationtimeseries.
+Fig.4a–dshowthedistribution ofthedetectedPSandtheestimated
+velocity(VLOS)alongtheradarsensorlineofsight(LOS).Resultsshowsa
+goodagreement oftheresultscomingfromtheprocessing ofdifferent
+sensordatasets,i.e.Sentinel-1 andCSK/CSG, acquiredalongthesame
+orbitdirection. Unfortunately, theareaofinterestislargely
+Fig.2.Integrated multi-source displacement monitoring networkavailableforthestudyareaincludingground-based (inclinometers, totalstations,quadrilaterals
+andGPS)monitoring, multi-sensors remotesensingMT-DInSAR dataandmulti-temporal damage(fieldandvirtual)surveys.CSK,CSGstandforCOSMO-SkyMed and
+COSMO-SkyMed SecondGeneration, respectively.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+5 
+characterized bythepresenceofvegetation thatlimitsthefinaldensity
+ofPS,whicharemostlylocatedonbuiltareasandroads.
+ItiswidelyknownthatMT-DInSAR issensitivetotheprojection of
+theactualgrounddeformation ontheLOS,thislatterbeingusually
+mostlyorientedinWestEastdirectionwithaverysmallcomponent in
+theNorthdirectionandwithanoffsetwithrespecttotheverticaldi-
+rectionrelatedtotheincidenceangle(Cascinietal.,2010).Accordingly,
+thesystemhasaverysmallsensitivity withrespecttoNorth-South
+components ofthegrounddeformation: themagnitude ofthe
+measured LOSdeformation intheareaofinterestcouldbethuslimited
+becausemostofthelandslides arealmostorientedinNorth-South di-
+rection(seeFig.4a–d).
+2.3.Exposedelements anddamagesurveys
+TheSS660roadconsistsofa7m-widesinglecarriageway withtwo
+trafficlanes.Likemanyroadsonthehillsandmountains inthestudy
+area,mostoftheroadtrackiscut-and-fill typewithno(orverylimited)
+footways. InFig.5threesimplified sketchesofthetypicaltypologyof
+retainingstructures alongSS660roadareshown.Particularly, theup-
+sloperetainingstructures mainlyconsistoflow-riseconcretegravity
+walls(Fig.5a)andL-shapedreinforced concretewalls(Fig.5b).Some
+downslope roadbordersareretainedbyanchoredbulkheads (Fig.5c),
+whichwerebuiltasriskmitigation worksincorrespondence ofroadstretcheswhereslopeinstabilities hadpreviously occurred.Since2003,
+IRPI-CNRcarriedoutseveralin-situsurveystomonitortheconditions of
+theSS660road(Fig.2).Forthepurposeofthepresentstudy,several
+photosoftheroadtakenoverthetimewerearrangedinanarchive
+coveringapproximately 20years(somephotosarereportedinFigs.7
+and8).
+3.Themethod
+Themethodconsistsoffourphases(seeFig.6)aimedatpursuing
+differentcascading goals.PhaseIaddresses landslide typifying by
+merginggeological-geomorphological-geotechnical information, the
+availablelandslideinventory map,andbothground-based andremote
+sensingmonitoring data,whichpreviously arecrosschecked foranac-
+curacytest.ThegoalofphaseIIisthemulti-temporal analysisand
+classification ofthedamageseverityrecordedtotheexposedelements.
+Forthispurpose,firsttheexposedroadstretchisidentified; then,the
+damageseverityiscollectedbasedonthreedifferentsourcessuchas
+archivephotos,in-situsurveysandGoogleStreet-view archiveimagery
+andclassifiedbasedonaspecifically defineddamagerankingscale.In
+PhaseIII,thelandslideintensityparameter isassumedasthecumulative
+MT-DInSAR-derived displacement computed fromthealong-slope ve-
+locity(Vslope)inafixedperiod,thenassociated withthemulti-temporal
+damageseverityleveltoderiveempiricalcause-effect relationships (i.e.
+Fig.3.a)Ground-based displacement monitoring networkwithinSerradiBudaDSGSDwithb)close-upviewofthein-depthmonitored activerockslideafterthe
+reactivation of1998 –99.
+Table1
+Maincharacteristics oftheinstalledground-based displacement monitoring network.
+Measuretype Instrument Numberofinstallations IDnumber Installation depthfromground-level
+SurfacedisplacementsGPS 11 01–02–03-05-06-07-08-09-10-11-12 –
+Quadrilaterals 11 Q1-Q2-Q3-Q4-Q5-Q6-Q7-Q8-Q9-Q10-Q13 –
+Totalstations 9 T1-T2- ….-T9 –
+Deepdisplacements Inclinometers 3I3 98m
+I5 63m
+I1A 152mD.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+6 
+Fig.4.Multi-sensor remotesensingMT-DInSAR data:Sentinel-1 ona)ascending (period08/10/14 –27/06/21) andb)descending (period08/10/14 –27/06/21)
+orbits;COSMO-SkyMed onc)ascending (period27/05/11 –23/01/2022) andd)descending (period03/03/2017 –25/12/2021) orbits.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+7 
+cumulative displacement vs.damageseveritylevel).Theselatterallow
+derivingprobabilistic toolssuchasfragilityandvulnerability curves
+pertaining totheanalysedroadstretches. InPhaseIV,therisktothe
+roadisestimated intermofrepaircosts(oreconomic loss)forafixed
+scenario.
+3.1.PhaseI:dataaccuracy testandlandslide kinematic characterization
+Preliminarily, theaccuracyoftheavailableMT-DInSAR datawas
+assessedviaacomparison ofbothSentinel-1 andCSK/CSG datasets(Fig.4)withtheavailableGPSdata(Fig.3).Forthispurpose,thever-
+tical(Z)andhorizontal (NorthandEast)components acquiredbythe
+GPSbenchmarks wereprojected alongtheLOSofthePStakenas
+referenceforthecomparison. Eq.(1)wasused:
+GPSLOSdN×LOSNdE×LOSEdZ×LOSz (1)
+wheredN,dE,dZarethethreecomponents oftheGPSdisplacement
+vectordGPS,andLOSN,LOSE,LOSZarethedirectioncosinesoftheLOS
+vector,i.e.theyspecifytheLOSunitvector,pertaining totheanalysed
+SARsensor(i.e.Sentinel-1 andCOSMO-SkyMed). Tocarryoutthe
+Fig.5.Sketchesoftypicalretainingstructures alongtheSS660road:a)aconcretegravitywall;b)L-shapedreinforced concretewall;c)sheetwall.Thesizeofthe
+structureisexpressed inmetersandismeantasaveragevaluesofthestructures alongtheSS660road.
+Fig.6.Flowchart oftheadoptedprocedure.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+8 
+comparison, thePSswerechosenaccording totheircoherence
+(maximum) andrelativedistance(minimum) withrespecttotheGPS
+points.
+Furthermore, considering thatMT-DInSAR datasetsareconstrained
+alongagivenmovement direction(i.e.1D-LOS)andforthestudyarea
+datasetsfromtwodifferentSARsensors(onbothascending and
+descending orbits)wereavailable, thevelocityvalueswereprojected
+fromtheLOStothesteepestslopedirectionfollowing theprocedure
+proposedbyCascinietal.(2010).Thisallowedinterpreting thekine-
+maticsofagivenlandslide, independently fromthedifferentsensor
+analysed.Then,considering thattheLOSprojection onthealong-slope
+directioncanbebiasedbyerrors(Cascinietal.,2010;Colesantiand
+Wasowski, 2006),athresholdonthevalueofthescalingfactor(Plank
+etal.,2010)ofeachPS,namelytheconstantvaluebywhichthemodulus
+oftheLOSvelocity(VLOS)mustbemultiplied inordertoobtainthe
+modulusofthealong-slope velocity(Vslope),wasset.Asshownbysome
+authors(Cascinietal.,2013;Herreraetal.,2013;Planketal.,2010),
+valuesofthescalingfactorlowerthan4allowselectingthemostreliable
+VslopePSvalues,thusaccounting forthelimitsrelatedtoboththesensor
+acquisition geometryandthelocaltopographic conditions (i.e.aspect
+andslopeangles).Accordingly, thePSswithscalingfactorexceeding 4
+werenotconsidered inthefollowingoperations.
+AsakeystepofPhaseI,thelandslides mappedintheavailablein-
+ventoryweregroupedbasedontheirtype,geometry, thickness, geo-
+materials, andkinematics (hereafter calledtypifiedlandslidesafterGullˇa
+etal.,2017).ThislatterderivedfromMT-DInSAR velocityvaluesthat
+wereavailableformostofthelandslides mappedinthestudyarea.For
+thispurpose,themeanvelocityoflandslidebodies(Vslopelandslide)was
+computed viatheformulaproposedbyCascinietal.(2013)(inwhich
+weightvalueswereestablished onthebasisofthePScoherence, i.e.the
+higherthePScoherence thehighertheweightvalue):
+Vslopelandslide⎢
+⨀⨀⨀∮⋃N
+i1wci×V2
+slopei
+⋃N
+i1wci⎥
+⨁⨁⨁⨀1E2
+⌊̂N
+i1wci
+wcN×V2
+slopei⌋1E2
+Cwci
+1 εmin
+Cmax Cmin×Ci Cminεmin (2)
+where:ireferstothei-thPSwithintheboundaryofthelandslide; Nisthe
+totalnumberofPSwithintheboundary ofthelandslide; wciisthe
+coherence weightofthei-thPSwithinthelandslideboundary; wcNisthe
+sumofwci;Vslope_iisthevelocityalongtheslopeofi-thPS;Cmaxisthe
+maximum coherence valueoftheuseddataset; Cministheminimum
+coherence valueoftheuseddataset;Ciisthecoherence valueofthei-th
+PSwithintheboundary ofthelandslide; εminisapositivenumbernot
+greaterthan1definingtheweightofthePSwiththesmallestcoherence.
+Intheanalyses, εminvaluewasfixedequalto0.2thusassigningaweight
+of20%tothesmallestcoherence value.
+3.2.PhaseII:Multi-temporal damagedatacollection andanalysis
+Theexposedelements(i.e.theroadstretchescrossingthelandslide-
+affectedareas)wereidentified byoverlapping themapoftypified
+landslides onthemapofurbanized areas.Thedamageanalysiswas
+carriedoutbyanalyzing: i)thearchivephotosobtainedsince2003by
+theIRPI-CNRduringin-situsurveys,specifically inthestretchofSS660
+affectedbytheSerradiBudarockslide, ii)theresultsofvirtualsurveys
+throughGoogleStreetviewimagearchive(November 2008,May2011,
+May2021),andiii)theresultsofanin-situsurveycarriedouton14
+December 2021.
+Asforthedamageseverityclassification, althoughinthescientific
+literaturethereareseveralpredictive modelsofasphaltdeterioration
+undernormaloperatingconditions (e.g.SharpandBooker,1984),there
+arefewpredictive modelsthatrelatelandslidedisplacements totheobservedroaddamage(Mansouretal.,2011;Mavroulietal.,2019).
+Startingfromtheclassification ofFerlisietal.(2021),damagewas
+rankedinfourincreasing severitylevels(Table2)including, asanov-
+elty,boththeasphaltpavement andthesideretainingstructures (ifany)
+forthecut-and-fill slopesectionsoftheSS660.Thisallowedassigning
+thedamageseverityleveltotheentireroadsection(assuming, ina
+conservative way,thehigherlevelbetweentheroadpavement andthe
+sidestructures).
+Thusoperating, weovercame thelimitations relatedtotherepair
+works,which,inthestudyarea,arecarriedoutmorefrequently onthe
+asphaltthanontheretainingstructures, andmayhaveconcealed the
+effectsofslopeinstability ontheinfrastructure (Fig.7).
+Ad-hocpreparedmonographic fact-sheets (Fig.8)werefilledinby
+collectinginformation onthelocation,thepresenceofalandslideandits
+keyfeatures,thetypeofroadandthestructuraltypologyoftheretaining
+structure, thedamageseveritylevelofboththepavement/asphalt and
+thesidewalls, andsomemulti-temporal photos.
+Startingfromtheidentification ofsingledamaged(orundamaged)
+sections,thelengths(inmeters)ofthoseroadstretchesexhibiting
+differentlevelsofdamagewerecomputed bydividingintwoequalparts
+thelengthofthestretchinbetweentwodamagedsectionsandassoci-
+atingeachofthemwiththedamageseverityleveloftheclosestdamaged
+sectionintheobservation period.Forinstance,ifaroadstretchofL
+lengthwaslimitedbytwodamagedsectionswithdifferentdamage
+levels(sayD1andD2),itwasdividedintotwosub-stretches ofequal
+lengths(L/2pereach)andeachofthemwasassociated withthedamage
+recordedbytheclosestdamagedsection(i.e.onewasassociated withD1
+andtheotherwithD2).Thisallowedustopassfromadiscreteinfor-
+mationreferredtothesingledamagedsectionstoacontinuous infor-
+mationassociated withtheroadstretchescomposing theentireroad.
+3.3.PhaseIII:Cause-effect relationship, fragilityandvulnerability curves
+Theresultsofthemulti-temporal damageanalysiswereusedin
+combination withspaceborne MT-DInSAR datatoderiveempirical
+correlations betweencause(i.e.cumulative displacements) andeffect(i.
+e.damageseveritylevel).Veryhigh-resolution MT-DInSAR datawere
+examined toselectandquantifythelandslideintensityparameter (i.e.
+thecumulative displacement alongtheslopedirection, δslope)with
+reference toafixedobservation period.ThisagreeswithPicarelli
+Table2
+Levelofdamageseveritytotheroadpavement andsideretainingstructures.
+Damageseverity
+levelDescription oftypicaldamage
+Roadpavement Sideretainingstructures
+D0NegligibleDeformation oftheroad
+pavement andcracksare
+absentorrarelyvisible.Sporadichaircracksalongthe
+entirelengthofthestructure.
+D1SlightDeformations andcracks
+locallyaffecttheroad
+pavement withoutaffectingits
+functionality.Cracksrarelyvisibleonthe
+structurethatdonotchange
+itsstrength.
+D2ModerateDeformations andcracks
+substantially affecttheroad
+pavement, affectingallorpart
+ofthetrafficlanesand/orthe
+edgeoftheroad,thereforeitis
+necessarytoreducethespeed
+limits.Cracksclearlyvisibleeven
+withexpulsion ofmaterial
+thatmayhavecompromised
+thestrengthofthestructure.
+D3SevereDeformations andcracks
+definitively compromise the
+continuity oftheroad
+pavement, affectinginwhole
+orinpartthetrafficlanesand/
+ortheroadside,forwhich
+trafficrestrictions are
+necessary.Wideandwidespread cracks
+distributed alongthe
+structureandevidenceof
+tiltingorslidingthathave
+clearlymodifieditsstrength.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+9 
+(2011),whoemphasized theroleofcumulative displacement (overa
+givenperiodoftime)intheonsetanddevelopment ofdamageto
+exposedfacilitiesratherthanthevelocity(Mansouretal.,2011).To
+estimatetheintensityparameter, abufferwitharadiusof10mwas
+drawnaroundeachdamagedroadsectiontotakeintoaccountboththenon-punctual extension ofthedamageandtheresolution oftheused
+SARsensor(Nappoetal.,2019).Foreachbuffer,thePSslocatedwithin
+itsperimeter wereselectedandthemeanslopevelocityofthekthbuffer 
+VslopeCk)
+wascomputed astherootmeansquareweightedPSvelocity
+alongthesteepestslopedirectionusingtheEq.(2)(asproposedby
+Fig.7.Examplesoftypicalrepairworkstotheroadpavement inthestudyarea.Roadsectionwitha)lateralconcretegravitywalllinedwithstonesandb)concrete
+low-sideretainingstructuresufferingfromcracksonboththepavement andsideretainingstructures (a1andb1).Roadwayrestoration (a2andb2)withrein-
+forcement works(a3andb3)andnewasphaltpavement (a4andb4);thislatterhasconcealed theevidenceofslopeinstability ontheroadpavement butnotonthe
+sideretainingstructures.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+10 
+Fig.8.Multi-temporal (fieldandvirtual)damagesurveys:anexampleoffilledroadfact-sheet including roadpavement andretainingwall/bulkhead damage
+assessments.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+11 
+Cascinietal.,2013).
+StartingfromtheVslopeCkvalue,thecumulative displacement (δslopeCk)
+pertaining tokthbuffer,inafixedobservation period(t),wascomputed
+usingtheEq.(3):
+δslopeCkVslopeCk×t (3)
+Thecomputed (δslopeCk)
+valuewasassociated withthelevelofdamage
+severity(Di)assignedtoeachroadsectionbasedonthedamageclassi-
+ficationpertaining tothefixedtimeinterval;thusretrieving the
+empiricalcause 
+δslope)
+vs.effect(Di)relationship. Thislatterwasthen
+usedtogenerateforecasting toolssuchasempirical fragilityand
+vulnerability curvesbyselectingappropriate probabilistic (forfragility
+curves)andregression (forvulnerability curve)models.
+Tothisaim,thetotalsampleofinvestigated roadsections(i.e.,those
+forwhichboththelandslide intensityparameter andthedamage
+severitylevelwereavailable) wasrandomlysplitintotraining(70%out
+ofthetotal)andtesting(30%outofthetotal)set.
+Thenonthetrainingset,basedontheanalysisofthefrequency
+occurrence ofeachdamageseveritylevelfordifferentclassesoftheδslope
+values,thecumulative log-normal distribution (Negulescu etal.,2014;
+Pedutoetal.,2018b,2019)andthetangenthyperbolic (Pitilakisand
+Fotopoulou, 2015;Nicodemo etal.,2020)functions wereadopted,
+respectively, forgenerating empiricalfragilityandvulnerability curves.
+Specifically, thefragilitycurves ̶providing theprobabilities P(.)that
+thedamageaffectingasectionofroadcanreachorexceedacertain
+damageseveritylevel(Di)forafixedvalueoftheintensityparameter
+(δslope)̶weregenerated usingtheEq.(4):
+P 
+Damage≽Di†δslope)
+Φ⌊1
+βilnδslope
+δslopeICi⌋
+withi1C2C3 (4)
+wherethefragilityparameters associated withthestandardnormal
+cumulative distribution function Φ[.]arethemedianvalue(δslopeCi)of
+theselectedintensityparameter (δslope)andthestandarddeviation(βi)
+ofthenaturallogarithm ofthe(δslope)values.Theselatterparameters,
+corresponding totheDirecordedtotheroadsection,wereestimated by
+fittingtheempiricaldata(Ferlisietal.,2021;Pedutoetal.,2019)using
+themaximum likelihood method(Shinozuka etal.,2003;Fotopoulou
+andPitilakis,2013).Inparticular, thefragilityparameters wereob-
+tainedmaximizing thelikelihood (L)function(Eq.5)bysolvingEq.6
+(Shinozuka etal.,2003):
+L 
+δslopeCiCβi)
+̃N
+j1̃M
+i1Pj 
+δslopeCjCDi)yji(5)
+dlnL
+dδslopeCidlnL
+dβi0 (6)
+wherePjistheprobability thatthej-throadsection(orstretch),
+belonging totheconsidered sampleandundergoing δslopeCj,willrecorda
+Di(i1,2,3);whereasyjiisequalto1or0(realization oftheBernoulli
+randomvariable)whetherthej-throadsection(orstretch)sustainsor
+nottheδslopeCjvalue(Shinozuka etal.,2003).
+Thevulnerability oftheexposedroadishereindefined(Corominas
+etal.,2014;Felletal.,2008)astheaverageexpecteddegreeoflossdue
+totheoccurrence ofaslow-moving landslideofgivenintensity. The
+expecteddegreeoflossislinkedtotheexpectedreversible orirrevers-
+ibledamageontheexposedelementthat,inturn,canbeexpressed in
+termoftherepair/replacement costsneededtorestorethesuffered
+damagewithrespecttoitsoriginalvalue(Felletal.,2008;Pedutoetal.,
+2018b;PitilakisandFotopoulou, 2015).Inthisregard,thevulnerability
+curvecanbeusedtoprovideaquantitative relationship betweenthe
+expectedaveragelevelofdamageseverityμD)andthecumulative
+displacement δslope.Inthisstudy,theμD 
+δslopeCi)
+valueswerecalculated
+byadoptingtheEq.(7)proposedbyPitilakisandFotopoulou (2015)considering foreachDithediscreteprobability (Pi)retrievedfromthe
+previously generated fragilitycurveswithanassociated numerical index
+di(assumed, respectively, as0.33,0.66,1forD1,D2,D3):
+μD 
+δslopeCi)
+̂3
+i1Pi×di (7)
+Then,thevulnerability curveswerederivedbyfittingtheμD 
+δslopeCi)
+dataretrievedbyEq.7,usingthetangenthyperbolic function(Eq.8)
+assumedasregression model(Pedutoetal.,2018b):
+μDa[
+btanh 
+c×δsloped)]
+(8)
+wherea,b,canddarefourcoefficients determined fortheinvestigated
+sampleofroadsectionsusingtheleastmeansquaremethod.
+Finally,focusingonthetestingset(30%outofthetotal)ofroad
+sections,theperformance ofthegenerated model(i.e.,theempirical
+vulnerability curves)wasevaluated byassessingtheoverallaccuracy
+andotherevaluation metricssuchassensitivity, specificity andpreci-
+sionusinga3×3confusion matrix(Tharwat,2018;seeFig.9).The
+overallaccuracyusingthepredictedclassesshowshowourclassification
+modelisabletopredicttheclasslabelsgivenintheproblemstatement.
+Thesensitivity andspecificity areimportant evaluation metricsof
+model ’sabilitytorecognize positiveandnegativeoutcomes ofthe
+datasetandaredefinedastheaveragesofthe“oneversusall”statistics.
+Fig.9showstheninepossibleoutputsoftheclassification modelsforthe
+threedamageclassesD1,D2,andD3.Thecolumnsrepresentthepre-
+dicteddamageseveritylevels(Di)derivedfromthemodel(i.e.,byusing
+theempirical vulnerability curve)andtherowsrepresent thetrue
+classes(i.e.,in-situdamageseveritylevelrecordedduringfield/virtual
+survey).InFig.9,theTPDiarethecasesforwhichtheclassifierpredicted
+thecorrectDi-classofthesamples;theEDiarethesamplesfromDi-class
+thataremisclassified inthatclass.Thus,thefalsenegativeintheDi-class
+(FNDi)isthesumofEDi,whichindicatesallthesamplesthatwere
+actuallyinDi-classbutweremisclassified inanincorrectDi-class;the
+falsepositiveintheDi-class(FPDi)isthesumofEDianditindicatesall
+thesamplesthatactuallywerenotintheDi-classbutweremisclassified
+asDi-class.
+3.4.PhaseIV:riskanalysis
+Inthisphase,therepairunitarycost(RUC)pertaining tothedifferent
+damageseveritylevelrecordedtotheroadsectionwasfirstcomputed.
+Tothisaim,theRUCrelatedtodifferentactivitiesrequiredtorepaira
+roadsufferingfromacertaindamageseveritylevel(Table3),was
+actualized atthestartingdateoftheperiodconsidered fortheexpected
+damage(EDi)scenariobyusingthecompound interestformula(Eq.9):
+RUC*RUC0*1rt*(9)
+IntheEq.(9)theRUC*tobereferredtothetimet*(inyears)canbe
+obtainedastherepairunitarycostRUC0atthereference year(t0)
+amplifiedorreducedbymeansofthenominalannualinterestrate(r),
+whosepercentage valuewasevaluated onthebasisofdataprovidedby
+theItalianInstituteforStatistics(ISTAT,2022)aboutthechangein
+construction costsofroadsovertime.InTable3theconsidered RUC
+pertaining totheroadpavement (modifiedafterFerlisietal.,2021)refer
+tothedateofthelastsurvey(December 2021)considering anominal
+annualinterestrate(r1.83%)referredtothechangeofconstruction
+costsofroadsfrom2018to2021(ISTAT,2022).Thethickness of
+differentlayersreferstosecondary suburban roadsaccording to
+Domenichini etal.(1993);theroadwidthwasposedequalto7m.Asfor
+retainingstructures, costswerecomputed basedontheRegionalPrice
+Listforpubliccivilengineering worksofCalabriaregion(Prezzario
+Regionale OO.PP.Calabria,2021)considering, onaverage,thesizeof
+thestructures sketchedinFig.5.Thecostsrefertotheconstruction of1
+mofthespecificstructureandwereassociated onlytothosesectionsD.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+12 
+exhibiting aD3level,considering thatinthestudyareathesecivilworks
+arenotrepairedunlesstheyreachaD3level.
+Then,theexpecteddamage(EDi)foreachroadsectioninafixedtime
+wasassessedconsidering differentlandslidekinematic scenarios. Tothis
+aim,thetimeperiodfordamageforecastwassetstartingfromlastrepair
+workstotheinfrastructure (i.e.attimet0theroadisundamaged).
+Withinthistimeintervalthefourconsidered damagelevels(D0-D3)
+appearinatleastoneoftheroadstretchescomposing thewholetrunkof
+theanalysedroad.Foreachbufferdrawnaroundeachdamagedroad
+section, δslopewascalculated usingEq.(3),startingfromthedateofthe
+lastrepairoftheroadpavement andassumingaconstantVslopevaluein
+theperiodforwhichthemonitoring (MT-DInSAR) datawereavailable
+andthreealternative Vslopevaluesinthetimewindowconsidered forthe
+damageforecastaccording tothedifferentlandslidekinematic sce-
+narios.Subsequently, byenteringthevulnerability curvewiththeδslope,
+itwaspossibletoderivetheexpectedaveragelevelofdamageμD)for
+eachinvestigated roadsection.
+Then,the(EDi)scenariowasassignedtothepertaining roadsection
+basedonthevalueofμD)andthecorresponding numerical indexdi
+(associated withadamageseveritylevelDi).Thisvaluewasthen
+extendedtotheroadstretchesbyconsidering theportionofroadin
+betweentwodamagedsectionsasequallydividedandassociating the
+levelofdamageoftheclosestdamagedsection(damagelength,DL).
+Finally,thequantitative risktotheroad(assumed astheexpected
+monetary loss,EML,inafixedtimescenario)fortheentireroadtrunk
+analysedwasestimated considering thedifferentroadstretcheswiththeirlength(DLi),thelevelofexpecteddamage(EDi)andtherepairunit
+costRUCi(€/m)according totheEq.(10):
+EML€̂n
+i1RUCiEDi×DLi (10)
+wherei1,…,nisthenumberofroadstretcheswithahomogeneous
+EDi.
+4.Results
+4.1.PhaseI
+Basedonthemethodology describedinSection3(Fig.6),firstGPS
+andMT-DInSAR datawerecrosscompared inordertoassessMT-DInSAR
+dataaccuracy. ByusingEq.(1)thevertical(Z)andhorizontal (North
+andEast)components ofdisplacement acquiredbytheGPSwerepro-
+jectedalongtheLOS.BothSentinel-1 andCSK/CSGPSsonascending
+anddescending orbitswereconsidered referring tothevelocity
+computed overtheoverlayperiod(March2017 –December 2021).The
+differentPSsavailableforeachGPS,thedifferences inthecomputed
+averagevelocity(ΔV)according totheradarsensorandtheacquisition
+geometry, aswellasthecorresponding meanvalue(ΔV),aresumma-
+rizedintheSupplementary Material(SM)associated withthiswork;
+whereasavisualcomparison isshowninFig.10,whereintheGPS-LOS
+projectedvelocityisplottedagainstthePSLOS-velocity.
+Asitcanbeseen,theaccuracyofSentinel-1 (theaverage ΔVof
+Fig.9.Confusion matrixforthe3×3damageclass(Di)validation testcarriedoutusing30%outofthetotalroadsectionsjointlywiththeassociated model
+evaluation metrics(accuracy, sensitivity, specificity andprecision). Legend:TPDitruepositiveforDi-class;EDimisclassified Di-classforwhichFNDiand/orFPDiis
+counted; FNDifalsenegativeforDi-class;FPDifalsepositiveforDi-class;TNDitruenegativeforDi-class.
+Table3
+Activitiesrequiredfortherepairofroadssufferingfromdamageofdifferentseveritytothepavement andthesideretainingstructures.
+Repairofroadpavement
+Activity Unitofmeasure Cost[€]Damageseveritylevel
+D0D1D2D3
+Sealingofcracksintheroadpavement m 4.21 ▪ – – –
+Supplyandinstallation ofasphaltconcreteforwearlayer(4cmthick) m3145.57 – ▪ ▪ ▪
+Millingpavement layersmadeofasphaltconcrete m2×cm 0.44 – – ▪ ▪
+Supplyandinstallation ofasphaltconcreteforbinderlayer(5cmthick) m3132.64 – – ▪ ▪
+Supplyandsprayingofbitumenmodifiedwithelastomers m20.75 – – ▪ ▪
+Supplyandinstallation ofasphaltconcreteforbaselayer(8cmthick) m3121.90 – – – ▪
+Supplyandinstallation oftheroadfoundation madeofstabilisedgranularmixture(15cmthick) m320.34 – – – ▪
+Repairunitarycost(RUC)[€/m] 4.240.8120.4 240.1
+Repairofretainingstructures
+Gravitywall
+Repairunitarycost(RUC)[€/m]– – – 246.5(formwork, concrete, leanconcrete, excavation, drainage material)
+L-shapewall– – – 1085.2(formwork, reinforced concrete, leanconcrete, excavation, drainage material)
+Bulkhead– – – 4185.6(perforation, drilledpiled0.40mandh15.0m,reinforced concrete)D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+13 
+Sentinel-1 PSonascending/descending orbit)isequalto1.22mm/year
+forPSoftheascending datasetand2.35mm/yearforthedescending
+dataset.Similarly, theaccuracyofCSK/CSGis0.98mm/yearand0.86
+mm/yearfortheascending anddescending dataset,respectively. For
+CSK/CSGdata,themeasured accuracyvaluesfallwithintherangeof
+1.5–2.0mm/year(seeFig.10)thatisreportedinthescientificliterature
+(Herreraetal.,2009;Pedutoetal.,2018a,2019).
+Then,PSvelocityvalueswereprojectedfromtheLOStothesteepest
+slopedirectionfollowing theprocedure proposed byCascinietal.
+(2010)(seealsoSection3.1).Fig.11aandbshowthemapofprojected
+VslopevectorsforbothSentinel-1 andCOSMO-SkyMed radarsensors.
+OnlyPSswiththescalingfactorbelowthethresholdof4wereconsid-
+ered.ThemapshighlightagoodcoverageofprojectedPSs.Specifically,
+526PSsforSentinel-1 datasetand2744PSsforCSK/CSGovertheentire
+landslide-affected areaand189PSsforSentinel-1 and1750PSsforCSK/
+CSGdatasetovertheSS660wereidentified.
+Fig.11cshowsthemapoflandslides withindicated thevelocity
+obtainedbyconsidering theMT-DInSAR Sentinel-1 andCSK/CSG
+availabledatasets.Sincethelatterreferredtodifferentacquisition pe-
+riods,inordertohavecoherentinformation onthelandslidekinematics,
+themeanvelocitywasdetermined overthemaximum overlapperiod
+(March2017 –December 2021)foreachPS.Inparticular, the
+Vslopelandslidevaluewascomputed usingtheEq.2andassignedtoeach
+landslidebody.
+Then,startingfromthelandslideinventorymapreportedinBorrelli
+andGullˇa(2017)andfocusingontheSerradiBudaDSGSD,aGIS
+attributetablewascompiled foreachlandslidemappedwithinthe
+DSGSDperimeter. Thetablesumsupalltheattributes considered for
+eachlandslidethatare:IDcode,type,stateofactivity,length,width,
+area,landslidecategory,involvedgeomaterials (Table4).
+Fig.12showsasynthesisofkeyfeaturesoftypifiedlandslides.
+Particularly, weused:landslidetype(slide;complex(i.e.,slide-flow))
+andDSGSD;thecategoryoflandslidebasedonthemaximum land-
+slidethickness identified ongeological andgeomorphological base(shallowlandslide(SL),medium-deep landslide(MDL),deeplandslide
+(DL)),andconsidering theSerradiBudaDSGSDinDLcategory;the
+involvedgeomaterials definedbygeological/lithological fieldsurveys
+andgeotechnical investigations (Gullˇaetal.,2003;BorrelliandGullˇa,
+2017).Furthermore, theabove-mentioned keyelementswereintegrated
+withtheVslopelandslideretrievedbythecombined useofSentinel-1 and
+CSK/CSGdatasets(seeTable4).
+TheDSGSD(49),whichaffectstheentiregeological contextunder
+consideration, showsVslopelandslidevaluesrangingfrom5.0to10.0mm/
+year;thisisinagreement withpreviousstudies(Borrellietal.,2017)and
+withthedataacquiredbyGPS09,10,11(Fig.3).Furthermore, the
+Vslopelandslidelandslide velocityretrieved bythecombined useof
+Sentinel-1 andCSK/CSG datasets(Fig.11c)showsthatthelandslide
+bodies(35,43,44),classifiedasdormantintheinventorymap(Fig.1),
+havemeanvelocitiesbetween10.0and15.0mm/year. Asforlandslide
+bodiesclassifiedasdormantintheinventorymap(Fig.1),thoselabelled
+with(38,46,48)haveameanvelocityF15.0mm/year, whereasthe
+landslides (33,45,47)recordvelocityvaluesrangingfrom5to10mm/
+year.Finally,inagreement withgeomorphological outcomes, thecom-
+bineduseofSentinel-1 andCSK/CSGdatasetsconfirmsthestateofac-
+tivityoftheSerradiBudarockslide(23)showingameanvelocityF
+15.0mm/year.
+4.2.PhaseII
+PhaseIIwasaimedatcollecting andanalyzing themulti-temporal
+damageseveritylevelsrecordedtotheSS660road.Thislatterwas
+affectedovertheyearsbyseverallandslidereactivations thatinduced
+repeatedclosuresandroadsurfacereplacement interventions. The
+analysedstretchinteractsalong2775mwithaDSGSD(maximum
+thicknessofover100m)overlaidbyshallower slopeinstabilities (see
+Fig.1b).Amulti-temporal analysisofthedamagewasconducted based
+ontheclassification andsurveysreportedinSection3.2.Referringtothe
+Fig.10.Crosscomparison betweentheGPSvelocityvaluesprojectedalongthereferencePS-LOSdirectionandthePSLOSvelocitiesderivedfroma)ascending and
+b)descending Sentinel-1 dataandc)ascending andd)descending COSMO-SkyMed data.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+14 
+resultsofthein-situsurveycarriedouton14December 2021,Fig.13a
+showsamapandsomephotosoftheSS660roadwith69damaged
+sectionsdistinguished according totheseveritylevelrecordedtothe
+asphaltpavement. Fig.13bshowstheresultsofthevisualinspections
+carriedoutduringthesamesurveyonthesideretainingstructures alongwithsomephotosofthemostdamagedlocations. Inparticular, the
+analysedretainingstructures are22:8arereinforced concretewalls;13
+areconcretegravitywalls;and1isananchoredbulkhead(builtwithin
+theSerradiBudaactiverockslide), whichwasfoundtobethemost
+damagedwork.Indeed,ascanbeseeninthemonographic fact-sheet
+Fig.11.Mapsofprojectedvelocitiesalongthesteepestslopedirection(Vslope)fora)Sentinel-1 andb)CSKMT-DInSAR data(1*:pixelrecordingaLOSvelocityvalue
+intherangeof 1.5-1.5mm/yearcorresponding totheMT-DInSAR accuracyandnotconsidered intheprojection procedure); c)slow-moving landslides distin-
+guishedaccording totheaverageVslopelandslidevelocitybycombining Sentinel-1 andCSK/CSGdatasets(thenumberwithinthelandslidebodyisthenumberofPSs
+usedtoassessthecorresponding averageVslopevelocity).D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+15 
+showninFig.8,overtimetheprogressive worsening ofitsconditions
+endeduptoapartialcollapsein2013,whichwasstillclearduringthe
+on-sitesurveyof14December 2021.Then,thelengthsofthesections(in
+meters)withuniformlevelsofdamagewereidentifiedaccording tothe
+procedure describedinSection3.2,whichaccounted forthedamageto
+boththepavement andthesideretainingstructures. Theresultsare
+showninFigs.14a,b,c,whichdepictthedamageseveritylevelsrecorded
+inNovember 2008(Fig.14a),May2011(Fig.14b),andDecember 2021
+(inthiscasetheresultscoincidedwiththoseofthesurveycarriedoutin
+May2021usingGoogleStreetViewimagery)(Fig.14c).Fromthemaps
+itcanbeascertained thattheconditions oftheroadsurfaceworsened
+fromNovember 2008toMay2011.Inparticular, thedamagemainlyconcentrated intheSerradiBudarockslideduetoitsreactivation in
+2005and2010(Gullˇa,2014).Intheperiod2011 –2021,areplacement
+oftheroadsurfacewascarriedoutasrevealedbythearchivephotos
+systematically acquiredbytheIRPI-CNR.
+Importantly, theanalysisofthemulti-temporal damageperformed
+onthesideretainingstructures (whosemapswerenotreportedfor
+brevity)showsthatthedamagelevelsassociated withtheindividual
+workskeptconstantforalongertimethanfortheroadsectionsexam-
+ined.Thisdifference isattributable tothelimitedfrequency ofmainte-
+nance/replacement worksontheretainingworkswithrespecttorepairs
+oftheroadpavement duetotheirhighercosts.Moreover, inmanycases
+roadpavement maintenance worksaresufficienttoavoidroadclosureTable4
+Keyfeaturesoftypifiedlandslides.
+Landslide
+(ID)Type Stateof
+activity*Depth** Width
+[m]Length
+[m]Involvedgeomaterial Vslopelandslide[mm/
+yr]
+1
+Slide
+ActiveMDL123 314
+Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered7.12
+2 76 265 –
+3 90 251 11.51
+4 78 205 –
+5 140 150 –
+6 87 153 8.22
+7 56 120 32.20
+8 65 128 16.12
+9Slide-
+flow
+SL22 64
+Detrital-colluvial covers–
+10
+Slide33 37 –
+11 43 75 –
+12 60 45 14.24
+13 31 30 8.92
+14MDL70 140 Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered17.82
+15 75 150 –
+16SL60 35Detrital-colluvial covers–
+17 31 70 –
+18 MDL 35 150Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered–
+19
+SL28 50 Detrital-colluvial covers –
+20 230 90 16.04
+21Slide-
+flow30 150 –
+22
+SlideMDL 88 184Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered15.23
+23 DL 350 500 Gneissrocksfromcompletely toslightlyweathered 16.02
+24MDL108 285 Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered8.35
+25
+Active156 134 9.17
+26
+Slide-
+flowSL9 20
+Detrital-colluvial covers–
+27 5 15 –
+28 10 49 –
+29 6 62 –
+30 8 19 –
+31 29 86 –
+32 12 75 –
+33 Slide
+DormantMDL80 190Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered5.93
+34
+Slide-
+flow116 304 –
+35 97 262 10.01
+36SL49 98Detrital-colluvial covers–
+37 30 75 –
+38
+SlideMDL137 160
+Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered17.10
+39 134 184 –
+40 45 62 –
+41 82 118 –
+42
+DL217 380
+Gneissrocksfromcompletely toslightlyweathered–
+43 330 522 12.92
+44 315 584 11.24
+45
+MDL216 240
+Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered6.15
+46Slide-
+flow176 480 18.00
+47Slide280 465 7.22
+48DL217 590Gneissrocksfromcompletely toslightlyweathered18.71
+49 DSGSD – 5500 1240 6.93
+50
+Slide Active SL16 34Slopedebris,colluvialsoils,residualsoilsandgneissrocksfrom
+completely tomoderately weathered–
+51 10 24 17.82
+53 33 67 16.42
+*Note:stateofactivitybasedongeomorphological assessments. **Note:SL:shallowlandslide; MDL:medium-deep landslide; DL:deeplandslide.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+16 
+ortrafficreduction.
+Todeepenthislatteraspect,startingfromthevirtualsurveysof
+GoogleStreetview(November 2008,May2011,May2021)availablefor
+the182m-longstretchcrossingtheSerradiBudaactiverockslide, a
+detailedanalysisofdamageevolutionwasperformed byintegrating the
+archivephotosrelatingtothein-situsurveyscarriedoutovertheyears
+bytheIRPI̶CNRwiththemorerecentsurveycarriedouton14
+December 2021.
+Theassociation withthefourlevelsofdamageseveritydefinedin
+Section3.2allowedderivingthemapsshowninFig.15andsummarized
+inthegraphbelow.Bothmapsandgraphspointoutthatdamagelevels
+haveincreased duringthelandslidereactivation periods(2004 –2005,
+2009 –2010)thatwerereferredbyGullˇa(2014).
+Asaresultofboththestructural interventions andthereplacement
+oftheroadsurface,insomeperiodsdamageseveritydecreased. Spe-
+cifically,afterthe2005event,reinforcement worksandreplacement of
+theroadsurfacewerecarriedoutbetweenMarchandMay2005.Later,
+thepavement wasreconstructed inJune2013andreplacement and
+reconstruction operations werecarriedoutbetweenSeptember 2017
+andJune2018.Interestingly, themostseveredamagewasrecordedin
+correspondence oftheboundaries ofthelandslidebody(whichismainly
+translational), beingthelatterareasofconcentration ofshearstresses
+thathaveaffectednotonlytheroadsurfacebutalsotheretaining
+structures. Indeed,duringtherecentin-situsurvey(dated14December
+2021)itwaspossibletoverifythegoodconditionoftheroadpavement
+locatedinthecentralportion(landslide body)following therecent
+asphaltmaintenance carriedoutinJune2018.
+4.3.PhaseIII
+Thedisplacements δslope(computed according totheprocedure
+describedinSection3.3)withinthebufferdrawnaroundeachdamaged
+roadsection(Fig.16a,b)coveredbyCSKdata(50roadsectionsoutthe
+69examined) werecumulated fromFebruary2018(coinciding withthelastrepairworkstotheroad)toDecember 2021.BothFig.16aandc
+confirmthatthehighestvelocities, andconsequently thehighestcu-
+mulativedisplacements, occurintheSerradiBudarockslideandinthe
+adjacentsections.
+Thecomputed valuesofδslopeforeachbufferwerethenassociated
+withthelevelofdamagerecordedinthesurveyof2021.Thisallowed
+retrieving theempiricalcause-effect relationship showninFig.17a.As
+expected, theδslopeattainshighervaluesasthedamageseveritylevel
+(Di)increases, beingDiconservatively assumedasthemostsevere
+damagebetweentheonerecordedtotheroadsurfaceandthepertaining
+retainingstructure(ifany).Fig.17bshowsthedistribution ofthecu-
+mulativefrequencies representative oftheachievement ofeachlevelof
+damagerecordedincorrespondence oftheanalysedsections(fordam-
+agegreaterthanD0)asafunctionofδslopeintervals.Startingfromthe
+abovefrequency ofoccurrence andconsidering arandomly selected
+trainingsamplecomposed by70%outoftheinvestigated sections,
+empiricalfragilitycurves(Fig.17c)weregenerated adoptingasproba-
+bilisticmodelthelog-normal distribution (Eq.4)andtheestimated
+fragilityparameters (Eq.5andEq.6)pertaining toeachDi(βi0.63,
+0.92,0.51and δslopeCi15.46,26.84,75.13mmforD1,D2andD3,
+respectively).
+Thelatterallowevaluating theprobability ofreaching/exceeding a
+certainDiforafixedvalueoftheδslopeincorrespondence ofaroad
+sectionrandomly selectedamongthosecomposing theconsidered
+sample.Then,thediscreteprobabilities providedbytheempirical
+fragilitycurveswereimplemented inEq.(7)toderivethevaluesofthe
+averagely expecteddamageseveritylevel(μD),whoseinterpolation,
+throughtheadoptionoftheregression model(Eq.8)withthefitting
+coefficients equaltoa22.0946,b 0.9547,c0.0101andd
+1.8828,allowedderivingtheempiricalvulnerability curveinFig.17d.
+Finally,thevalidation ofthegenerated modelandtheoverallac-
+curacyassessment werecarriedoutusingthetesting(30%outofthe
+investigated sections)sampleviathe3×3confusion matrixshownin
+Fig.12.Mapoftypifiedlandslides (thenumberwithinthelandslidebodyisthelandslideIDreferredtoTable4).D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+17 
+Fig.9.Inourcaseitsvalueisequalto93.3%;thisindicatesthatthe
+generated modelpredictsthedamageseveritylevelwithhighaccuracy.
+Furthermore, bothsensitivity (95.2%)andspecificity (95.8%)indicate
+highabilityofthemodelincorrectlyidentifying positivedataoutofall
+truepositivesclasses(sensitivity) andnegativedataoutofallactual
+negativeclasses(specificity). Alsotheprecisionmetric,whichprovides
+thequalityofpositivepredictions, ishighwithavalueequalto95.8%.4.4.PhaseIV
+Theexpecteddamage(EDi)foreachroadsectionwasevaluated at6
+years(2024)startingfrom2018,whichcorresponds tothelastrepairto
+theinfrastructure (i.e.theroadwasundamaged) considering three
+differentlandslidekinematic scenarios(Fig.18).Inparticular, sincethe
+investigated landslides overthestudyareaaremainlyrainfall-induced
+withtypicallyseasonaltrendsandahydrological responseofthe
+Fig.13.Someresultsofthein-situsurveycarriedoutin14/12/21 toSS660road:damagerankingtoa)theroadpavement andb)thesideretainingstructures.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+18 
+slopesrelatedtocumulative rainfalls(Gullˇa,2014)andconsidering that
+relativelydryperiodswithabsenceofsnowhavebeenrecordedoverthe
+studyareaintherecentyears,inadditiontoscenarion.3,whichrep-
+resentstheworst-case withlandslides movingwithconstantVslope
+valuesduringthetimewindowassumedforthedamageforecastonthe
+roadstretches,twolessseverescenarioswiththelandslides movingwithslowerVslopevalueswerealsoanalysed(scenarios n.1andn.2).
+According totheseassumptions andadoptingthemethodology
+described inSection3.4fordamageforecast,forthebufferdrawn
+aroundeachdamagedsection,theδslopepertaining toeachscenariowas
+calculated usingEq.(3)andassumingaconstantVslopevaluederived
+fromtheMT-DInSAR dataforthefirstperiod(2018 –2021)and,forthe
+Fig.14.Integrated multi-temporal damageassessment includingroadsectionsandretainingstructureinteracting withthetypifiedlandslides (thenumberwithinthe
+landslidebodyisthelandslideIDreferredtoTable4):resultsofthedamageclassification fora)November 2008andb)May2011virtualsurveys,andc)December
+2021fieldsurvey.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+19 
+secondperiod(i.e.2021 –2024),variablepercentages ofVslopeequalto
+25%(forscenarion.1),50%(forscenario2)and100%(forscenarion.
+3).
+Subsequently, byenteringthevulnerability curvewiththe δslope
+computed foreachsectionintheconsidered scenarioitwaspossibleto
+derivetheaveragely expecteddamageseveritylevelμD)andthen,the
+expecteddamage(EDi)basedonthenumerical indexdiassociated with
+adamageseveritylevelDi,conservatively assumingthehighestDilevelwhenthevalueofμDwasbetweentwoconsecutive di.
+ThepredictedEDiassociated toeachscenariowasthenextendedto
+theroadstretches(damagelength,DL)asdescribedinSection3.4(see
+Fig.18).
+BothFig.18andTable5highlightthatbytheendof2024the
+analysedroadtrunkisexpectedtohavenoundamaged sectionsduetoa
+remarkable worsening ofmaintenance conditions; indeed,approxi-
+mately75%(forscenarion.1–Fig.18a)and90%(forscenariosn.2
+Fig.15.Temporalevolutionofthedamageseveritylevelstotheroadpavement along182mofSS660stretchinteracting withthemonitored activerockslideshown
+inFig.3b.Datesofreplacement, reinforcement andasphaltmaintenance areshownonthetimeline.D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+20 
+andn.3–Fig.18b,c)oftheroadlengthisexpectedtoexhibitD2-D3
+damagelevels.
+Acomparison betweentheexpecteddamage(EDi)pertaining toeach
+considered scenariowiththerealdamageseveritylevels,whichwere
+detectedduringarecentfielddamagesurvey(carriedoutinDecember
+2024,i.e.thesamereferenceperiodassumedforthedamageforecast)
+alongtheSS660roadstretches(Fig.18d),showsgoodmatchwiththe
+scenarion.1.Theperformance testwascarriedoutusingthe3×3
+confusionmatrixshowninFig.9bycomparing, foreachexaminedroad
+section,the“predicted ”damageclasseswiththe“true”damageclasses,
+whichwererecordedduringthesurvey.Fig.18showsthattheoverallaccuracyaswellastheotherevaluation metricssuchassensitivity,
+specificity andprecisiondecreasepassingfromscenarion.1(lesssevere
+scenario)toscenarion.3(worst-case).
+Finally,thequantitative risk(assumed astheexpectedmonetary
+loss,EML)totheentireroadtrunkwascomputed summingtherepair
+costsforalldamagedroadstretchesbyusingEq.(10)andconsidering,
+forthefixedtimescenario(2024),thedamagelength(DL)andtheRUC
+actualized according toEq.(9).Forthislaststepthecostsof2021(see
+Table3)wereactualized to2024byapplyinganominalannualinterest
+rate(r2.96%)retrievedfromthedataprovidedbytheItalianInstitute
+forStatistics(ISTAT,2022)abouttheyearlychangeinconstruction costs
+Fig.16.MT-DInSAR-derived cumulative slopedisplacements (δslope)intheperiod2018 –2021:a)mapofprojectedPSs(COSMO-SkyMed) velocity(Vslope)usedfor
+the(δslope)computation alongtheanalysedSS660(2775m)in(typified)landslide-affected area(thenumberwithinthelandslidebodyisthelandslideIDreferredto
+Table4)withb)close-upviewofPSswithin10-mbufferassumedasreference; c)trendofMT-DInSAR-derived cumulative slopedisplacements (period2018 –2021)
+alongtheroadtrack(frompointAtopointBshowninFig.16a).D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+21 
+ofroadsovertime(from2015to2021)applyingalinearregression
+model.TheresultsintermsofDLandEMLforeachfixedscenario(n.1,
+n.2andn.3)areshowninTable5togetherwithacomparison withthe
+repaircostsin2021.
+5.Discussion
+5.1.Landslide characterization andkinematic featureretrieval
+Inthiswork,multi-source data –includingconventional geological/
+geomorphological andgeotechnical criteriaandwidelyavailableremote
+sensingdata –wereusedtotypifythelandslides inthestudyarea.This
+wouldmakeitpossibleexportingtheinformation availableforasample
+oftypifiedlandslides tootherlandslides insimilargeo-environmental
+contextswherebackground information islimited.Suchkindofpro-
+cedurecouldbepartofthecircularapproachproposedbyGullˇaetal.
+(2021)thatinvolves(i)theperiodical updatingofinputdataastheir
+qualityandquantityincreasethankstotheresultsofmonitoring and
+fieldsurveys/investigations, (ii)theuseoftheknowledge acquiredata
+givenscaletoimprovetheanalysesatasmallerscale.
+AsforMT-DInSAR data,thecomparison withGPSdataprovidedan
+accuracycheckthatconfirmed literature thresholds (Hanssen,2003;
+Herreraetal.,2009;Pedutoetal.,2018a,2019)andenabledcomputing
+thelandslideintensityparameter alsowhereground-based monitoring
+datawerelacking.Moreover, thelimitsrelatedtobothSARacquisition
+geometryandtheslope/aspect anglesoftheareaofinterestweretackled
+byprojecting SARdataalongthesteepestslopedirection(Cascinietal.,
+2013)usingthethresholdfromliteraturethatconsiderstheverysmall
+sensitivity toNorth-South components ofthegrounddeformation; this
+resultedinalimitedcoverageonthoseNorth-South orientedlandslides.
+Asfortheuseofdifferential tomography (Fornaroetal.,2014)SARimageprocessing inthiswork,itisworthstressingthat,althoughitis
+moresuitableforlinearinfrastructure (withlimitedwidth)monitoring,
+itmayhavelimitedthePSdensityinthevegetated landslide-affected
+areaswithrespect,forinstance,todistributed scatterers (DS-InSAR)
+approaches. This,however,mayhaveresultedinreducedinformation
+ondisplacements usedforlandslidetypifyingratherthanthevulnera-
+bilityandriskanalyses(i.e.themaingoalsofthepaper),which,inour
+study,exploitedthedatarecordedbythePSslocatedwithinabuffer
+witharadiusof10mdrawnaroundeachdamagedroadsection.
+Importantly, thestudyassumedcumulative displacement asthe
+landslide intensityparameter forthevulnerability analysisofthe
+exposedinfrastructure; indeed,thisparameter allowsfollowing the
+evolution ofboththegrounddisplacements anddamageseverityin
+certainroadsectionsbetterthanvelocitycando,asalsopointedoutby
+Picarelli(2011).
+5.2.Damageassessment andriskanalysis
+Itisworthstressingthatpreviousstudiesinliterature assessthe
+expectedlossesorrepaircostsofroadsexposedtolandslidebyassuming
+thattheroadsareundamaged (asaninitialcondition) andthecompu-
+tationreferstotimeintervalsestablished inadvance(Ferlisietal.,2021;
+Zhangetal.,2021).Thisassumption represents alimitbecausetheroads
+considered intheseanalysesalreadyexhibitadamagelevelthatdepends
+onthetimesincethelandslide-induced displacements arecumulating.
+Inthepresentstudy,themaintenance stateoftheanalysedroadatatime
+t0wasknown,andtheanalysiswaslimitedtoafollowingperiodof3
+yearsduringwhichtheeffectsoflandslide-induced displacements were
+monitored. Thisallowedovercoming theuncertainty onthedamage
+severitylevelatt0oftheanalysisandthetypicallimitofassuminga
+constantvelocityvaluefortheperiodofobservation, aspreviousstudies
+Fig.17.a)Damageseveritylevelvs.MT-DInSAR-derived cumulative slopedisplacements (δslope);b)classfrequency ofoccurrence foreachdamagelevelDi(i1,
+…,3);c)empiricalfragilitycurvesandd)empiricalvulnerability curve(bothgenerated usingrandomly selectedsectionscorresponding to70%outofthetotal
+roadsections).D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+22 
+inliteraturepointedout(Ferlisietal.,2021;Nappoetal.,2019;Winter
+etal.,2016).
+Thecombination ofGoogleimagerywitharchivephotosprovideda
+richbackground knowledge andrepresented acost-effective waytolimit
+theneedforin-situsurveystofollowtheevolutionofroaddamage.This
+latter,asanoveltywithrespecttotheexistingliterature(Mavroulietal.,2019;Nappoetal.,2019;Ferlisietal.,2021),wasclassifiedbypro-
+posinganoriginalrankingthatlookedattheroadsectionasawhole
+including boththepavement andsidestructures. Indeed,thiswas
+particularly crucialinthepresentstudybecause,inthetestarea,theside
+retainingstructures arelessfrequently repairedduetohighercoststhan
+partialworks,whichusuallypursuethereopening oftheroadrather
+Fig.18.MapsoftheexpecteddamageseveritylevelsaffectingtheSS660roadwithintheSerradiBudaDSGSDinDecember 2024(baselineperiod:3years)and
+damagelevelpercentages fora)scenarion.1,b)scenarion.2andc)scenarion.3jointlywiththeevaluation metricswithreferencetothein-situdamagelevels
+recordedinDecember 2024asshownind).D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+23 
+thanactingonthecause(s)ofthedamage.However, foraperiodof
+observation of3years,usuallynomorethanonemaintenance tothe
+pavement iscarriedoutintheareaunderconsideration. Importantly, for
+thepurposeofthepresentstudytheroaddamagesurveydataset(both
+in-situandvirtual)wasanalysedwiththesameprocedure (seeSection
+3.2)andbythesameexpertinordertolimitinherentsubjectivity in
+severitylevelclassification. Itisworthstressingthatthecurrent
+geographical coverageofGoogleStreetViewcouldlimittheapplication
+ofthismethodology insomecountrieswherethesearchiveimagesare
+notavailableyet(Nappoetal.,2019).
+Multi-source multitemporal dataallowedderivingfragilityand
+vulnerability curvesthattacklethesubjectivity indamageclassification
+andotherinherentuncertainties concerning theonsetanddevelopment
+ofdamage,whichpreviousworks(Pedutoetal.,2017;Ferlisietal.,
+2021)identifiedaskeylimitstothiskindofstudies.Inthisregard,itis
+worthstressingthattheexploitation ofmulti-source remotesensingdata
+(MT-InSAR andGoogleStreetView)allowedgathering anamountof
+dataondisplacements anddamage,whosecollection wouldhavebeen
+byfarlessaffordable ifderivedfromconventional in-situsurveysand
+monitoring.
+Asforthegenerated vulnerability curve,theperformance testcarried
+outviatheconfusion matrixrevealedanoverallaccuracyequalto93.3
+%,thusprovingthatthegenerated modeliscapableofpredicting the
+damageseveritylevelinthestudyareawithhighaccuracy.
+Withreferencetothethreeanalysedkinematic scenarios, theob-
+tainedresultsinterestingly showedthat,shouldnocountermeasure be
+takentomitigatelandsliderisk,therepaircoststotheanalysedroad
+stretch(including boththeroadpavement andtheretainingstructures)
+in2024wouldapproximately doublethoseof2021,iftheVslopevalues
+intheperiod2021 –2024areassumedasbeingthesameasinthe
+2018 –2021period(scenarion.3,theworstcase).Furthermore, DLof
+theretainingstructures in2024wouldalmostquadruple withrespectto
+2021(independently oftheconsidered scenario), althoughEMLwould
+increaseofapproximately 30%becausein2021theanchoredbulkhead,
+whichisthemostexpensive retainingstructureinthestudyarea(see
+Table3),alreadyexhibitedD3andwasincludedinEMLfor2021.Itis
+worthnotingthatthebestperformance ofscenarion.1mayberelatedto
+thelowercumulated rainfalloccurredintheperiod2021 –2024.Indeed,
+inthesethreeyears,the120-dayvaluesofcumulative rainfallnever
+exceededthe800mmthresholdthatGullˇa(2014)associated withthe
+variations inthepiezometric levels(approximately 3–6m)thatproduce
+significant changesinthekinematic ofSerradiBudarockslide.
+Asforrepaircostestimation, thediscounting costwasassumedtobe
+increasing withalineartrendoverthelastsixyears;thisrepresents a
+weaknessthat,duetotheexcessivevolatilityofcostsoverthelast2–3
+years,mayhaveledtoanunderestimation ofunitcosts.
+Furthermore, theintangible costsforthecommunity intheeventof
+roaddisruption andthecostsassociated withtheneedtousealternative
+roadstoreachAcritownwerenotconsidered, sincetheyareoutsidethe
+mainpurposeofthiswork.5.3.Exportability oftheprocedure
+Practical challenges mightarisewhenapplying theproposed
+framework inothergeo-environmental settings;hereaftertheyarelisted
+alongwithstrategiestoaddress(ifany)possiblelimitations.
+i)Dataavailability (e.g.bothin-situandremotesensingdata);in
+thisregard,landslidetypifyingcouldmaketheexportation toa
+similarcontextlessexpensive becausetheexploitation ofstruc-
+turedknowledge gatheredinadifferentareasupportsquantita-
+tivelandslideriskassessment, thussavingtimeandeconomic
+resources.
+ii)Difference inregionalgeological-geomorphological-geotechnical
+features(e.g.landslidetypesandtheirkinematics); theprocedure
+tobeappliedcouldbesimilarinthetypologyofinputdataand
+methodological scheme,andtheresultsobtainedinagivenarea
+couldfurnishaframereferencetoamoreefficientlandsliderisk
+assessment.
+iii)Roughtopography orvegetation thatmaylimitthedensityof
+MT-InSAR benchmarks onbothlandslides andtheinfrastructure;
+forthispurpose,L-bandsensorscouldbeintegrated withX-orC-
+bandsensorimagerytoachieveanimproved datacoveragein
+vegetated areas,alsocomplemented bytheinstallation ofcorner
+reflectorsonselectedbenchmarks.
+iv)Maintenance practices(i.e.frequency andtypeofrepairwork)
+relatedtothetypologyoftheinfrastructure anditsstrategic
+relevance intermsoftrafficmanagement; thesedifferences
+wouldlimittheexportability offragilityandvulnerability curves
+todifferentinfrastructures becausethesetoolsshouldberelevant
+tosimilarstructures insimilargeo-environmental contextsto
+limitdatadispersion thatistypicalofhighlyheterogeneous
+samples.
+v)Changestotheprocedure couldbenecessaryforitsapplicability
+atscalesofanalysisthataredifferentfromthelargescale.For
+instance,theamountandaccuracyofinputdataaswellasthe
+parameters used(moreorlessrefined)shouldbeadaptedtothe
+levelofdetailrequested bythescaleofanalysis.
+Thepreceding points –alongwithissuesrelatedtotheavailability of
+funding(notimmediately quantifiable) neededtoaddressoperational
+costs,dedicated personnel costs,andresearchanddevelopment (R&D)
+supportcostsaimedatmeetingthemaintenance requirements and
+ensuringcontinuous updatingofinputdata –affectthesustainability of
+theproposedprocedure. Forthispurpose,strategiestoensurepractical
+implementation andlong-term successofthelandslideriskmanagement
+processshouldbeaddressed. Forinstance,theinformation gatheredon
+theEMLcouldprovidethemanaging Authorities withpracticaltoolsfor
+identifying theroadsectionsonwhichtointerveneasapriorityorwhen
+theexposedinfrastructure reachesunacceptable risklevels.Further-
+more,nowadays theexploitation ofintelligence technologies providesTable5
+SS660roaddamagedlength(DL)andexpectedmonetaryloss(EML)foreachconsidered scenario(n.1,n.2andn.3)inDecember 2024compared toDecember 2021.
+Damageseveritylevel DL EML DL EML DL EML DL EML
+(Dec.2021) (Scenarion.1) (Scenarion.2) (Scenarion.3)
+[m] [€] [m] [€] [m] [€] [m] [€]
+D0road 1492.30 6286.02 – – – – – –
+D1road 544.40 22,189.10 709.30 31,550.27 354.33 15,760.80 350.83 15,605.02
+D2road 739.30 88,984.82 1573.20 206,650.38 1705.30 224,002.28 1249.64 164,148.80
+D3road – – 493.84 129,378.77 716.71 187,769.22 1175.87 308,062.92
+TOT.road 2776.00 117,459.94 2776.00 367,579.42 2776.00 427,532.30 2776.00 487,816.74
+D3:Gravitywalls – – 243.60 61,818.30 243.60 61,818.30 243.60 61,818.30
+D3:L-shapewalls – – 67.877 75,836.11 67.877 75,836.11 67.877 75,836.11
+D3:Bulkhead 98.00 410,190.92 98.00 422,332.57 98.00 422,332.57 98.00 422,332.57
+TOT.retainingstructures 98.00 410,190.92 409.48 559,986.98 409.48 559,986.98 409.48 559,986.98D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+24 
+usefulsupporttosolvekeyaspectsofinfrastructure networks, suchas
+design,construction, disasterprevention andmitigation, andrescueand
+recovery.Forinstance,digitaltwinisoneofthemostpromising tech-
+nologiesformulti-stage management thathasgreatpotentialtoaddress
+theabovechallenges forbetterdealingwithsuchacomplexenviron-
+ment(Fulleretal.,2020).Itsimplementation iscurrentlybeingpro-
+motedinItalywithinoneofthefiveNationalCenterssetupbytheNRRP
+(https://www.supercomputing-icsc.it/en/spoke-5-environment-natura
+l-disasters-en/ ),whichcovercertainstrategicsectorsforthecountry ’s
+development.
+6.Conclusions
+Thepaperpresented theQRAstudyforaroadinteracting withslow-
+movinglandslides ofdifferenttypologies andexhibiting differentkine-
+maticbehaviours. Whencarriedoutatlargescale,thistypeofstudyis
+generallychallenging duetothelargeamountofnecessary inputdata
+(Ferlisietal.,2019;Mavroulietal.,2019;Zhangetal.,2023).Subse-
+quently,relyingonconventional approaches mainlybasedonsurveys
+andground-based monitoring canbenotalwaysaffordable intermsof
+bothmoneyandtime.Thismayresultinapoorcontroloftheinfra-
+structurebythemanaging Authority, withtheresult –apartfromthe
+inconvenience tousers –ofincreasing therepaircostsandlimiting
+maintenance worksonlywhentheroadlosesitsfunctionality.
+Theexploitation ofmulti-source multi-temporal dataallowedpri-
+oritisingdifferentroadsectionsintermsofexpectedrepaircosts.The
+enrichedknowledge ontheAcricasestudywastailoredfortheanalysis
+oflandslide-road interaction andthemainresultscanberecognized asi)
+thegeometric andlithological typifyingoflandslides; ii)anupgraded
+roaddamageranking,whichconsidersboththeconditionoftheasphalt
+pavement andthesideretainingstructures; iii)thedamageevolution
+withrespecttothecumulative displacements inbetweentworepair
+works;iv)empirical fragilityandvulnerability curvesspecifically
+designedtoforecasttheeconomic lossesoftheinfrastructure under
+studyandaddresscountermeasures forlandslideriskmitigation ina
+fixedtimescenario.
+Theintegration betweenthelandslidestateofactivityestablished on
+ageomorphological basisandthekinematic characteristics recon-
+structedbymeansofSentinel-1 andCOSMO-SkyMed monitoring data
+emphasises theusefulness oftheinformation gatheredfromdifferent
+disciplinary approaches and,inparticular, theadvisability ofupdatingit
+periodically inordertocreateintegrated monitoring networksthatare
+sustainable inthemediumtolongtermwhendealingwithplanningand
+managing roadsaffectedbylandslides. Indeed,considering theintrinsic
+difficulties and(sustainable) costsindefiningreliablegeotechnical-
+structural modelsinanalysesaimedatforecasting therealroad
+behavior,thesettingupofempiricalrelationships allowsaquickover-
+viewofthecomplexinteraction oftheinfrastructure withunstable
+slopes.Finally,thecombination ofMT-DInSAR withconventional
+ground-based data(i.e.inclinometers, GPS,totalstations), multi-
+temporaldamagedatasetsandfragility/vulnerability curvescanhelp
+implementing digitaltwinsthat,oncesetup,supportinformed
+geotechnical/structural analysesforroadresilience assessment. Such
+tools,usedwithacircularapproach, couldreducethecostofroad
+management andhelpriskprevention practiseevenininnerhillyand
+mountain areas,thusavoidingabandonment that,inturn,typicallyin-
+creaseslandsliderisk.
+CRediTauthorship contribution statement
+D.Peduto:Writing –review &editing,Writing –originaldraft,
+Supervision, Methodology, Fundingacquisition, Conceptualization. G.
+Nicodemo: Writing –review &editing,Writing –originaldraft,Meth-
+odology,Datacuration,Conceptualization. D.Luongo:Writing –orig-
+inaldraft,Formalanalysis,Datacuration.L.Borrelli:Writing –review
+&editing,Investigation. D.Reale:Software,Datacuration.S.Ferlisi:Writing –review &editing.G.Fornaro:Fundingacquisition, Supervi-
+sion.G.Gull ˇa:Writing –review &editing,Supervision.
+Declaration ofcompeting interest
+Theauthorsdeclarethefollowing financialinterests/personal re-
+lationships whichmaybeconsidered aspotentialcompeting interests:
+AllCo-authors reportsCo-financial supportwasprovidedbyItalian
+SpaceAgency (ASI)withcontract n.2021 –10-U.0CUP
+F65F21000630005 MEFISTO. Ifthereareotherauthors,theydeclare
+thattheyhavenoknowncompeting financialinterestsorpersonalre-
+lationships thatcouldhaveappearedtoinfluencetheworkreportedin
+thispaper.
+Acknowledgements
+ThisresearchwasfundedbyandcarriedoutintheItalianSpace
+Agency(ASI)contractn.2021 –10-U.0CUPF65F21000630005 MEFIS-
+TO—MetodidiElaborazione didatiSARmulti-Frequenza perIlmonitor-
+aggiodeldisseSTO idrogeologico —Multi-frequency SARdataprocessing
+methodsforthehydrogeological instability monitoring.
+TheactivitiesalsofallwithintheAgreement forscientificcoopera-
+tionsignedbytheItalianNationalResearchCouncil(CNR-IRPI) andthe
+Department ofCivilEngineering oftheUniversity ofSalernoon“Attivit ˇa
+diricercamirateadapprofondire leconoscenze sullatipizzazione dimovi-
+mentifranosiacinematica lentaesullavulnerabilit ˇadistrutture einfra-
+strutture checonessiinteragiscono anchemediante l’impiegoditecniche
+innovative dimonitoraggio satellitare edaterra ”andtheoperative
+Agreement forResearchcontribution signedbythetwoinstitutions on
+thetopic: “Analisiquantitativa delrischiodafraneacinematica lentainaree
+urbanedell’Appennino Meridionale conl’ausiliodimodellazione numerica
+avanzata edatidimonitoraggio satellitare ”.
+Appendix A.Supplementary data
+Supplementary datatothisarticlecanbefoundonlineathttps://doi.
+org/10.1016/j.enggeo.2025.108011 .
+Dataavailability
+Thedatasetgenerated duringand/oranalysedduringthecurrent
+studyareavailable fromthecorresponding authoronreasonable
+request.
+References
+Antronico, L.,Borrelli,L.,Peduto,D.,Fornaro,G.,Gullˇa,G.,Paglia,L.,Zeni,G.,2013.
+Conventional andinnovative techniques forthemonitoring ofdisplacements in
+landslideaffectedarea.In:Margottini, C.,Canuti,P.,Sassa,K.(Eds.),Landslide
+ScienceandPractice —EarlyWarning,Instrumentation andMonitoring,
+Springer —vol,vol.2,pp.125–131.https://doi.org/10.1007/978-3-642-31445-2 .
+Borrelli,L.,Gullˇa,G.,2017.Tectonicconstraints onadeep-seated rockslidein
+weathered crystalline rocks.Geomorphology 290,288–316.https://doi.org/
+10.1016/j.geomorph.2017.04.025 .
+Borrelli,L.,Greco,R.,Gullˇa,G.,2007.Weathering gradeofrockmassesasapredisposing
+factortoslopeinstabilities: Reconnaissance andcontrolprocedures. Geomorphology
+87(3),158–175.https://doi.org/10.1016/j.geomorph.2006.03.031 .
+Borrelli,L.,Antronico, L.,Gullˇa,G.,Sorriso-Valvo, G.M.,2014a.Geology,
+geomorphology anddynamicsofthe15February2010Maieratolandslide(Calabria,
+Italy).Geomorphology 208,50–73.https://doi.org/10.1016/j.
+geomorph.2013.11.015 .
+Borrelli,L.,Perri,F.,Critelli,S.,Gullˇa,G.,2014b.Characterization ofgranitoidand
+gneissicweathering profilesoftheMuconeRiverbasin(Calabria, southernItaly).
+Catena113,325–340.https://doi.org/10.1016/j.catena.2013.08.014 .
+Caleca,F.,Tofani,V.,Segoni,S.,Raspini,F.,Rosi,A.,Natali,M.,Catani,F.,Casagli,N.,
+2022.Amethodological approachofQRAforslow-moving landslides ataregional
+scale.Landslides 19,1539 –1561.https://doi.org/10.1007/s10346-022-01875-x .
+Cascini,L.,Gullˇa,G.,1993.Caratterizzazione fisico-meccanica deiterreniprodotti
+dall’alterazione diroccegneissiche. RivistaItalianadiGeotecnica, AnnoXXVII,N.2,
+Aprile-Giugno 1993,125–147(inItalian).D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+25 
+Cascini,L.,Fornaro,G.,Peduto,D.,2010.Advanced low-andfull-resolution DInSAR
+mapgeneration forslow-moving landslideanalysisatdifferentscales.Eng.Geol.112
+(1–4),29–42.https://doi.org/10.1016/j.enggeo.2010.01.003 .
+Cascini,L.,Peduto,D.,Pisciotta,G.,Arena,L.,Ferlisi,S.,Fornaro,G.,2013.The
+combination ofDInSARandfacilitydamagedatafortheupdatingofslow-moving
+landslideinventory mapsatmediumscale.Nat.HazardsEarthSyst.Sci.13,
+1527 –1549.https://doi.org/10.5194/nhess-13-1527-2013 .
+Cignetti,M.,Godone,D.,Notti,D.,Zucca,F.,Meisina,C.,Bordoni,M.,Pedretti,L.,
+Lanteri,L.,Bertolo,D.,Giordan,D.,2023.Damagetoanthropicelementsestimation
+duetolargeslopeinstabilities throughmulti-temporal A-DInSAR analysis.Nat.
+Hazards115,2603 –2632.https://doi.org/10.1007/s11069-022-05655-7 .
+Colesanti, C.,Wasowski, J.,2006.Investigating landslides withspace-borne Synthetic
+ApertureRadar(SAR)interferometry. Eng.Geol.88,173–199.https://doi.org/
+10.1016/j.enggeo.2006.09.013 .
+Corominas, J.,vanWesten,C.,Frattini,P.,Cascini,L.,Malet,J.-P.,Fotopoulou, S.,
+Catani,F.,VanDenEeckhaut, M.,Mavrouli, O.,Agliardi,F.,Pitilakis,K.,Winter,M.
+G.,Pastor,F.S.,Tofani,V.,Herv ˘as,J.,Smith,J.T.,2014.Recommendations forthe
+quantitative analysisoflandsliderisk.Bull.Eng.Geol.Environ.73,209–263.
+https://doi.org/10.1007/s10064-013-0538-8 .
+DeiCas,L.,Trigila,A.,Iadanza,C.,2021.LineeGuidaperilmonitoraggio dellefrane.In:
+LineeGuidaSNPA32/2021,pp.228,ISBN:978-88-448-1071-9, (inItalian).
+https://www.snpambiente.it/wp-content/uploads/2021/09/Linee_Guida_SN
+PA_Monitoraggio_frane_web.pdf .
+Domenichini, L.,DiMascio,P.,Giannattasio, P.,Caliendo,C.,Festa,B.,Marchionna, A.,
+Finni,P.,Molinaro, E.,Paoloni,G.,1993.Modellodicatalogodellepavimentazioni
+stradali.In:Fondazione Politecnica perilMezzogiorno d’Italia,Naples,pp.44(in
+Italian).
+Donnini,M.,Napolitano, E.,Salvati,P.,Ardizzone, F.,Bucci,F.,Fiorucci,F.,
+Santangelo, M.,Cardinali, M.,Guzzetti,F.,2017.Impactofeventlandslides onroad
+networks: astatisticalanalysisoftwoItaliancasestudies.Landslides 14,1521 –1535.
+https://doi.org/10.1007/s10346-017-0829-4 .
+Fan,Q.,Zhang,S.,Niu,Y.,Zeng,X.,Si,J.,Li,X.,Wu,W.,Jiang,J.,Qiu,S.,Kang,Y.,
+2024.Anon-contact quantitative riskassessment framework fortranslational
+highwaylandslides: Integration ofInSAR,geophysical inversion, andnumerical
+simulation. Eng.Geol.107818.https://doi.org/10.1016/j.enggeo.2024.107818 .
+Fell,R.,Corominas, J.,Bonnard,C.,Cascini,L.,Leroi,E.,Savage,W.Z.,2008.Guidelines
+forlandslidesusceptibility, hazardandriskzoningforlanduseplanning.Eng.Geol.
+102,85–98.https://doi.org/10.1016/j.enggeo.2008.03.022 .
+Ferlisi,S.,DeChiara,G.,2016.Riskanalysisforrainfall-induced slopeinstabilities in
+coarse-grained soils:practiceandperspectives inItaly.In:Aversa,S.,Cascini,L.,
+Picarelli,L.,Scavia,C.(Eds.),Landslides andEngineered Slopes.Experience, Theory
+andPractice.Proc.ofthe12thInternational Symposium onLandslides, Naples
+(Italy),12–19June2016,1.CRCPress/Balkema, Taylor &FrancisGroup,Leiden
+(TheNetherlands), pp.137–154.
+Ferlisi,S.,DeChiara,G.,Cascini,L.,2016.Quantitative riskanalysisfor
+hyperconcentrated flowsinNoceraInferiore(southern Italy).Nat.Hazards81
+(Supplement 1),S89–S115.https://doi.org/10.1007/s11069-015-1784-9 .
+Ferlisi,S.,Gullˇa,G.,Nicodemo, G.,Peduto,D.,2019.Amulti-scale methodological
+approachforslow-moving landslideriskmitigation inurbanareas,southernItaly.
+Euro-Mediterr. J.Environ.Integr.4,20.https://doi.org/10.1007/s41207-019-0110-
+4.
+Ferlisi,S.,Marchese, A.,Peduto,D.,2021.Quantitative analysisoftherisktoroad
+networksexposedtoslow-moving landslides: acasestudyintheCampania region
+(southern Italy).Landslides 18,303–319.https://doi.org/10.1007/s10346-020-
+01482-8.
+Fornaro,G.,Pauciullo, A.,Serafino,F.,2009.Deformation monitoring overlargeareas
+withmultipassdifferential SARinterferometry: anewapproachbasedontheuseof
+spatialdifferences. Int.J.RemoteSens.30(6),1455 –1478.https://doi.org/
+10.1080/01431160802459569 .
+Fornaro,G.,Verde,S.,Reale,D.,Pauciullo, A.,2014.CAESAR:anapproachbasedon
+covariance matrixdecomposition toimprovemultibaseline –multitemporal
+interferometric SARprocessing. IEEETrans.Geosci.RemoteSens.53(4),
+2050 –2065.https://doi.org/10.1109/TGRS.2014.2352853 .
+Fotopoulou, S.D.,Pitilakis,K.D.,2013.Vulnerability assessment ofreinforced concrete
+buildingssubjectedtoseismically triggeredslow-moving earthslides.Landslides 10
+(5),563–582.https://doi.org/10.1007/s10346-012-0345-5 .
+Frattini,P.,Crosta,G.B.,Rossini,M.,Allievi,J.,2018.Activityandkinematic behaviour
+ofdeep-seated landslides fromPS-InSARdisplacement ratemeasurements.
+Landslides 15(6),1053 –1070.https://doi.org/10.1007/s10346-017-0940-6 .
+Fuller,A.,Fan,Z.,Day,C.,Barlow,C.,2020.Digitaltwin:enablingtechnologies,
+challenges andopenresearch.IEEEAccess8,108952 –108971.https://doi.org/
+10.1109/ACCESS.2020.2998358 .
+Galli,M.,Guzzetti,F.,2007.Landslide vulnerability criteria:acasestudyfromUmbria,
+CentralItaly.Environ.Manag.40,649–665.https://doi.org/10.1007/s00267-006-
+0325-4.
+Gullˇa,G.,2014.Fieldmonitoring insamplesites:hydrological responseofslopeswith
+referencetowidespread landslideevents.Proc.EarthPlanet.Sci.9(2014),44–53.
+Gullˇa,G.,Aceto,L.,Perna,E.,2003.Caratterizzazione geotecnica deiterrenidi
+alterazione e/odegradazione diAcri.CNR-IRPI InternalReport614,1–115(In
+Italian).
+Gullˇa,G.,Aceto,L.,Antronico, L.,Cilento,M.,Niceforo,D.,Perna,E.,Terranova, O.,
+2004a.Failureandpostfailureconditions ofalandslideinvolvingweathered and
+degradedrocks.In:Proc.ofthe9thInternational Symposium onLandslides, Riode
+Janeiro,June28-July7,2004,pp.1241 –1246.
+Gullˇa,G.,Niceforo,D.,Bonci,L.,Calcaterra, S.,Cesi,C.,Gambino, P.,2004b.Surface
+movements ofalandslideinvolvingweathered anddegradedrocks.In:Proc.ofthe15thSoutheast AsianGeotechnical Conference (15thSEAGC),Bangkok,November
+22–26,2004,1,pp.375–378.
+Gullˇa,G.,Caloiero,T.,Coscarelli, R.,Petrucci,O.,2012.Aproposalforamethodological
+approachtothecharacterization ofWidespread Landslide Events:anapplication to
+SouthernItaly.Nat.HazardsEarthSyst.Sci.12,165–173.https://doi.org/10.5194/
+nhess-12-165-2012 .
+Gullˇa,G.,Peduto,D.,Borrelli,L.,Antronico, L.,Fornaro,G.,2017.Geometric and
+kinematic characterization oflandslides affectingurbanareas:theLungrocasestudy
+(Calabria, SouthernItaly).Landslides 14(1),171–188.https://doi.org/10.1007/
+s10346-015-0676-0 .
+Gullˇa,G.,Borrelli,L.,Aceto,L.,2020.Franetipizzateinroccegneissiche: rilevanzae
+statodell’arte.In:AttidellaXLIEdizione “TecnicheperlaDifesadelSuoloe
+dall’Inquinamento ”,Volume41,213-227-2020.AcuradiGiuseppeFrega&
+Francesco Macchoine. EdiBios.ISBN:978-88-97181-75-0 -ISSN2282-5517 .
+Gullˇa,G.,Nicodemo, G.,Ferlisi,S.,Borrelli,L.,Peduto,D.,2021.Small-scale analysisto
+rankmunicipalities requiringslow-moving landslideriskmitigation measures: the
+casestudyoftheCalabriaregion(southern Italy).Geoenviron. Disasters8,31.
+https://doi.org/10.1186/s40677-021-00202-1 .
+Hanssen,F.R.,2003.Subsidence monitoring usingcontiguous andPSINSAR: quality
+assessment basedonprecisionandreliability. In:Proc.11thFIGSymposium on
+Deformation Measurements, Santorini, Greece,pp.1–8.
+Herrera,G.,Fernandez-Merodo, J.,Tomas,R.,Cooksley, G.,Mulas,J.,2009.Advanced
+interpretation ofsubsidence inMurcia(SESpain)usingA-DInSAR data-modelling
+andvalidation. Nat.Hazard.EarthSyst.Sci.9,647–661.
+Herrera,G.,Guti˘errez,F.,García-Davalillo, J.C.,Guerrero, J.,Notti,D.,Galve,J.P.,
+Fernˇandez-Merodo, J.A.,Cooksley, G.,2013.Multi-sensor advancedDInSAR
+monitoring ofveryslowlandslides: theTenaValleycasestudy(CentralSpanish
+Pyrenees). RemoteSens.Environ.128,31–43.https://doi.org/10.1016/j.
+rse.2012.09.020 .
+Infante,D.,DiMartire,D.,Calcaterra, D.,Miele,P.,ScottodiSantolo,A.,Ramondini, M.,
+2019.Integrated procedure formonitoring andassessment oflinearinfrastructures
+safety(I-ProMONALISA) affectedbyslopeinstability. Appl.Sci.9(24),5535.
+https://doi.org/10.3390/app9245535 .
+ISTAT,2022.http://dati.istat.it/Index.aspx?DataSetCode DCSC_FABBRESID_1 .
+Accessed(lastaccess:30December 2023).
+Journault, J.,Macciotta, R.,Hendry,M.T.,Charbonneau, F.,Huntley,D.,Bobrowsky, P.
+T.,2018.Measuring displacements oftheThompson Rivervalleylandslides, southof
+Ashcroft,BC,Canada,usingsatelliteInSAR.Landslides 15(4),621–636.https://doi.
+org/10.1007/s10346-017-0900-1 .
+Lu,P.,Catani,F.,Tofani,V.,Casagli,N.,2014.Quantitative hazardandriskassessment
+forslow-moving landslides frompersistent scattererinterferometry. Landslides 11
+(4),685–696.https://doi.org/10.1007/s10346-013-0432-2 .
+Luo,H.Y.,Zhang,L.M.,Zhang,L.L.,He,J.,Yin,K.S.,2023.Vulnerability ofbuildingsto
+landslides: thestateoftheartandfutureneeds.EarthSci.Rev.238,104329.https://
+doi.org/10.1016/j.earscirev.2023.104329 .
+Mansour,M.F.,Morgenstern, N.R.,Martin,C.D.,2011.Expecteddamagefrom
+displacement ofslow-moving slides.Landslides 8(1),117–131.https://doi.org/
+10.1007/s10346-010-0227-7 .
+Mavrouli, O.,Corominas, J.,Ibarbia,I.,NahikariAlonso,N.,IosebaJugo,I.,Ruiz,J.,
+Luzuriaga, S.,Navarro,J.A.,2019.Integrated riskassessment duetoslope
+instabilities intheroadwaynetworkofGipuzkoa, BasqueCountry.Nat.Hazards
+EarthSyst.Sci.19(2),399–419.https://doi.org/10.5194/nhess-19-399-2019 .
+Nappo,N.,Peduto,D.,Mavrouli, O.,vanWesten,C.J.,Gullˇa,G.,2019.Slow-moving
+landslides interacting withtheroadnetwork:analysisofdamageusingancillary
+data,insitusurveysandmulti-source monitoring data.Eng.Geol.260,105244.
+https://doi.org/10.1016/j.enggeo.2019.105244 .
+Nappo,N.,Mavrouli, O.,Nex,F.,vanWesten,C.,Gambillara, R.,Michetti,A.M.,2021.
+UseofUAV-based photogrammetry productsforsemi-automatic detectionand
+classification ofasphaltroaddamageinlandslide-affected areas.Eng.Geol.294,
+106363.https://doi.org/10.1016/j.enggeo.2021.106363 .
+Negulescu, C.,Ulrich,A.,Seyedi,D.M.,2014.Fragilitycurvesformasonrystructures
+submitted topermanent grounddisplacements andearthquakes. Nat.Hazards74,
+1461 –1474.https://doi.org/10.1007/s11069-014-1253-x .
+Nicodemo, G.,Peduto,D.,Ferlisi,S.,Gullˇa,G.,Reale,D.,Fornaro,G.,2018.DInSARdata
+integration invulnerability analysisofbuildingsexposedtoslow-moving landslides.
+In:Proceedings ofIEEEInternational Geoscience andRemoteSensingSymposium
+(IGARSS2018),Valentia(Spain),22–27July,2018,pp.6111 –6114.https://doi.org/
+10.1109/IGARSS.2018.8518808 .
+Nicodemo, G.,Peduto,D.,Korff,M.,Ferlisi,S.,2020.Multi-parameter probabilistic
+vulnerability analysisofsettlement-affected masonrybuildingswithshallow/piled
+foundations insoftsoils:casestudiesinTheNetherlands. In:Calvetti,F.,etal.(Eds.),
+Proceedings oftheVIIItalianConference ofResearchers inGeotechnical Engineering
+–CNRIG –Lecco,Italy3–5July,2019,vol.40.©SpringerNatureSwitzerland AG
+2020,LNCE,pp.42–51.https://doi.org/10.1007/978-3-030-21359-6_5 .
+North,M.,Farewell,T.,Hallet,S.,Bertelle,A.,2017.Monitoring theresponseofroads
+andrailwaystoseasonalsoilmovement withpersistent scatterers interferometry
+oversixUKsites.RemoteSens.(Basel)9,1–17.https://doi.org/10.3390/rs9090922 .
+Noviello,C.,Verde,S.,Zamparelli, V.,Fornaro,G.,Pauciullo, A.,Reale,D.,
+Nicodemo, G.,Ferlisi,S.,Gullˇa,G.,Peduto,D.,2020.Monitoring buildingsat
+landslideriskwithSAR:amethodology basedontheuseofmultipassinterferometric
+data.IEEEGeosci.RemoteSensingMag.8(1),91–119.https://doi.org/10.1109/
+MGRS.2019.2963140 .
+Pecoraro,G.,Nicodemo, G.,Menichini, R.,Luongo,D.,Peduto,D.,Calvello,M.,2023.
+Combining statistical, displacement anddamageanalysestostudyslow-moving
+landslides interacting withroads:twocasestudiesinsouthernItaly.Appl.Sci.13(5),
+3368.https://doi.org/10.3390/app13053368 .D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+26 
+Peduto,D.,Ferlisi,S.,Nicodemo, G.,Reale,D.,Pisciotta,G.,Gullˇa,G.,2017.Empirical
+fragilityandvulnerability curvesforbuildingsexposedtoslow-moving landslides at
+mediumandlargescales.Landslides 14(6),1993 –2007.https://doi.org/10.1007/
+s10346-017-0826-7 .
+Peduto,D.,Elia,F.,Montuori, R.,2018a.Probabilistic analysisofsettlement-induced
+damagetobridgesinthecityofAmsterdam (theNetherlands). Transport. Geotech.
+14,169–182.https://doi.org/10.1016/j.trgeo.2018.01.002 .
+Peduto,D.,Nicodemo, G.,Caraffa,M.,Gullˇa,G.,2018b.Quantitative analysisof
+consequences inducedbyslow-moving landslides tomasonrybuildings: acasestudy.
+Landslides 15(10),2017 –2030.https://doi.org/10.1007/s10346-018-1014-0 .
+Peduto,D.,Korff,M.,Nicodemo, G.,Marchese, A.,Ferlisi,S.,2019.Empirical fragility
+curvesforsettlement-affected buildings: analysisofdifferentintensityparameters
+forsevenhundredmasonrybuildingsintheNetherlands. SoilsFound.59(2),
+380–397.https://doi.org/10.1016/j.sandf.2018.12.009 .
+Peduto,D.,Santoro,M.,Aceto,L.,Borrelli,L.,Gullˇa,G.,2021.Fullintegration of
+geomorphological, geotechnical, A-DInSAR anddamagedatafordetailedgeometric-
+kinematic featuresofaslow-moving landslideinurbanarea.Landslides 18,
+807–825.https://doi.org/10.1007/s10346-020-01541-0 .
+Picarelli,L.,2011.Discussion tothepaper “Expecteddamagefromdisplacement ofslow-
+movingslides ”byMFMansour,NRMorgenstern andCDMartin.Landslides 8(4),
+553–555.https://doi.org/10.1007/s10346-011-0292-6 .
+Pitilakis,K.D.,Fotopoulou, S.D.,2015.Vulnerability assessment ofbuildingsexposedto
+coseismicpermanent slopedisplacements. In:Winter,M.G.,Smith,D.M.,Eldred,P.J.
+L.,Toll,D.G.(Eds.),Geotechnical Engineering forInfrastructure andDevelopment.
+ICEPublishing, pp.151–173.https://doi.org/10.1680/ecsmge.60678 .
+Plank,S.,Singer,J.,Minet,Ch.,Thuro,K.,2010.GISbasedsuitability evaluation ofthe
+differential radarinterferometry method(DInSAR)fordetectionanddeformation
+monitoring oflandslides. In:Lacoste-Francis, H.(Ed.),Proc.ofFringe2009
+Workshop, 30November –4December 2009,ESRIN,Frascati,Italy(ESASP-677),8
+pp.,ISBN:978-92-9221- 41-4,2010.
+PrezzarioRegionale OO.PP.Calabria,2021.https://www.regione.calabria.it/website/or
+ganizzazione/dipartimento6/subsite/lavoripubblici/prezziariooopp/Accessed (last
+access:30November 2023).
+Reinders,K.J.,Giardina,G.,Zurfluh,F.,Ryser,J.,Hanssen,R.F.,2022.Proving
+compliance ofsatelliteInSARtechnology withgeotechnical designcodes.Transport.
+Geotech.33,100722.https://doi.org/10.1016/j.trgeo.2022.100722 .
+Reyes-Carmona, C.,Barra,A.,Galve,J.P.,Monserrat, O.,P˘erez-Pe ~na,J.V.,Mateos,R.M.,
+Notti,D.,Ruano,P.,Millares,A.,L˘opez-Vinielles, J.,Aza~n˘on,J.M.,2020.Sentinel-1
+DInSARformonitoring activelandslides incriticalinfrastructures: thecaseofthe
+rulesreservoir(southern Spain).RemoteSens.(Basel)12(5),809.https://doi.org/
+10.3390/rs12050809 .Sharp,R.W.,Booker,J.R.,1984.Shakedown ofpavements undermovingsurfaceloads.
+J.Transp.Eng.110(1).https://doi.org/10.1061/(ASCE)0733-947X(1984)110:1(1) .
+Shinozuka, M.,Feng,M.Q.,Kim,H.K.,Uzawa,T.,Ueda,T.,2003.Statistical Analysisof
+FragilityCurves.Technical reportMCEER-03-0002. StateUniversity ofNewYork,
+Buffalo,p.173.https://www.eng.buffalo.edu/mceer-reports/03/03-0002.pdf .
+Terranova, O.,Antronico, L.,Gullˇa,G.,2007.Landslide triggering scenariosin
+homogeneous geological contexts:theareasurrounding Acri(Calabria, Italy).
+Geomorphology 87,250–267.https://doi.org/10.1016/j.geomorph.2006.09.021 .
+Tharwat,A.,2018.Classification assessment methods.Appl.Comput.Inform.17(1),
+168–192.https://doi.org/10.1016/j.aci.2018.08.003 .
+Trigila,A.,Iadanza,C.,Bussettini, M.,Lastoria,B.,Barbano,A.,2015.Dissesto
+idrogeologico inItalia:pericolosit ˇaeindicatori dirischio.In:Rapporto2015.ISPRA,
+Rapporti233/2015. ISBN978-88-448-0751-1 (inItalian).https://www.isprambient
+e.gov.it/files/pubblicazioni/rapporti/rapporto-233-2015/Sintesi_Rapporto_233
+_2015.pdf.
+vanWesten,C.J.,Castellanos, E.,Kuriakose, S.L.,2008.Spatialdataforlandslide
+susceptibility, hazard,andvulnerability assessment: anoverview. Eng.Geol.102
+(3–4),112–131.https://doi.org/10.1016/j.enggeo.2008.03.010 .
+Wasowski, J.,Bovenga,F.,2015.RemoteSensingoflandslidemotionwithemphasison
+satellitemultitemporal interferometry applications: anoverview. In:Davies,T.(Ed.),
+Landslide Hazards,RisksandDisasters.ElsevierInc.,Amsterdam, pp.345–403.
+https://doi.org/10.1016/B978-0-12-396452-6.00011-2 .
+Winter,M.G.,Wong,J.C.F.,2020.Theassessment ofquantitative risktoroadusersfrom
+debrisflow.Geoenviron. Disasters7(4).https://doi.org/10.1186/s40677-019-0140-
+x.
+Winter,M.G.,Shearer,B.,Palmer,D.,Peeling,D.,Harmer,C.,Sharpe,J.,2016.The
+economic impactoflandslides andfloodsontheroadnetwork.Proc.Eng.14,
+1425 –1434.https://doi.org/10.1016/j.proeng.2016.06.168 .
+Zhang,L.M.,Ng,A.M.Y.,2005.Probabilistic limitingtolerabledisplacements for
+serviceability limitstatedesignoffoundations. G˘eotechnique 55(2),151–161.
+https://doi.org/10.1680/geot.2005.55.2.151 .
+Zhang,J.,Lu,M.,Zhang,L.,Xue,Y.,2021.Assessingindirecteconomic lossesof
+landslides alonghighways. Nat.Hazards106,2775 –2796.https://doi.org/10.1007/
+s11069-021-04566-3 .
+Zhang,Y.,Ayyub,B.M.,Gong,W.,Tang,H.,2023.Riskassessment ofroadwaynetworks
+exposedtolandslides inmountainous regions-acasestudyinFengjieCounty,
+China.Landslides 20,1419 –1431.https://doi.org/10.1007/s10346-023-02045-3 .
+Zhou,S.,Huang,Y.,Guo,Z.,Ouyang,C.,2024.Quantitative riskassessment ofroad
+exposedtolandslide: anovelframework combining numerical modelingand
+complexnetworktheory.Eng.Geol.343,107794.https://doi.org/10.1016/j.
+enggeo.2024.107794 .D.Pedutoetal. Engineering  Geology  350 (2025)  108011  
+27 
