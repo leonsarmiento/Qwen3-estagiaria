@@ -108,8 +108,7 @@ Para um arquivo de entrada `artigo.pdf`, o processo cria:
 
 - A aplicação criará automaticamente os diretórios necessários
 - A conversão de PDF e Word requer as respectivas bibliotecas estarem instaladas
-- O processamento com LLM usa o modelo `qwen3-4b-16k:latest` via Ollama
-- Certifique-se de que o Ollama esteja em execução em modo serve antes de iniciar a aplicação
+- O processamento com LLM usa o modelo `MyModel:latest` via Ollama. Este é Qwen3_1.7b ou Qwen3_4b comcontexto de 16K tokens, consumindo < 4gb ou < 8gb de RAM respeitivamente.
 
 ### Créditos
 
