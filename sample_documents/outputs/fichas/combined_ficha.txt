@@ -1,0 +1,18 @@
+### Resumo
+
+**Título:** Impacto da Subdivisão do Sistema Hidrográfico na Previsão de Parâmetros de Qualidade da Água
+
+**Autores:** Jha, M.K.; Arnold, J.G.; Gassman, P.W.; Hauck, L.M.; Rosenthal, W.D.; Williams, J.R.; McFarland, A.M.S.
+
+**DOI:** Não disponível
+
+**Citação conforme ABNT:** JHA, M.K.; ARNOLD, J.G.; GASSMAN, P.W.; HAUCK, L.M.; ROSENTHAL, W.D.; WILLIAMS, J.R.; MCFARLAND, A.M.S. Impacto da Subdivisão do Sistema Hidrográfico na Previsão de Parâmetros de Qualidade da Água. [Texto impresso]. In: [Não especificado]. [Ano]. Disponível em: <http://www.epa.gov/ost/BASINS/>. Acesso em: [Data de acesso].
+
+**Objetivo do Artigo:** O objetivo principal do artigo é investigar o impacto da subdivisão do sistema hidrográfico no modelo Soil and Water Assessment Tool (SWAT) em relação à previsão de parâmetros de qualidade da água, como carga de sedimentos, fósforo e nitrogênio.
+
+**Principais Resultados e Conclusões:** Os autores encontraram que a subdivisão do sistema hidrográfico afeta significativamente a precisão das previsões de parâmetros de qualidade da água. A subdivisão adequada pode melhorar a precisão das estimativas de carga de sedimentos, fósforo e nitrogênio. Além disso, a subdivisão do sistema hidrográfico também influencia a precisão das estimativas de fluxo de água e sedimentos. Os resultados indicam que a subdivisão do sistema hidrográfico deve ser cuidadosamente planejada para garantir a precisão das previsões de parâmetros de qualidade da água.
+
+**Referência Utilizada Mais Importante:** U.S. Environmental Protection Agency (USEPA). 2001. "BASINS 3.0: Better Assessment Science Integrating Point and Nonpoint Sources." U.S. Environmental Protection Agency, Office of Water, Office of Science and Technology, Washington, D.C. Disponível em: <http://www.epa.gov/ost/BASINS/>. Acesso em: [Data de acesso].
+
+**Resumo:** Este artigo investiga o impacto da subdivisão do sistema hidrográfico no modelo Soil and Water Assessment Tool (SWAT) em relação à previsão de parâmetros de qualidade da água, como carga de sedimentos, fósforo e nitrogênio. Os resultados indicam que a subdivisão adequada pode melhorar a precisão das estimativas desses parâmetros, bem como das estimativas de fluxo de água e sedimentos. A subdivisão do sistema hidrográfico deve ser cuidadosamente planejada para garantir a precisão das previsões de parâmetros de qualidade da água.
+
