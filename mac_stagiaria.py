@@ -295,7 +295,7 @@ class TextProcessorGUI:
                             file_content = f.read()
                         
                         # Create the command with proper escaping
-                        cmd = ['ollama', 'run', 'MyModel:latest', prompt_text]
+                        cmd = ['ollama', 'run', 'qwen2.5vl:latest', prompt_text]
                         
                         # Set environment variables for proper Unicode handling on Windows
                         env = os.environ.copy()

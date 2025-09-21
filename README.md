@@ -66,20 +66,20 @@ ollama create MyModel -f custom_granite.modelfile
 
 1. No Windows: Execute a aplicação GUI:
    ```
-   python3 ia_stagiaria.py
+   python3 windows_stagiaria.py
    ```
    Ou asism se voce usa um environment de conda:
    ```
-   python ia_stagiaria.py
+   python windows_stagiaria.py
    ```
 
    No Mac/Linux: Execute a aplicação GUI:
    ```
-   python3 qwen_stagiaria.py
+   python3 mac_stagiaria.py
    ```
    Ou asism se voce usa um environment de conda:
    ```
-   python qwen_stagiaria.py
+   python mac_stagiaria.py
    ```
 
 2. Na GUI:
