@@ -58,7 +58,7 @@ Esta é uma ferramenta que permite fazer o processamento de textos privados ou q
 - python-docx (`conda install -c conda-forge python-docx` ou `pip install python-docx`)
 
 #### Configuração do Ollama
-Esta aplicação requer que o Ollama esteja instalado e em execução na sua máquina. A aplicação usa especificamente o modelo `qwen3-4b-16k`. Você pode baixar o Ollama em: [https://ollama.com/download](https://ollama.com/download)
+Esta aplicação requer que o Ollama esteja instalado e em execução na sua máquina. A aplicação usa especificamente o modelo `hf.co/bartowski/OpenGVLab_InternVL3_5-8B-GGUF:Q4_K_M`. Você pode baixar o Ollama em: [https://ollama.com/download](https://ollama.com/download)
 
 #### Instalação do Modelo
 Antes de usar esta aplicação, você deve ter o modelo necessário do Ollama instalado. Execute o seguinte comando em seu terminal:
@@ -66,25 +66,9 @@ Antes de usar esta aplicação, você deve ter o modelo necessário do Ollama in
 Se seu computador tem menos de 3 anos (RECOMENDADO)
 
 ```bash
-ollama pull hf.co/unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+ollama pull hf.co/bartowski/OpenGVLab_InternVL3_5-8B-GGUF:Q4_K_M
 ```
 
-Se voce voce tem um computador "vintage":
-```bash
-ollama pull granite3.3:2b
-```
-
-Se você quiser usar uma configuração de modelo personalizada, pode criar uma usando o arquivo modelfile fornecido:
-
-de novo, para computadores relativamente novos (RECOMENDADO)
-```bash
-ollama create MyModel -f custom_qwen.modelfile
-```
-
-Ou para computadores vintage:
-```bash
-ollama create MyModel -f custom_granite.modelfile
-```
 
 ### Uso
 
@@ -135,7 +119,7 @@ Para um arquivo de entrada `artigo.pdf`, o processo cria:
 
 - A aplicação criará automaticamente os diretórios necessários
 - A conversão de PDF e Word requer as respectivas bibliotecas estarem instaladas
-- O processamento com LLM usa o modelo `qwen2.5vl:latest` via Ollama para suporte multimodal
+- O processamento com LLM usa o modelo `hf.co/bartowski/OpenGVLab_InternVL3_5-8B-GGUF:Q4_K_M` via Ollama para suporte multimodal
 - **Novidade**: Agora suporta processamento direto de imagens (JPEG, JPG, PNG, TIFF) junto com documentos de texto
 - Todas as imagens e textos são processados em conjunto para gerar um resumo combinado
 

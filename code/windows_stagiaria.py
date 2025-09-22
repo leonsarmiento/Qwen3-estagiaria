@@ -294,32 +294,48 @@ class TextProcessorGUI:
             
             combined_text = "\n\n".join(all_text_content)
             
-            # Prepare the Ollama command
-            # As per user feedback and `ollama run --help` output,
-            # image paths are passed as positional arguments directly after the prompt.
-            cmd = ['ollama', 'run', 'qwen2.5vl:latest']
+            # Prepare the Ollama command for vision model with proper syntax
+            # For vision models, we need to pass the prompt as an argument and image via stdin redirection
+            cmd = ['ollama', 'run', 'hf.co/bartowski/OpenGVLab_InternVL3_5-8B-GGUF:Q4_K_M']
             
-            # Add prompt text
+            # Add prompt text as first argument - this is the correct way to pass it
             cmd.append(prompt_text)
             
-            # Add image paths if any
-            cmd.extend(image_paths)
-            
-            self.status_var.set("Processing with LLM (multimodal)...")
-            
-            env = os.environ.copy()
-            env['PYTHONIOENCODING'] = 'utf-8'
-            
-            # Execute the command with combined text as stdin
-            result = subprocess.run(
-                cmd,
-                input=combined_text,
-                text=True,
-                encoding='utf-8',
-                capture_output=True,
-                check=True,
-                env=env
-            )
+            # Check if we have images to process
+            if image_paths:
+                self.status_var.set("Processing with LLM (multimodal)...")
+                
+                # Create environment with proper encoding
+                env = os.environ.copy()
+                env['PYTHONIOENCODING'] = 'utf-8'
+                
+                # Execute the command with combined text as stdin
+                result = subprocess.run(
+                    cmd,
+                    input=combined_text,
+                    text=True,
+                    encoding='utf-8',
+                    capture_output=True,
+                    check=True,
+                    env=env
+                )
+            else:
+                # If no images, process text only with the model
+                self.status_var.set("Processing text files only with LLM...")
+                
+                # Create environment with proper encoding
+                env = os.environ.copy()
+                env['PYTHONIOENCODING'] = 'utf-8'
+                
+                result = subprocess.run(
+                    cmd,
+                    input=combined_text,
+                    text=True,
+                    encoding='utf-8',
+                    capture_output=True,
+                    check=True,
+                    env=env
+                )
             
             output_content = result.stdout
             

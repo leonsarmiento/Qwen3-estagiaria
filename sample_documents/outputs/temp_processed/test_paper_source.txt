@@ -1,0 +1,831 @@
+See discussions, st ats, and author pr ofiles f or this public ation at : https://www .researchgate.ne t/public ation/5130799
+Impact of Watershed Subdivision Level on Flows, Sediment Loads, and Nutrient
+Losses Predicted by SWAT
+Article  · Dec ember 2002
+Sour ce: R ePEc
+CITATIONS
+15READS
+350
+5 author s, including:
+Manoj Jha
+North Car olina Agricult ural and T echnic al St ate Univ ersity
+125 PUBLICA TIONS    8,031  CITATIONS    
+SEE PROFILE
+Philip Gassman
+Iowa St ate Univ ersity
+219 PUBLICA TIONS    16,081  CITATIONS    
+SEE PROFILE
+Silvia Sec chi
+Univ ersity of Io wa
+102 PUBLICA TIONS    2,931  CITATIONS    
+SEE PROFILE
+Jeff Arnold
+Unit ed St ates Dep artment of Agricult ure
+402 PUBLICA TIONS    69,351  CITATIONS    
+SEE PROFILE
+All c ontent f ollo wing this p age was uplo aded b y Silvia Sec chi on 27 May 2014.
+The user has r equest ed enhanc ement of the do wnlo aded file.
+ 
+ 
+ 
+Impact of Watershed Subdivision Level on Flows, Sediment 
+Loads, and Nutrient Losses Predicted by SWAT 
+ 
+ 
+Manoj Jha, Philip W. Ga ssman, Silvia Secchi, Roy Gu, and Jeff Arnold 
+ 
+ 
+Working Paper 02-WP 315 
+October 2002 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Center for Agricultural and Rural Development 
+Iowa State University 
+Ames, Iowa 50011-1070 
+www.card.iastate.edu 
+ 
+ 
+ 
+  
+ 
+Manoj Jha is a graduate research assistant in  the Civil Engineering Department, Iowa State 
+University. Philip Gassman and Silvia Secchi ar e assistant scientists with the Resource and 
+Environmental Policy Division, Center for Ag ricultural and Rural Development, Iowa State 
+University. Roy Gu is an associate professor in  the Civil Engineering Department, Iowa State 
+University. Jeff Arnold is an agricultural engine er in the Grassland, Soil and Water Resource Lab, 
+U.S. Department of Agriculture, Temple, Texas. 
+ 
+This is a draft manuscript, which has been submitted to the Journal of the American Water 
+Resources Association (JAWRA) for review and possible publication. If accepted, the final version 
+published by the JAWRA may contain significant revisions. 
+ 
+For questions or comments about the contents of this paper, please contact Philip Gassman, 
+560E Heady Hall, Iowa State University, Am es, IA 50011-1070; Ph: 515-294-6313; Fax: 515-294-
+6336; E-mail: pwgassma@iastate.edu.  
+Iowa State University does not discriminate on the basis of race, color, a ge, religion, national origin, sexual 
+orientation, sex, marital status, di sability, or status as a U.S. Viet nam Era Veteran. Any persons having 
+inquiries concerning this may contact the Office of Equal Opportunity and Divers ity, 1031 Wallace Road 
+Office Building, Room 101, 515- 294-7612. 
+ 
+ 
+ 
+ 
+Abstract 
+The size, scale, and number of subwat ersheds can affect a watershed modeling 
+process and subsequent results. The object ive of this study was to determine the 
+appropriate level of subwater shed division for simulating sediment yield. The Soil and 
+Water Assessment Tool (SWAT) model with a geographic information system interface 
+(AVSWAT) was applied to four Iowa watershe ds that varied greatly in drainage area. 
+Annual output was analyzed from each simulation, which was executed for 30 years using climatic data representing the 1970 to 2000 period. The optimal threshold 
+subwatershed size of the total drainage area to adequately predict sediment yield was 
+found to be around 3 percent. Decreasing the size of subwatersheds beyond this level 
+does not significantly affect the computed se diment yield. This th reshold subwatershed 
+size can be used to optimize SWAT input da ta preparation requirements and simplify the 
+interpretation of results without  compromising simulation accuracy. 
+ 
+Keywords : AVSWAT, modeling of sediment yiel d, SWAT, Soil and Water Assessment 
+Tool, threshold subwatershed size, watershed subdivision. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+IMPACT OF WATERSHED SUBD IVISION LEVEL ON FLOWS, 
+SEDIMENT LOADS, AND NUTRIENT  LOSSES PREDICTED BY SWAT 
+Introduction 
+It is common practice to subdivide a wate rshed into smaller areas or subwatersheds 
+for modeling purposes. Each subwatershed is  assumed homogeneous with parameters 
+representative of the entire subwatershed. However, the size of a subwatershed affects the 
+homogeneity assumption because larger subwat ersheds are more likely to have variable 
+conditions. An increase in the number of subw atersheds definitely increases the input 
+data preparation effort and the subseque nt computational evaluation. Similarly, a 
+decrease in the number of subwatersheds coul d affect the simulation results. Therefore, 
+an appropriate subwatershed scale should be id entified that can efficiently and adequately 
+simulate the behavior of a watershed. 
+The impact of subwatershed scaling upon a wa tershed simulation is directly related to 
+the sources of heterogeneity (Arnold et al. 1998), which include the channel network, 
+subwatershed topography, soils, land use, and climate inputs. Goodrich (1992) studied 
+how basin scales can affect the characterizati on of geometric properties. He showed that 
+changes in drainage density affect the accura cy of runoff predictions. Mamillapalli et al. 
+(1996) found that improved accuracy of flow  predictions for the 4,297 square kilometer 
+(km2) Bosque River Watershed in central Texa s resulted from increasing the number of 
+subwatersheds and/or the number of Hydrol ogic Response Units (HRUs). They did not 
+present any method for determining the optim al subwatershed/HRU configuration for a 
+watershed. Bingner et al. (1997)  found that predicted sediment yield for the 21.3 km2 
+Goodwin Creek Watershed in northern Missi ssippi was sensitive to the number of 
+simulated subwatersheds but that the pr edicted surface runoff was insensitive to 
+subwatershed delineation. They also found that  sensitivity analyses should be conducted 
+on land use, overland slope, and slope lengt h for different subdivisions to find the 
+appropriate number of subwatersheds required for modeling a watershed. They 
+2 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+emphasized that additional research is necessa ry to develop a more universal criteria and 
+that such criteria could be very difficult to  determine. Similar to  Binger et al., FitzHugh 
+and MacKay (2000) found that streamflow estimates were relatively insensitive to 
+different combinations of  subwatershed and HRU delineations for the 59.6 km2 Pheasant 
+Branch Watershed in central Wisconsin. Pred icted upland sediment losses did vary in 
+response to subwatershed and HRU delinea tions, but the ultimate sediment loads 
+estimated to leave the waters hed changed little, due to the watershe d being “transport 
+limited.” They present further insights as to  why changes in subwatershed and HRU areas 
+had limited impact on the Soil and Water Asse ssment Tool (SWAT) streamflow and 
+sediment loss predictions. 
+In this study, the SWAT model (Arnold et al. 1998; Srinivas an et al. 1998; Neitsch et 
+al. 2001a,b) was used to evaluate the impact of subwatershed scali ng on the prediction of 
+flow, sediment yield, and nutrient losses for f our watersheds in Iowa. The objective is to 
+develop a guideline for a threshold le vel of subdivision that will allow ( a) accurate 
+sediment yield predictions with SWAT, and ( b) reduction of input data preparation and 
+subsequent computational evaluation e fforts without significantly compromising 
+simulation accuracy.  
+ 
+The SWAT Model 
+SWAT is a basin-scale, con tinuous-time model. It operates on a daily time step and is 
+designed to predict the impact of manageme nt on water, sediment, and agricultural 
+chemical yields in ungauged basins. The model is physically based, computationally 
+efficient, and capable of continuous simu lation over long time periods. Major model 
+components include weather, hydrology, soil temperature, plant growth, nutrients, 
+pesticides, and land management. The hydrolog ic components of the model have been 
+previously validated for several watersheds  (Arnold and Allen 1996; Arnold et al. 1998, 
+1999; Saleh et al. 2000). Brief descriptions of some of the key model components are 
+provided here; more detailed descriptions of the model components can be found in 
+Arnold et al. 1998, Neitsch et al. 2001b, and Jha 2002. In SWAT, a watershed is divided 
+into HRUs—subwatersheds with unique soil/l and use characteristics. The water balance 
+of each HRU in the watershed is represente d by four storage volumes: snow, soil profile 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 3 
+(0-2 meters), shallow aquifer (typically 2-20 meters), and deep aquifer (more than 20 
+meters). Flow, sediment, nutrient, and pesticide loadings from each HRU in a 
+subwatershed are summed, and the resulti ng loads are routed through channels, ponds, 
+and/or reservoirs to the watershed outlet. Surface runoff is estimated in SWAT via the 
+Natural Resources Conservation Service Cu rve Number (CN) method (Mockus 1969), 
+and sediment yield is calculated with the Modified Universal Soil Loss Equation 
+(MUSLE) developed by Williams and Berndt (1977).  
+Sediment Routing 
+The sediment routing model (Arnold, Willia ms, and Maidment 1995) consists of two 
+components operating simultaneously: depositio n and degradation. The deposition in the 
+channel and floodplain from the subwatershed to the watershed outlet is based on the 
+sediment particle settling velocity. The settli ng velocity is determined using Stock’s Law 
+(Chow, Maidment, and Mays 1988) and is calcul ated as a function of particle diameter 
+squared. The depth of fall thr ough a routing reach is the prod uct of settling velocity and 
+reach travel time. The delivery ratio is estimat ed for each particle si ze as a linear function 
+of fall velocity, travel time, and flow de pth. Degradation in the channel is based on 
+Bagnold’s stream power concept (Williams 1980). Bagnold (1977) defined stream power 
+as the product of water density, flow rate, and water surface slope as follows: 
+ 0r Stream Powe v YSv =τ= γ  (1) 
+where 0τ is shear stress, v is the velocity of water in the channel, γ is the specific weight 
+of the water, Y is the depth of flow, and S is the slope of the channel. Williams (1980) 
+modified Bagnold’s equation to place more weight on high values of stream power 
+(stream power raised to 1.5). Available stream power is used to re-entrain loose and 
+deposited material until all of the material  is removed. Excess stream power causes bed 
+degradation and is adjusted by Universal Soil  Loss Equation (USLE)  soil erodibility and 
+cover factors entered for the channel and floodplain (Wischmeier and Smith 1978). Once 
+the amount of deposition and degradation ha s been calculated, the final amount of 
+sediment in the reach is determined by 
+4 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+ ,d e g ch ch i depSed Sed Sed Sed=−+  (2) 
+where Sed ch is the amount of suspended sediment in the reach, Sed ch,i is the amount of 
+suspended sediment in the reach at the beginning of the time period, Sed dep is the amount 
+of sediment deposited in  the reach segment, and Sed deg is the amount of sediment re-
+entrained in the reach segment. Finally, the amount of sediment transported out of the 
+reach is calculated by 
+ *out
+out ch
+chVSed SedV=  (3) 
+where Sed out is the amount of sediment transported out of the reach, Sed ch is the amount 
+of suspended sediment in the reach, Vout is the volume of outflow during the time step, 
+and Vch is the volume of water in the reach segm ent. The volume of water in the segment 
+(Vch) is the product of length of the segment ( Lch) and cross-sectional area ( Ach) of the 
+flow at a given depth ( Y). 
+Nutrient Cycling and Movement 
+The transformation and movement of n itrogen (N) and phosphorus (P) within an 
+HRU are simulated in SWAT based on the cy cles shown in Figures 1 and 2.  SWAT 
+tracks five different N pools in the soil (Figur e 1), two of which are inorganic (mineral) 
+forms while the other three c onsist of organic forms.  Si x different pools of soil P, 
+simulated in SWAT (Figure 2), are split evenly between inorganic and organic forms.  
+ 
+ 
+ 
+FIGURE 1. SWAT nitrogen cycle (adapted  from Neitsch et al. 2001b) 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 5 
+Residue mineralization
+ 
+FIGURE 2. SWAT phosphorus cycle (adapted from Neitsch et al. 2001b) 
+ 
+Inorganic and organic forms of N and P are input into the soil system via commercial 
+fertilizer and/or live stock manure; organic N and P are also input from plant residue.  
+Losses of both N and P from the soil syst em occur by crop uptake and in surface 
+runoff in both the solution phase and on eroded sediment. Losses of N can also occur in 
+percolation below the root zone, in lateral subsurface flow (includi ng tile drains), and by 
+volatilization to the atmosphere. A supply-and- demand approach is used to simulate crop 
+uptake of both nutrients. Movement of nitrate (NO 3-N) in surface runoff, lateral 
+subsurface flow, and percolati on is computed as the product of the average soil layer 
+NO 3-N concentration and the volume of water in  each flow pathway. The mass of soluble 
+P predicted to be lost via surface runoff is determined as a function of the solution P 
+concentration in the top 10 millimeters of  soil, the surface runoff volume, and a 
+partitioning factor. Movement of organic N or organic and inorganic P on eroded 
+sediment is estimated with a loading function initially de rived by McElroy et al. (1976) 
+and later modified for individual runoff events by Williams and Hann (1978). Daily losses are computed with the loading function as a function of the nutrient concentration 
+in the topsoil layer, the sediment yield, and an enrichment ratio.  
+ 
+Watershed Descriptions and SWAT Input Data 
+Four watersheds located within Iowa (Figure 3) that vary in drainage size from just 
+under 2,000 km2 to almost 18,000 km2 were selected for th is study (Table 1).  
+ 
+ 
+6 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+ 
+ 
+FIGURE 3. Boundaries of the eight-digit hy drologic unit codes that define 
+watersheds 1 through 4 
+ 
+ 
+TABLE 1. Watersheds included in the study 
+Watershed USGS Eight-Digit HUC Codes Drainage area (km2) 
+1 10230005  1,929 
+2 7060006  4,776 
+3 07080206, 07080208 and 07080209  10,829 
+4 07100004, 07100006, 07100007 and 07100008  17,941 
+ 
+ 
+The watershed boundaries are based on one or mo re eight-digit watersheds as defined by 
+the hydrologic unit code (HUC) developed by the U.S. Geological Survey (USGS). A 
+complete description of the HUC classificati on scheme is given in Seaber, Kapinos, and 
+Knapp 1987. 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 7 
+Input Data 
+Land use, soil, and topography data required for simulating each watershed in SWAT 
+were obtained from the Better Assessment  Science Integrating Point and Nonpoint 
+Sources (BASINS) package version 3 (USEPA  2001). Land use categories available from 
+BASINS are relatively simplistic (Table 2), with only one category for agricultural use (defined as “Agricultural Land-Generic”) provi ded. An egregious e rror in the amount of 
+land defined as Residential-Me dium Density currently exists in BASINS for watershed 1 
+(HUC 1023005) as indicated in Table 2. No attempt to corr ect this error was made for 
+this study because the main intent was to asse ss the sensitivity of SW AT to variations in 
+subbasin and HRU delineations, rather than to estimate the water quality impacts of 
+different practices in the watershed. 
+ 
+TABLE 2. Land use characteristics for the fo ur watersheds as given in BASINS  
+Percentage of Total Watershed Area 
+Legend Land Use Type Watershed 
+1 Watershed 
+2 Watershed 
+3 Watershed 
+4 
+AGRL Agricultural 
+Land-Generic 59.68 93.78 90.77 78.52 
+FRSD Forest-
+Deciduous 1.65 5.1 6.60 6.51 
+FRST Forest-Mixed - - - 0.01 
+ORCD Orchard - - 0.01 0.01 
+RNGB Range-Brush - - - 0.06 
+RNGE Range-Grasses - - - 0.01 
+UCOM Commercial 0.21 0.59 0.34 0.37 
+UIDU Industrial - 0.01 0.07 0.13 
+URMD Residential-
+Medium Density 38.39a 0.12 1.06 12.96 
+UTRN Transportation 0.06 0.16 0.38 0.38 
+WATR Water 0.01 0.13 0.30 0.77 
+WETF Wetlands-
+Forested - 0.11 0.32 0.06 
+WETN Wetlands-Non-
+Forested - - 0.15 0.21 
+aThe majority of this “residential land” should be de fined as agricultural land (AGRL); the error is known 
+but has not yet been corrected in  BASINS 3.0 (Kinerson 2002).  
+ 
+8 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+The soil data available in BASINS co mes from the State Soil Geographic 
+(STATSGO) database (USDA 1994), which cont ains soil maps at a 1:250,000 scale. 
+Each STATSGO map unit consists of from 1 to 21 component soils; the exact spatial 
+location of these component soils are not  known within a given map unit. Each 
+STATSGO map unit is linked to the Soil Interp retations Record attribute database that 
+provides the proportionate extent  of the component soils a nd soil layer properties. The 
+STATSGO soil map units and associated laye r data were used to characterize the 
+simulated soils for the SWAT analyses. 
+Topographic information is provided in BASI NS in the form of Digital Elevation 
+Model (DEM) data. The DEM data was used to  generate variations  in subwatershed 
+configurations for the four watersheds using the ARCVIEW in terface for SWAT 2000 
+(AVSWAT), developed by Di Lu zio, Srinivasan, and Arnold (2001), as described in the 
+simulation methodology section. (ARCVIEW is a Geographic Information System 
+developed by the Environmental Systems Res earch Institute, Inc., Redlands, California.) 
+Two other key sets of inputs required for simulating the four watersheds in SWAT 
+were climate and management data. The daily  climate inputs consist of precipitation, 
+maximum and minimum temperature, solar ra diation, wind speed, and relative humidity; 
+these were generated internally within SW AT using monthly clim ate statistics provided 
+for Iowa weather stations located in or n ear each watershed. Appropriate crop/plant and 
+management parameters were input from sta ndard crop, tillage, and other data files 
+provided with SWAT.  
+Simulation Methodology 
+A subwatershed is delineated for SWAT by estimating the overland slope using the 
+neighborhood technique (Sriniva san and Engel 1991) for each grid. Once the threshold 
+drainage area (minimum drainage area requir ed to form the origin of a stream) is 
+specified, AVSWAT automatically delineates the subwatersheds. Different threshold 
+drainage areas were used to  generate different number s of subwatersheds. These 
+subwatersheds were then further subdivided into HRUs.  
+The creation of multiple HRUs  within each subwatershed was a two-step process. 
+First, the land use categories required for each  of the four watershed simulations were 
+determined. Then the different soil types th at were associated with each land use were 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 9 
+selected. One HRU was created for each unique  combination of land use and soil. User-
+specified land cover and soil area thresholds can be applied that limit the number of 
+HRUs in each subwatershed. For example, if the threshold level for land use is specified 
+to be 10 percent, then the land uses that c over less than 10 percen t of the subwatershed 
+area will be eliminated. After the elimination process, the area of the remaining land uses 
+is reapportioned so that 100 percent of the land area in the subwatershed is modeled. In 
+this study, the threshold levels for land use a nd soil were set at 0 percent, which allowed 
+all soil types and land uses within each subw atershed to be included in the simulations. 
+The spatial locations of each HRU were not simulated; instead, each HRU simply represented a certain percentage  of land use and soil type w ithin a subwatershed. Terrain 
+parameters (slope and slope length) were also assumed to be identical for all HRUs 
+within a given subwatershed, except for the channel length parameter that was used to 
+compute the time to concentration, which varies with the size of the HRU. 
+Other key aspects of the SWAT simulations  performed for the four watersheds are 
+listed below: 
+•
+ Simulation period: 1970-2000 (31 years) 
+• Output time step: yearly 
+• Rainfall distribution: skewed normal 
+• Runoff generation: CN method 
+• Potential evapotranspiration (ET) generation: Penman-Monteith method 
+• Channel water routing: variable-storage method 
+• Channel dimensions: not active 
+ 
+Results and Discussion 
+Predicted annual average runoff and str eamflow, sediment yield, and nutrient 
+loadings are reported here for several sets of subwatershed delineations for each of the 
+four watersheds. Five to seven different configura tions, ranging from 1 to 3 
+subwatersheds at the coarsest level to 35 to 53 subwatersheds for the most refined 
+scenarios, were simulated for watersheds 1 through 4.  The total number of HRUs 
+simulated for the four watersheds remain ed nearly constant across the different 
+subwatershed delineations because the land use and soil thresholds were set at 0 percent. 
+10 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+Graphical results are shown first for wate rshed 1 and then in combined form for 
+watersheds 2 through 4, to accommodate th e different response characteristics of 
+watershed 1.  
+Runoff and Streamflow 
+Figure 4 shows the predicted average annual streamflow discharges that occurred at 
+the outlet of watershed 1 in re sponse to different levels of  simulated subwatersheds. The 
+streamflow increased by less th an 7 percent between the coar sest and finest watershed 
+delineations, indicating that SWAT’s surface runoff and streamfl ow components were 
+relatively insensitive to changes in the number  of subwatersheds. Th e area-weighted mean 
+curve number was virtually constant across all seven subwatershed scenarios for watershed 
+1; this resulted in little variation in the total estimated surface runoff between the 
+subwatershed configurations, indicating that the trend of increasing streamflow shown in 
+Figure 4 resulted because of other factors. Fu rther analysis of the watershed 1 simulation 
+revealed that transmission ga ins from shallow groundwater (a lluvial channels) to the main 
+stream channels of the four watersheds tend ed to increase as the subwatersheds decreased 
+in size, while the corresponding transmission losses to shallow groundwater declined. This 
+phenomenon resulted in the net increase in stre amflow shown in Figure  4. Further details 
+regarding the watershed 1 surf ace runoff and streamflow anal ysis are given in Jha 2002. 
+The average annual streamflow results predic ted for the other three watershed outlets 
+also remained nearly constant as the number of simulated subwatersheds increased (Figure 
+5). The average fluctuation between the highes t and lowest streamfl ows for the different 
+subwatershed delineation levels  was only 4 percent among the three other watersheds. The 
+slight increases in streamflow were again du e to the “transmission effect” as described 
+above. These relatively stable streamflow predictions are consistent with the results reported by Bingner et al. (1 997) and FitzHugh and M ackay (2000), who found that 
+streamflow was relatively unaffect ed by subwatershed size for th e watersheds they studied.   
+Sediment Yields 
+Figure 6 shows the trend in predicted average annual sediment yield for watershed 1 
+as a function of the number of simulated s ubwatersheds. In general, the predicted 
+sediment yield increased at a mu ch greater rate as compared to  the streamflow results, in  
+Impact of Watershed Subdivision L evel on SWAT Predictions / 11 
+8.599.510
+0 1 02 03 04 05 06 0
+Number of subwatersheds 
+FIGURE  4. Average annual streamflow discharges at the outlet of watershed 1 as a 
+function of total subwatersheds 
+ 
+ 
+125175225275
+0 1 02 03 04 05 0Watershed 2
+Watershed 3
+Watershed 4
+Number of subwatersheds 
+FIGURE 5. Average annual streamflow discharges  at the outlets of watersheds 2 
+through 4 as a function of total subwatersheds 
+ 
+ 
+response to increasing numbers of subwatersheds. A sharp increase in sediment yield 
+occurred when the number of subwatersheds wa s increased from 1 to 17, but the rate of 
+increase slowed significantly for delineati ons that exceeded 17 subwatersheds. These 
+results indicate that there is a threshold or  critical level of s ubwatershed scaling for 
+predicting sediment yields for watershed 1, and that this threshol d level occurs at a 
+delineation of 17 subwatersheds. Subdivi ding watershed 1 with greater than 17 
+subwatersheds does not provide a clear improvement in the se diment yield predictions, 
+but using fewer than 17 subwatersheds c ould result in less stable results.  
+ 
+12 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+350,000390,000430,000470,000510,000550,000
+0 1 02 03 04 05 06 0
+Number of subwatersheds
+ 
+FIGURE 6. Effect of subwatershed delineation on sediment yield for watershed 1 
+ 
+ 
+The overland slope and slope length delineate d for a subwatershed can change as the 
+size of the subwatershed changes. Slope and le ngth of slope (LS-factor) parameters used 
+in the calculation of the MUSLE topographic fa ctor are sensitive fact ors that can greatly 
+affect the SWAT sediment yield predictions. However, further analysis of watershed 1 
+revealed that relatively small variations of slope and slope length, averaged by area 
+across all subwatersheds, occurred among diffe rent levels of subwatershed delineations 
+(Figure 7). The LS-factor and the correspond ing predicted sediment yields were not 
+sensitive to these small changes. 
+A second set of sensitive factors that influe nce the SWAT sediment yield predictions 
+contains the deposition and de gradation components incorporat ed in the routing process. 
+As subwatershed size increases, drainage density (total channel length divided by 
+drainage area) decreases because of simplifi cations in describing the watershed. When 
+drainage density is reduced, previously defi ned channels and their contributing areas are 
+replaced by simplified overland flow elements  that can affect the routing phenomena and 
+decrease the accuracy of predic tion. Figure 8 shows that draina ge density increased as the 
+number of subwatersheds increased. The slope s of the channels followed a similar trend 
+(Figure 9). This increase in slope could result from a better accounting of spatial variation 
+for elevation when smaller subwatersheds are used. Changes in channel length and slope  
+Impact of Watershed Subdivision L evel on SWAT Predictions / 13 
+80100120140
+1 5 11 17 27 35 47 53
+Number of subwatersheds1.451.51.551.61.65Average channel slope (%)
+Average slope length (m)
+ 
+FIGURE 7. Effect of subdivision on overland sl ope and slope length for watershed 1 
+ 
+ 
+ 
+0.0000.1000.2000.3000.400
+0 1 02 03 04 05 06 0
+Number of subwatersheds 
+FIGURE 8. Effect of subdivision on drainage density for watershed 1 
+ 
+ 
+affect the deposition (caused by settling veloc ity) and degradation (see equation [1]) of 
+sediments. After a certain level of subwatershed delineation, when all possible spatial 
+variations due to subdivisions are introduced, further changes in the shape and size of the 
+subwatersheds produce very little or insi gnificant effects on the sediment yield.  
+Figure 10 shows the predicted average annual sediment yiel d trends in response to 
+increasing numbers of subwatersheds for watershe ds 2, 3, and 4. The trends in sediment 
+yield predictions for these three watersheds reinforce the threshold concept, that is, a  
+14 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+0.000.200.400.600.80
+0 1 02 03 04 05 06 0
+Number of subwatersheds
+ 
+FIGURE 9. Effect of subdivision on aver age channel slope for watershed 1 
+  
+4,000,0008,000,00012,000,00016,000,000
+0 1 02 03 04 05 0
+Number of subwatershedsWatershed 2
+Watershed 3
+Watershed 4
+ 
+FIGURE 10. Effect of subwatershed delineation on sediment yield for watersheds 2 
+through 4 
+ 
+critical level of subdivision of a watershed be yond which there is no significant change in 
+sediment yield. The existence of a thres hold level of subdivisi on makes it possible to 
+optimize the number of subwatersheds for adequate and effective sediment yield 
+simulations. 
+Table 3 lists the subwatershed drainage areas determined to be the threshold levels of 
+subdivision for the four watersheds. The sma llest subwatershed dr ainage areas required 
+for effective and adequate simulation of sedi ment yield ranged betw een 2 and 6 percent  
+ 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 15 
+TABLE 3. Threshold levels for predicting sedime nt yields for watersheds 1 through 4  
+Threshold Levels 
+Watershed Total  
+Drainage Area 
+(ha) Number of 
+Subwatersheds Area (ha) Percentage  
+of Total Area 
+1 192,900 17 5,500 3 
+2 477,600 17 15,000 3 
+3 1,082,900 27 22,500 2 
+4 1,794,100 15 115,000 6 
+ 
+of the total drainage areas (with a median of  3 percent) for the four watersheds. These 
+areas provide the upper limit of subdivision for adequate simulation of sediment yield for 
+each watershed. Watershed subdivisions beyond these threshold subwatershed areas have 
+an insignificant impact on sediment yield. Using subwatershed areas larger than those 
+shown in Table 2 would result in significan t variations of sedime nt yield predictions. 
+Nitrate Concentrations 
+The trend in predicted average annual ni trate concentrations at the watershed 1 
+outlet, as a function of total subwatersheds, is  shown in Figure 11. In general, the nitrate 
+concentrations increased as the number of subwatersheds increased. The SWAT 
+predictions indicated that 30 percent more nitrate would be  exported from the watershed 
+using the finest subdivision (53 subwatersheds) as compared to the coarsest subdivision 
+(5 subwatersheds). The trend of increasing ni trate losses was a function of the previously 
+described increasing surface and shallow groundwa ter flows that occurr ed in relation to 
+decreasing subwatershed size. Further analys is of the watershed 1 nitrate trends is 
+presented in Jha 2002.  
+The predicted average annual nitrate concentration trends  for watersheds 2 through 4 
+(Figure 12) generally mirrore d those found for watershed 1.  Threshold subwatershed 
+levels were determined to exist for the nitrat e concentrations (Table 4), above which there 
+were few appreciable nitrate concentration changes. The number of subwatersheds and 
+associated areas reflect  a finer resolution than those f ound for the sediment yields, for 
+three out of the four watersheds. 
+ 
+ 
+16 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+0.70.80.911.11.2
+0 1 02 03 04 05 06 0
+Number of subwatersheds 
+FIGURE  11. Average annual nitrate concentratio ns at the watershed 1 outlet as a 
+function of increasing numbers of subwatersheds 
+ 
+ 
+ 
+0.000.200.400.600.80
+0 1 02 03 04 05 0
+Number of subwatershedsWatershed 2
+Watershed 3
+Watershed 4
+ 
+FIGURE 12. Average annual nitrate concentratio n at the outlets of watersheds 2 
+through 4 as a function of increasing numbers of subwatersheds 
+ 
+Organic N Concentrations 
+Figure 13 shows the trend of  predicted annual average organic N concentrations 
+(mg/l) at the watershed 1 outlet in response to increasing numbers of simulated 
+subwatersheds. The watershed 1 organic N concentrations generally decrease as the 
+subwatershed size decreases, which is the opposite of what was found for the NO 3-N 
+concentrations (Figure 11) and for sediment (Figure 7). The organic N loadings from the 
+HRUs are directly proportional to the predic ted sediment loadings. However, the current 
+channel subrouting of organic N in SWAT is not  linked to the sediment routing. Thus, the  
+Impact of Watershed Subdivision L evel on SWAT Predictions / 17 
+TABLE 4. Upper limit of watershed subdi vision for modeling of nitrate 
+Threshold Levels 
+Watershed Total 
+Drainage 
+Area (ha) Number of 
+Subwatersheds Area (ha) Percentage 
+ of Total Area 
+1 192,900 35 2,650 1.4 
+2 477,600 27 12,000 2.5 
+3 1,082,900 17 34,000 3.1 
+4 1,794,100 23 44,000 2.5 
+ 
+  
+00.511.52
+0 1 02 03 04 05 06 0
+Number of subwatersheds
+ 
+FIGURE 13. Average annual organic nitrogen co ncentrations at the watershed 1 
+outlet as a function of increasing numbers of subwatersheds 
+ 
+trends in organic N loss woul d not necessarily be expected to track those found for 
+sediment. The watershed 1 orga nic N losses do exhibit a higher  sensitivity to changes in 
+subwatershed size relative to the nitrate loss results (Figure 11); the reasons for this are not clear.  
+Similar organic N concentration trends we re also predicted for the other three 
+watersheds as shown in Fi gure 14.  The overall trends  indicate that threshold 
+subwatershed levels also occur for the organi c N concentrations, but specific thresholds 
+were not determined in this case. 
+18 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+0.000.200.400.600.80
+0 10 20 30 40 50
+Number of subwatershedsWatershed 2
+Watershed 3
+Watershed 4
+ 
+FIGURE 14. Average annual organic nitrogen concen tration trends at the outlets of 
+watersheds 2 through 4 as a function of increasing numbers of subwatersheds 
+ 
+Mineral P Loading 
+Figure 15 shows the trend of the predicted annual average mineral P concentrations 
+(mg/l) at the watershed 1 outlet as a func tion of decreasing subwatershed size. The 
+overall trend reflects increasing concentration levels with greater numbers of subwatersheds, with the majority of th e increase occurring be tween the first two 
+subwatershed delineations. The overall increase  in mineral P concentration from 5 to 53 
+subwatersheds was about 15 percent, with the apparent subdivision th reshold occurring at 
+a delineation of 9 subwatersheds (Table 5). 
+The mineral P trends predicted for waters heds 2 through 4 in response to increasing 
+numbers of subwatersheds are shown in Fi gure 16. These trends are similar to the 
+watershed 1 trend, although there was genera lly less variation pred icted for the other 
+three watersheds. Appropriate subdivision th resholds for watersheds 9 through 11 are 
+similar to that found for watershed 1, as indicated in Table 5.   
+Organic P Loading 
+The organic P trend for watershed 1 (Fi gure 17) exhibited the same decreasing 
+pattern as that found for organic N, as the num ber of subwatersheds increased. This trend 
+is the opposite of the trends f ound for mineral P (Figure 15) and for sediment (Figure 7).   
+The organic P loads are again directly proportional to sedime nt losses from the HRUs but 
+are not connected to the sediment in the SWAT  channel routing routine, so differences  
+Impact of Watershed Subdivision L evel on SWAT Predictions / 19 
+0.2800.2900.3000.3100.3200.3300.340
+0 1 02 03 04 05 06 0
+Number of subwatersheds (watershed 1) 
+FIGURE 15. Average annual mineral phosphorus concentrations at the watershed 1 
+outlet as a function of increasing numbers of subwatersheds 
+ 
+ 
+ 
+ 
+ 
+0.120.130.140.150.160.170.180.190.20
+0 1 02 03 04 05 0
+Number of subwatershedsWatershed 2
+Watershed 3
+Watershed 4
+ 
+FIGURE 16. Average annual mineral phosphorus concentrations at the outlets of 
+watersheds 2 through 4 as a function of increasing numbers of subwatersheds 
+20 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+TABLE 5. Upper limit of watershed subdivi sion for modeling of mineral P 
+Threshold Levels 
+Watershed Total 
+Drainage 
+Area (ha) Number of 
+Subwatersheds Area (ha) Percentage 
+of Total Area 
+1 192,900 11 8,500 4.4 
+2 477,600 11 24,500 5.1 
+3 1,082,900 9 58,000 5.4 
+4 1,794,100 9 127,000 7.1 
+ 
+ 
+0.0000.0500.1000.1500.2000.2500.300
+0 1 02 03 04 05 06 0
+Number of subwatersheds (watershed 1) 
+FIGURE 17. Average annual organic phosphorus concentrations at the watershed 1 
+outlet as a function of increasing numbers of subwatersheds 
+ 
+between the sediment and organic P trends are not unexpected. The organic P trend was 
+relatively sensitive to changes in total subw atersheds, but the difference between the 
+organic and mineral P results were not as grea t as those found for organic N and nitrate.  
+The same downward trends occurred for the organic P levels predicted for water-
+sheds 2 through 4 (Figure 18). Threshold leve ls of subwatershed division are again 
+evident for organic P for all four watersheds. 
+ 
+ 
+ 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 21 
+0.000.020.040.060.080.10
+0 1 02 03 04 05 0
+Number of subwatershedsWatershed 2
+Watershed 3
+Watershed 4
+ 
+FIGURE 18. Average annual organic phosphorus co ncentrations at the outlets of 
+watersheds 2 through 4 as a function of increasing numbers of subwatersheds 
+ 
+ 
+Conclusion and Recommendations 
+It is standard practice to subdivide a watershed into sm aller areas or subwatersheds 
+for modeling purposes. A suitable method to determine an appropriate number of 
+subwatersheds would aid user s in applying models such as SWAT for a variety of 
+watersheds. This study provides initial guidelines for determin ing an appropriate level of 
+subdivision that will efficientl y and adequately simulate the sediment yield from a 
+watershed. 
+The SWAT model was applied to four diffe rent watersheds with drainage areas 
+ranging between approximately 2,000 and 18,000 km2. The sensitivity of the model in 
+predicting sediment yield, as a function of subwatershed delineations, was analyzed for 
+the four watersheds using topography (DEM),  land use, soil, and climate data obtained 
+from the same sources. The results of the analyses lead to the following conclusions: 
+1. Streamflow is not significantly affected  by increasing the number of subwater-
+sheds. This is because the surface runoff is  directly related to  the CN, and CN is 
+not affected significantly by the size of th e subwatersheds. However, there is a 
+minor increase (4 percent on average) in  streamflow due to an increase in 
+transmission gains (subsurface flow) and to a decrease in transmission losses as 
+subwatershed size decreases. 
+22 / Jha, Gassman, Secchi, Gu, and Arnold  
+  
+2. Predicted sediment yields were directly  related to subwatershed size. This 
+variation is due to the sensitivity of overland slope and slope length, channel 
+slope, and drainage density. Changes in  these parameters cause changes in 
+sediment degradation and deposition, a nd, finally, to the sediment yield. 
+3. Large variations in the predicted sediment  yields resulted dur ing initial changes 
+in subwatershed delineations. However, the sediment yield predictions stabi-
+lized for further refinements of subdividi ng the watersheds, indicating that there 
+is a threshold level of subdivision beyond which addi tional accuracy in the 
+predictions will not be gained. The threshold drainage area of the subwater-sheds, at which point the predicted se diment yields stabilized, was found to 
+range between 2 and 6 percent of the total drainage area, with a median value of 
+3 percent. Therefore, 3 percent of the to tal area is proposed as the smallest sub-
+watershed size that would be considered  the threshold area  for adequate and 
+efficient simulation of sediment  yield for a given watershed. 
+4.
+ Nitrate loading increases as subwatersh ed size decreases. This is due to the 
+increase in streamflow as well as to the increase in groundwater’s contribution 
+to the streamflow. In the simulations reported here, the surface runoff nitrate 
+concentrations were assumed to be 20 pe rcent of nitrate concentrations of the 
+water leached to groundwater. As the size of the subwatersheds decreases, sub-surface flow and groundwater flow increase,  leading to an increase in nitrate 
+concentration. 
+5.
+ Changes in the nitrate concentrations stab ilized at higher levels of subdivision, 
+resulting in threshold draina ge areas that ranged between 1.4 and 3.1 percent of 
+the total watershed areas. Based on these findings, it is recommended that the 
+minimum subwatershed size be set at no smaller than 2 percent of the overall 
+watershed area when simulating nitrate le vels with SWAT for watersheds simi-
+lar to those studied here.  
+6. Mineral P concentrations increased sli ghtly as the number of subwatersheds 
+were increased, resulting in a subdivision threshold of about 10 subwatersheds. 
+This translates to subwatershed areas th at are 4.4 to 7.1 percent of the overall 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 23 
+watershed areas. Thus, it appears that a minimum subwatershed size of around 5 
+percent would be adequate fo r simulating mineral P losses. 
+7. Concentrations of organic N and P in streamflow decreased as the number of 
+subwatersheds increased, in contrast to the opposite trends found for sediment, 
+nitrate, and mineral P. These results are not totally unexpected because the 
+channel routing of organic N and P curre ntly are not linked to the sediment 
+routing in SWAT. Future versions of SWAT should be modified to include a 
+direct linkage between the routing of se diment and organic N and P.  Further 
+research also is needed to investigat e why the organic N and P results show a 
+relatively high level of sensitivity as th e number of subwatersheds is increased 
+for a simulated watershed.  
+Watershed modeling studies should include  a sensitivity analysis with varying 
+subwatershed delineations similar to those desc ribed in this study. The threshold level of 
+subdivision determined from the analysis s hould then be used for the actual watershed 
+study. However, time and/or resource constraints will often preclude the ability to perform such a sensitivity anal ysis. As an alternative, the results from the study reported 
+here can be utilized as a guide line to delineate subwatershed s for a watershed. Restricting 
+the subdivision of a watershed to the threshol d levels reported he re would reduce input 
+preparation efforts and subse quent computational evaluation and at the same time would 
+reduce the risk of misleading re sults that could occur from us ing a subdivision that is too 
+coarse. The fact that different threshol ds have emerged for different indicators 
+underscores the need for SWAT users to assess which indicators have highest priority in 
+their analyses. Finally, additional research is needed to ascertain if the results obtained 
+here will change when using more detailed land use and soil layers  than those available 
+from the BASINS package. 
+ 
+ 
+ 
+ 
+ 
+References 
+Arnold, J.G., and P M. Allen. 1996. “Estimating Hydrologic Budgets for Three Illinois Watersheds.” 
+Journal of Hydrology  176: 57-77. 
+Arnold, J.G., J.R. Williams, and D.R. Maidment. 19 95. “Continuous-Time Water and Sediment Routing 
+Model for Large Basins.” Journal of Hydrology Engineering 121(2): 171-83. 
+Arnold, J.G., R. Srinivasan, R.S.  Muttiah, and J.R. Williams. 1998. “Large Area Hydrologic Modeling and 
+Assessment,” Part I: Model Development. Journal of the American Wa ter Resources Association 
+34(1): 73-89. 
+Arnold, J.G., R. Srinivasan, R.S. Muttiah, P.M. Alle n, and C. Walker. 1999. “Continental Scale Simulation 
+of the Hydrologic Balance.” Journal of the American Water Resources Association 35(5): 1037-52. 
+Bagnold, R.A. 1977. “Bedload Transport in Natural Rivers.” Water Resources Research  13(2): 303-12. 
+Bingner, R.L., J. Garbrecht, J.G. Arnold, and R. Sr inivasan. 1997. “Effect of Watershed Subdivision on 
+Simulation Runoff and Fine Sediment Yield.” Transactions of the Amerci an Society of Agricultural 
+Engineers  40(5): 1329-1335. 
+Chow, V.T., D.R. Maidment, and L.W. Mays. 1988. Applied Hydrology . New York: McGraw-Hill. 
+Di Luzio, M., R. Srinivasan, and J. Arnold. 2001. “ARCVIEW Interface for SWAT 2000 User’s Guide.” 
+Blackland Research Center. Texas Agricultu ral Experiment Station, Temple, Texas. 
+FitzHugh, T.W., and D.S. MacKay. 2000. “Impacts of Input Parameter Spatial Aggregation on an 
+Agricultural Nonpoint Source Pollution Model.” Journal of Hydrology 236: 35-53. 
+Goodrich, D.C. 1992. “An Overview of the USDA-ARS Climate Change and Hydrology Program and 
+Analysis of Model Complexity as a Function of Basin Scale.” In Pr oceedings of a Workshop: Effects 
+of Global Climate Change on Hydrology and Water Resources at Catchment Scale, Tsukuba, Japan, 
+pp. 233-42. 
+Jha, M.K. 2002. “Level of Watershed Subdivision fo r Water Quality Modeling.” M.S. thesis, Department 
+of Civil Engineering, Iowa State University. 
+Kinerson, R. 2002. Personal Communication. U.S. Environmental Protection Agency, Washington, D.C. 
+McElroy, A.D., S.Y. Chiu, J.W. Nebgen, A. Aleti, and F.W. Bennett. 1976. “Loading Functions for 
+Assessment of Water Pollution from Nonpoint Sources.” Environ. Prot. Tech. Serv., EPA 600/2-76-
+151, Environmental Protection Agency, Washington, D.C. 
+Mamillapalli, S., R. Srinivasan, J.G. Arnold, and B.A.  Engel. 1996. “Effect of Spatial Variability on Basin 
+Scale Modeling.” In Proceedings of the Third International Conference/Workshop on Integrating GIS 
+and Environmental Modeling . Santa Fe, NM, January 21-26, 1996. National Center for Geographic 
+Information and Analysis, Santa Barbara, CA . http://www.ncgia.ucsb. edu/conf/SANTA_FE_CD-
+ROM/program.html (accessed October 2002). 
+Impact of Watershed Subdivision L evel on SWAT Predictions / 25 
+ 
+Mockus, V. 1969. “Hydrologic Soil-Cover Complexes.” In National Engineering Handbook , Section 4: 
+“Hydrology.” Washington, D.C.: U.S. Department of Agriculture, Soil Conservation Service, pp. 10.1-
+10.24. 
+Neitsch, S.L., J.G. Arnold, J.R. Kiniry, and J.R. Willia ms. 2001a. “Soil and Water Assessment Tool User’s 
+Manual, Version 2000 (Draft).” Blackland Research Center. Texas Agricultural Experiment Station, 
+Temple, Texas. http://www.brc.tamus.edu/swa t/swat2000doc.html (accessed October 2002). 
+———. 2001b. “Soil and Water Assessment Tool Theore tical Documentation, Ve rsion 2000 (Draft).” 
+Blackland Research Center. Texas Agricultu ral Experiment Station, Temple, Texas. 
+http://www.brc.tamus.edu /swat/swat2000doc.html ( accessed October 2002). 
+Saleh, A., J.G. Arnold, P.W. Gassman, L.M. Hauck, W.D. Rosenthal, J.R. W illiams, A.M.S. McFarland. 
+2000. “Application of SWAT for the Upper North Bosque River Watershed.” Transactions of the 
+American Society of Agricultural Engineers 43(5): 1077-87. 
+Seaber, P.R., F.P. Kapinos, and G.L. Knapp. 1987. “Hydrologic Units Maps.” U.S. Geological Survey, 
+Water-Supply Paper 2294. Reston, VA. 
+Srinivasan, R., and B.A. Engel. 19 91. “A Knowledge Based Approach to Extract Input Data from GIS.” 
+ASAE Paper No. 91-7045, American Society of Agricultural Engineers, Summer Meeting, 
+Albuquerque, NM. 
+Srinivasan, R., T.S. Ramanarayanan, J.G. Arnold, and S.T. Bednarz. 1998. “Large Area Hydrologic 
+Modeling and Assessment,” Part 2 of “Model Application.” Journal of the American Water Resources 
+Association 34(1): 91-101. 
+U.S. Department of Agriculture (USDA). 1994. “Sta te Soil Geographic (STATSGO) Data Base: Data Use 
+Information.” Miscellaneous Publication Number 1492. Natural Resources Conservation Service. National Soil Survey Center, Lincoln, Nebraska. 
+U.S. Environmental Protection Agency (USEPA). 2001. “BASINS 3.0: Better Assessment Science 
+Integrating Point and Nonpoint Sources.” U.S. Envi ronmental Protection Agency, Office of Water, 
+Office of Science and Technology, Washi ngton, D.C. http://www.epa.gov/ost/BASINS/  (accessed 
+January 2002). 
+Williams, J.R. 1980. “SPNM, a Model for Predicti ng Sediment, Phosphorous, and Nitrogen From 
+Agricultural Basins.” Water Resources Bulletin  16(5): 843-48. 
+Williams, J.R., and H.D. Berndt. 1977. “Sediment Yield Prediction based on Watershed Hydrology.” 
+Transactions of American Society of Agricultural Engineers  20(6): 1100-4. 
+Williams, J.R., and R.W. Hann. 1978. “Optimal Opera tion of Large Agricultural Watersheds with Water 
+Quality Constraints.” Texas Water Resources Ins titute, Tech. Rept. No. 96, Texas A&M University. 
+Wischmeier, W.H., and D.D. Smith. 1978. “Predicting Rainfall Erosion Losses—A Guide to Conservation 
+Planning.” In Agriculture Handbook 537. Washington, D.C.: U.S. Department of Agriculture. 
+ 
+ 
+View publication stats

@@ -25,4 +25,4 @@ VOCE É UM REVISOR DE BIBLIOGRAFIA QUE PROCESSA TEXTOS CIENTÍFICOS EN INGLÉS E
 ollama run MyModel:latest "VOCE É UM REVISOR DE BIBLIOGRAFIA QUE PROCESSA TEXTOS CIENTÍFICOS EN INGLÉS E CRIE FICHAS BIBLIOGRÁFICAS EM PORTUGES. Tarefa: Leia o texto seguinte e crie um documento de resumo após ler cada um com as seguintes informações em português: Título; Autores; DOI (se houver); Citação conforme ABNT; Objetivo do artigo; Principais resultados e conclusões; Referência utilizada mais importante (se houver); LEMBRE-SE: EM PORTUGUÊS.
  " < test.txt --verbose
 
- ollama run MyModel:latest "do que trata esta imagem?" < imagen_1.png --verbose
+ollama run hf.co/bartowski/OpenGVLab_InternVL3_5-8B-GGUF:Q4_K_M "What is this image about?" < infographic.jpg --verbose
